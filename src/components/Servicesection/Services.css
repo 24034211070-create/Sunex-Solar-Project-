@@ -1,0 +1,235 @@
+/* =========================================
+   ABOUT HERO
+========================================= */
+
+.about-hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+}
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(3, 27, 40, 0.72);
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.about-hero-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* =========================================
+   TITLE REVEAL
+========================================= */
+
+.about-title-wrap {
+    overflow: hidden;
+    display: block;
+    padding-bottom: 4px;
+}
+
+.about-title-wrap h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 58px;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -1.5px;
+    transform: translateY(110%);
+    opacity: 0;
+    animation: aboutTitleReveal 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes aboutTitleReveal {
+    0% {
+        transform: translateY(110%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   WHITE LINE
+========================================= */
+
+.about-line {
+    width: 0;
+    height: 1px;
+    margin-top: 13px;
+    background: rgba(255, 255, 255, 0.9);
+    animation: aboutLineReveal 0.8s ease 0.65s forwards;
+}
+
+@keyframes aboutLineReveal {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    100% {
+        width: 185px;
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   BREADCRUMB REVEAL
+========================================= */
+
+.about-breadcrumb-wrap {
+    overflow: hidden;
+    margin-top: 9px;
+}
+
+.about-breadcrumb-wrap p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    transform: translateY(110%);
+    opacity: 0;
+    animation: aboutBreadcrumbReveal 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.85s forwards;
+}
+
+.about-breadcrumb-wrap span {
+    color: #ffffff;
+}
+
+.about-breadcrumb-wrap b {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+@keyframes aboutBreadcrumbReveal {
+    0% {
+        transform: translateY(110%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 991px) {
+    .about-hero {
+        height: 360px;
+        min-height: 360px;
+    }
+
+    .about-title-wrap h1 {
+        font-size: 52px;
+    }
+
+    .about-breadcrumb-wrap p {
+        font-size: 16px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+    .about-hero {
+        height: 300px;
+        min-height: 300px;
+        background-position: center center;
+    }
+
+    .about-hero-overlay {
+        background: rgba(3, 27, 40, 0.75);
+    }
+
+    .about-hero-content {
+        padding: 0 20px;
+    }
+
+    .about-title-wrap h1 {
+        font-size: 40px;
+        letter-spacing: -0.8px;
+    }
+
+    .about-line {
+        margin-top: 10px;
+    }
+
+    .about-breadcrumb-wrap {
+        margin-top: 8px;
+    }
+
+    .about-breadcrumb-wrap p {
+        gap: 7px;
+        font-size: 15px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+    .about-hero {
+        height: 270px;
+        min-height: 270px;
+    }
+
+    .about-title-wrap h1 {
+        font-size: 34px;
+    }
+
+    .about-breadcrumb-wrap p {
+        font-size: 14px;
+    }
+
+    @keyframes aboutLineReveal {
+        0% {
+            width: 0;
+            opacity: 0;
+        }
+
+        100% {
+            width: 145px;
+            opacity: 1;
+        }
+    }
+}

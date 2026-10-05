@@ -1,0 +1,905 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+.main-navbar {
+    position: relative;
+    z-index: 99999;
+    width: 100%;
+    background: #ffffff;
+}
+
+
+/* =========================================
+   HOME 2 HEADER WRAPPER
+========================================= */
+
+.home2-header-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 999999;
+}
+
+
+/* =========================================
+   HOME 2 NAVBAR
+   TOPBAR KE JUST NICHE
+   HERO KE UPAR FLOATING
+========================================= */
+
+.home2-main-navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background: transparent;
+    border: none;
+
+    z-index: 999999;
+}
+
+
+/* =========================================
+   NAVBAR CONTAINER
+========================================= */
+
+.navbar-container {
+    position: relative;
+    z-index: 100000;
+
+    width: 100%;
+    max-width: 1360px;
+
+    height: 98px;
+
+    margin: 0 auto;
+
+    padding: 0 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================
+   HOME 2 DESKTOP CONTAINER
+========================================= */
+
+.home2-main-navbar .navbar-container {
+    max-width: 1300px;
+
+    height: 80px;
+
+    padding: 0 15px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    flex-shrink: 0;
+}
+
+.logo-circle {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.logo-circle svg {
+    width: 30px;
+    height: 30px;
+}
+
+.logo-text {
+    margin-left: 12px;
+
+    color: #071a28;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: -0.8px;
+}
+
+.logo-text span {
+    color: #43ad3d;
+}
+
+
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
+
+.navbar-menu {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 39px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #071a28;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #43ad3d;
+}
+
+.arrow {
+    font-size: 13px;
+    line-height: 1;
+}
+
+
+/* =========================================
+   DROPDOWN
+========================================= */
+
+.nav-dropdown {
+    position: relative;
+    z-index: 100002;
+}
+
+.dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 20px);
+    left: 0;
+
+    min-width: 190px;
+
+    padding: 8px 0;
+
+    background: #43ad3d;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(8px);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nav-dropdown:hover>.dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.dropdown-menu::before {
+    content: "";
+
+    position: absolute;
+
+    top: -20px;
+    left: 0;
+
+    width: 100%;
+    height: 20px;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 10px 18px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.4;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #ffffff;
+    color: #071a28;
+}
+
+
+/* =========================================
+   NESTED DROPDOWN
+========================================= */
+
+.nested-dropdown {
+    position: relative;
+    z-index: 100004;
+}
+
+.nested-link {
+    display: flex !important;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nested-menu {
+    position: absolute;
+
+    top: -8px;
+    left: calc(100% + 2px);
+
+    min-width: 190px;
+
+    padding: 8px 0;
+
+    background: #43ad3d;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(8px);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nested-dropdown:hover>.nested-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateX(0);
+}
+
+.nested-menu a {
+    display: block;
+
+    width: 100%;
+
+    padding: 10px 18px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nested-menu a:hover {
+    background: #ffffff;
+    color: #071a28;
+}
+
+
+/* =========================================
+   CONTACT BUTTON
+========================================= */
+
+.navbar-button {
+    width: 156px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    background: #43ad3d;
+
+    color: #ffffff;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    flex-shrink: 0;
+
+    transition:
+        background 0.3s ease;
+}
+
+.navbar-button:hover {
+    background: #000000;
+}
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.mobile-menu-button {
+    display: none;
+
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #43ad3d;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    cursor: pointer;
+}
+
+.mobile-menu-button span {
+    display: block;
+
+    width: 16px;
+    height: 2px;
+
+    background: #ffffff;
+
+    border-radius: 2px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.mobile-menu-button.open span:nth-child(1) {
+    transform:
+        translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-button.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-button.open span:nth-child(3) {
+    transform:
+        translateY(-6px) rotate(-45deg);
+}
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* =========================================
+   TABLET / IPAD
+========================================= */
+
+@media (max-width: 991px) {
+
+    .navbar-container {
+        padding: 0 25px;
+    }
+
+    .home2-main-navbar .navbar-container {
+        width: calc(100% - 40px);
+
+        max-width: none;
+
+        padding: 0 20px;
+    }
+
+    .navbar-menu {
+        gap: 22px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .navbar-button {
+        width: 135px;
+        height: 46px;
+
+        font-size: 14px;
+    }
+
+    .logo-circle {
+        width: 46px;
+        height: 46px;
+    }
+
+    .logo-text {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+    /* -----------------------------------------
+       HOME 2
+       TOPBAR KE JUST NICHE NAVBAR
+    ----------------------------------------- */
+
+    .home2-main-navbar {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+    }
+
+
+    /* -----------------------------------------
+       MOBILE NAVBAR
+    ----------------------------------------- */
+
+    .navbar-container,
+    .home2-main-navbar .navbar-container {
+
+        width: 100%;
+        max-width: none;
+
+        height: 48px;
+
+        margin: 0;
+
+        padding: 0 10px;
+
+        background: #ffffff;
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+
+    /* -----------------------------------------
+       HIDE DESKTOP
+    ----------------------------------------- */
+
+    .navbar-menu,
+    .navbar-button {
+        display: none;
+    }
+
+
+    /* -----------------------------------------
+       LOGO
+    ----------------------------------------- */
+
+    .home2-main-navbar .logo-circle {
+        width: 27px;
+        height: 27px;
+    }
+
+    .home2-main-navbar .logo-circle svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .home2-main-navbar .logo-text {
+        margin-left: 8px;
+
+        font-size: 16px;
+
+        letter-spacing: -0.5px;
+    }
+
+
+    /* -----------------------------------------
+       HAMBURGER
+    ----------------------------------------- */
+
+    .mobile-menu-button {
+        display: flex;
+
+        width: 22px;
+        height: 22px;
+
+        border-radius: 4px;
+
+        gap: 2px;
+    }
+
+    .mobile-menu-button span {
+        width: 11px;
+        height: 1.5px;
+    }
+
+
+    /* -----------------------------------------
+       MOBILE MENU
+    ----------------------------------------- */
+
+    .mobile-menu {
+        position: absolute;
+
+        top: 48px;
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 0 14px;
+
+        background: #ffffff;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        transition:
+            max-height 0.35s ease,
+            opacity 0.25s ease,
+            padding 0.35s ease;
+    }
+
+    .mobile-menu.show {
+
+        max-height: 1000px;
+
+        padding: 8px 14px 15px;
+
+        opacity: 1;
+
+        box-shadow:
+            0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+
+    /* -----------------------------------------
+       MOBILE LINKS
+    ----------------------------------------- */
+
+    .mobile-nav-link {
+        width: 100%;
+
+        min-height: 42px;
+
+        margin: 0;
+
+        padding: 11px 4px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background: transparent;
+
+        border: none;
+        border-bottom: 1px solid #eeeeee;
+
+        outline: none;
+
+        color: #071a28;
+
+        text-decoration: none;
+
+        font-family: inherit;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        cursor: pointer;
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+        color: #43ad3d;
+    }
+
+
+    /* -----------------------------------------
+       MOBILE ARROW
+    ----------------------------------------- */
+
+    .mobile-arrow {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 20px;
+        height: 20px;
+
+        transition:
+            transform 0.3s ease;
+    }
+
+    .mobile-arrow.rotate {
+        transform: rotate(180deg);
+    }
+
+
+    /* -----------------------------------------
+       MOBILE SUBMENU
+    ----------------------------------------- */
+
+    .mobile-submenu {
+        width: 100%;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        transition:
+            max-height 0.3s ease,
+            opacity 0.2s ease;
+    }
+
+    .mobile-submenu.show {
+        max-height: 1000px;
+
+        opacity: 1;
+    }
+
+    .mobile-submenu>a {
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+
+        min-height: 38px;
+
+        padding: 9px 16px;
+
+        background: #fafafa;
+
+        border-bottom: 1px solid #eeeeee;
+
+        color: #555555;
+
+        text-decoration: none;
+
+        font-size: 13px;
+    }
+
+    .mobile-submenu>a:hover {
+        background: #f5f5f5;
+
+        color: #43ad3d;
+    }
+
+
+    /* -----------------------------------------
+       MOBILE NESTED
+    ----------------------------------------- */
+
+    .mobile-nested-dropdown {
+        width: 100%;
+
+        margin: 0;
+
+        padding: 0;
+
+        background: #fafafa;
+    }
+
+    .mobile-nested-button {
+        width: 100%;
+
+        min-height: 40px;
+
+        padding: 9px 16px;
+
+        background: #fafafa;
+
+        border: none;
+        border-bottom: 1px solid #eeeeee;
+
+        color: #555555;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        font-family: inherit;
+
+        font-size: 13px;
+
+        cursor: pointer;
+    }
+
+    .mobile-nested-button:hover,
+    .mobile-nested-button.active {
+        color: #43ad3d;
+    }
+
+    .mobile-nested-menu {
+        width: 100%;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        background: #ffffff;
+
+        transition:
+            max-height 0.3s ease,
+            opacity 0.2s ease;
+    }
+
+    .mobile-nested-menu.show {
+        max-height: 300px;
+
+        opacity: 1;
+    }
+
+    .mobile-nested-menu a {
+        display: block;
+
+        width: 100%;
+
+        padding: 8px 28px;
+
+        background: #ffffff;
+
+        border-bottom: 1px solid #f0f0f0;
+
+        color: #666666;
+
+        text-decoration: none;
+
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------
+       MOBILE CONTACT BUTTON
+    ----------------------------------------- */
+
+    .mobile-contact-button {
+        width: 100%;
+
+        height: 42px;
+
+        margin-top: 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        background: #43ad3d;
+
+        color: #ffffff;
+
+        border-radius: 5px;
+
+        text-decoration: none;
+
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .mobile-contact-button:hover {
+        background: #000000;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .navbar-container,
+    .home2-main-navbar .navbar-container {
+        height: 46px;
+
+        padding: 0 8px;
+    }
+
+    .home2-main-navbar .logo-circle {
+        width: 26px;
+        height: 26px;
+    }
+
+    .home2-main-navbar .logo-circle svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .home2-main-navbar .logo-text {
+        margin-left: 7px;
+
+        font-size: 15px;
+    }
+
+    .mobile-menu-button {
+        width: 21px;
+        height: 21px;
+    }
+}

@@ -1,0 +1,791 @@
+/* =========================================
+   HOME 2 ABOUT SECTION
+========================================= */
+
+.home2-about {
+    width: 100%;
+    padding: 105px 0 125px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.home2-about-container {
+    width: min(1280px, calc(100% - 80px));
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(500px, 1fr) minmax(500px, 1.08fr);
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   LEFT IMAGE AREA
+========================================= */
+
+.home2-about-images {
+    position: relative;
+    width: 100%;
+    height: 590px;
+}
+
+
+/* =========================================
+   MAIN IMAGE
+========================================= */
+
+.home2-about-main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 78%;
+    height: 460px;
+
+    overflow: hidden;
+    border-radius: 13px;
+
+    z-index: 1;
+
+    opacity: 0;
+    transform: translateX(-45px) scale(0.96);
+
+    animation:
+        home2MainImageReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
+.home2-about-main-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.6s ease;
+}
+
+.home2-about-main-image:hover img {
+    transform: scale(1.07);
+}
+
+
+/* =========================================
+   WORKER IMAGE
+========================================= */
+
+.home2-about-worker-image {
+    position: absolute;
+    top: 15px;
+    right: 0;
+
+    width: 48%;
+    height: 355px;
+
+    overflow: hidden;
+    border-radius: 14px;
+
+    z-index: 3;
+
+    opacity: 0;
+    transform: translateX(45px) translateY(10px) scale(0.94);
+
+    animation:
+        home2WorkerImageReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+
+.home2-about-worker-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.6s ease;
+}
+
+.home2-about-worker-image:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   BOTTOM IMAGE
+========================================= */
+
+.home2-about-bottom-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 67%;
+    height: 305px;
+
+    padding: 7px;
+
+    background: #ffffff;
+    border-radius: 14px;
+
+    z-index: 4;
+
+    opacity: 0;
+    transform: translateY(45px) scale(0.95);
+
+    animation:
+        home2BottomImageReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+}
+
+.home2-about-bottom-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 8px;
+
+    transition:
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.6s ease;
+}
+
+.home2-about-bottom-image:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   IMAGE REVEAL KEYFRAMES
+========================================= */
+
+@keyframes home2MainImageReveal {
+    0% {
+        opacity: 0;
+        transform: translateX(-45px) scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes home2WorkerImageReveal {
+    0% {
+        opacity: 0;
+        transform: translateX(45px) translateY(10px) scale(0.94);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(1);
+    }
+}
+
+@keyframes home2BottomImageReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(45px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================
+   CONTACT US SPINNER
+========================================= */
+
+.home2-contact-spinner {
+    position: absolute;
+
+    left: 48px;
+    bottom: 55px;
+
+    width: 118px;
+    height: 118px;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+
+    opacity: 0;
+    transform: scale(0.7);
+
+    animation:
+        home2SpinnerAppear 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.75s forwards;
+}
+
+@keyframes home2SpinnerAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7) rotate(-30deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+
+/* =========================================
+   SPINNER TEXT
+========================================= */
+
+.home2-spinner-svg {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    animation:
+        home2SpinnerRotate 12s linear infinite;
+}
+
+.home2-spinner-svg text {
+    fill: #ffffff;
+
+    font-size: 8.5px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+@keyframes home2SpinnerRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================
+   SPINNER CENTER
+========================================= */
+
+.home2-spinner-center {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: #071a28;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 2;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.home2-spinner-center svg {
+    width: 30px;
+    height: 30px;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.home2-contact-spinner:hover .home2-spinner-center {
+    background: #000000;
+    transform: scale(1.08);
+}
+
+.home2-contact-spinner:hover .home2-spinner-center svg {
+    transform: rotate(45deg);
+}
+
+
+/* =========================================
+   RIGHT CONTENT
+========================================= */
+
+.home2-about-content {
+    width: 100%;
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
+
+.home2-about-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 16px;
+
+    background: #f2f7f8;
+
+    border-radius: 30px;
+
+    color: #071a28;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.home2-about-badge span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.home2-about-content h2 {
+    margin: 21px 0 22px;
+
+    color: #071a28;
+
+    font-size: clamp(40px, 3.45vw, 56px);
+    font-weight: 600;
+
+    line-height: 1.12;
+
+    letter-spacing: -2px;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.home2-about-description {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #7c8185;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.home2-about-line {
+    width: 100%;
+    height: 1px;
+
+    margin: 35px 0 34px;
+
+    background: #e0e4e6;
+}
+
+
+/* =========================================
+   LOWER CONTENT
+========================================= */
+
+.home2-about-bottom {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) 250px;
+
+    gap: 35px;
+
+    align-items: center;
+}
+
+.home2-about-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+/* =========================================
+   CHECK ITEMS
+========================================= */
+
+.home2-about-check {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #7c8185;
+
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+.home2-about-check svg {
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
+
+    color: #ffffff;
+    fill: #43ad3d;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.home2-about-button {
+    width: fit-content;
+
+    min-width: 209px;
+    height: 51px;
+
+    margin-top: 22px;
+    padding: 0 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    background: #43ad3d;
+    color: #ffffff;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.home2-about-button:hover {
+    background: #000000;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   WARRANTY CARD
+========================================= */
+
+.home2-warranty-card {
+    width: 100%;
+    min-height: 193px;
+
+    padding: 25px 20px;
+
+    background: #f3f8f9;
+
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.home2-warranty-number {
+    color: #43ad3d;
+
+    font-size: 48px;
+    font-weight: 600;
+
+    line-height: 1;
+}
+
+.home2-warranty-label {
+    margin-top: 15px;
+
+    color: #7d8286;
+
+    font-size: 15px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1150px) {
+
+    .home2-about-container {
+        width: calc(100% - 50px);
+
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+
+    .home2-about-images {
+        width: min(700px, 100%);
+        margin: 0 auto;
+    }
+
+    .home2-about-content {
+        width: min(850px, 100%);
+        margin: 0 auto;
+    }
+
+    .home2-about-content h2 {
+        font-size: 48px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+    .home2-about {
+        padding: 70px 0 85px;
+    }
+
+    .home2-about-container {
+        width: calc(100% - 32px);
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 55px;
+    }
+
+
+    /* IMAGE AREA */
+
+    .home2-about-images {
+        width: 100%;
+        height: 420px;
+    }
+
+
+    /* MAIN IMAGE */
+
+    .home2-about-main-image {
+        width: 80%;
+        height: 290px;
+
+        border-radius: 10px;
+    }
+
+
+    /* WORKER IMAGE */
+
+    .home2-about-worker-image {
+        top: 8px;
+        right: 0;
+
+        width: 44%;
+        height: 220px;
+
+        border-radius: 10px;
+    }
+
+
+    /* BOTTOM IMAGE */
+
+    .home2-about-bottom-image {
+        right: 0;
+        bottom: 0;
+
+        width: 70%;
+        height: 205px;
+
+        padding: 5px;
+
+        border-radius: 10px;
+    }
+
+    .home2-about-bottom-image img {
+        border-radius: 7px;
+    }
+
+
+    /* SPINNER */
+
+    .home2-contact-spinner {
+        left: 20px;
+        bottom: 42px;
+
+        width: 85px;
+        height: 85px;
+    }
+
+    .home2-spinner-center {
+        width: 44px;
+        height: 44px;
+    }
+
+    .home2-spinner-center svg {
+        width: 21px;
+        height: 21px;
+    }
+
+    .home2-spinner-svg text {
+        font-size: 6.2px;
+        letter-spacing: 1.3px;
+    }
+
+
+    /* CONTENT */
+
+    .home2-about-content h2 {
+        margin-top: 18px;
+
+        font-size: 34px;
+
+        line-height: 1.15;
+
+        letter-spacing: -1px;
+    }
+
+    .home2-about-description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .home2-about-line {
+        margin: 28px 0;
+    }
+
+
+    /* LOWER CONTENT */
+
+    .home2-about-bottom {
+        display: flex;
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 25px;
+    }
+
+    .home2-about-check {
+        font-size: 14px;
+    }
+
+    .home2-about-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .home2-warranty-card {
+        min-height: 165px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+    .home2-about-container {
+        width: calc(100% - 24px);
+    }
+
+    .home2-about-images {
+        height: 370px;
+    }
+
+    .home2-about-main-image {
+        height: 250px;
+    }
+
+    .home2-about-worker-image {
+        height: 185px;
+    }
+
+    .home2-about-bottom-image {
+        height: 180px;
+    }
+
+    .home2-about-content h2 {
+        font-size: 31px;
+    }
+
+    .home2-contact-spinner {
+        left: 15px;
+        bottom: 35px;
+    }
+}
+
+
+/* =========================================
+   REDUCE MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .home2-about-main-image,
+    .home2-about-worker-image,
+    .home2-about-bottom-image,
+    .home2-contact-spinner,
+    .home2-spinner-svg {
+        animation: none;
+    }
+
+    .home2-about-main-image,
+    .home2-about-worker-image,
+    .home2-about-bottom-image,
+    .home2-contact-spinner {
+        opacity: 1;
+        transform: none;
+    }
+
+    .home2-about-main-image img,
+    .home2-about-worker-image img,
+    .home2-about-bottom-image img,
+    .home2-spinner-center,
+    .home2-spinner-center svg {
+        transition: none;
+    }
+}

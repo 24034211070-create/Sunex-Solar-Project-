@@ -1,0 +1,57 @@
+// use prisma-8
+// Contract inferred from the live database schema. Edit as needed, then run `prisma contract emit`.
+
+model Pages {
+  id                  Int          @id(map: "pages_pkey") @default(autoincrement())
+  pageName            VarChar(100) @map("page_name")
+  sectionName         VarChar(100) @map("section_name")
+  title               String?
+  description         String?
+  image               String?
+  createdAt           Timestamp?   @default(now()) @map("created_at")
+  updatedAt           Timestamp?   @default(now()) @map("updated_at")
+  badge               String?
+  video               String?
+  primaryButtonText   String?      @map("primary_button_text")
+  primaryButtonLink   String?      @map("primary_button_link")
+  secondaryButtonText String?      @map("secondary_button_text")
+  secondaryButtonLink String?      @map("secondary_button_link")
+  testimonial         String?
+  avatar1             String?      @map("avatar_1")
+  avatar2             String?      @map("avatar_2")
+  avatar3             String?      @map("avatar_3")
+  avatar4             String?      @map("avatar_4")
+  label               String?
+  feature1Title       String?      @map("feature_1_title")
+  feature1Description String?      @map("feature_1_description")
+  feature2Title       String?      @map("feature_2_title")
+  feature2Description String?      @map("feature_2_description")
+  experienceNumber    String?      @map("experience_number")
+  experienceText      String?      @map("experience_text")
+  buttonText          String?      @map("button_text")
+  buttonLink          String?      @map("button_link")
+  content             Jsonb?       @default(json`{}`)
+
+  @@map("pages")
+}
+
+model Products {
+  id          Int          @id(map: "products_pkey") @default(autoincrement())
+  name        VarChar(150)
+  description String?
+  price       Numeric(10, 2)?
+  image       String?
+  createdAt   Timestamp?   @default(now()) @map("created_at")
+
+  @@map("products")
+}
+
+model Users {
+  id       Int          @id(map: "users_pkey") @default(autoincrement())
+  name     VarChar(100)
+  email    VarChar(150) @unique(map: "users_email_key")
+  password String
+  role     VarChar(20)? @default("user")
+
+  @@map("users")
+}

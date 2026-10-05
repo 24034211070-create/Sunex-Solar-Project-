@@ -1,0 +1,437 @@
+/* =========================================================
+   VISION SECTION
+========================================================= */
+
+.vision-section {
+    width: 100%;
+    background: #ffffff;
+    padding: 74px 36px 78px;
+    overflow: hidden;
+}
+
+.vision-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 30px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.vision-card {
+    background: #f3f7f9;
+    border-radius: 14px;
+    padding: 20px;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(55px);
+
+    transition:
+        opacity 0.75s ease var(--card-delay),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) var(--card-delay);
+}
+
+.vision-visible .vision-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.vision-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 242px;
+    overflow: hidden;
+    border-radius: 13px;
+}
+
+.vision-image-reveal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.vision-image-reveal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #f3f7f9;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1);
+    z-index: 2;
+}
+
+.vision-visible .vision-card:nth-child(1) .vision-image-reveal::after {
+    transition-delay: 0.15s;
+}
+
+.vision-visible .vision-card:nth-child(2) .vision-image-reveal::after {
+    transition-delay: 0.25s;
+}
+
+.vision-visible .vision-card:nth-child(3) .vision-image-reveal::after {
+    transition-delay: 0.35s;
+}
+
+.vision-visible .vision-card:nth-child(4) .vision-image-reveal::after {
+    transition-delay: 0.45s;
+}
+
+.vision-visible .vision-card:nth-child(5) .vision-image-reveal::after {
+    transition-delay: 0.55s;
+}
+
+.vision-visible .vision-card:nth-child(6) .vision-image-reveal::after {
+    transition-delay: 0.65s;
+}
+
+.vision-visible .vision-image-reveal::after {
+    transform: scaleX(0);
+}
+
+.vision-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transform: scale(1.12);
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vision-visible .vision-image {
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.vision-icon {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+    background: #45ad3e;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    z-index: 4;
+
+    opacity: 0;
+    transform: scale(0.45) rotate(-25deg);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.vision-visible .vision-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    transition-delay: 0.55s;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.vision-content {
+    padding: 29px 10px 9px;
+}
+
+.vision-content h3 {
+    margin: 0 0 10px;
+
+    color: #082536;
+
+    font-size: 20px;
+    line-height: 1.35;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+
+    opacity: 0;
+    transform: translateX(-30px);
+
+    transition:
+        opacity 0.65s ease 0.35s,
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+}
+
+.vision-content p {
+    margin: 0;
+
+    color: #7a8085;
+
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 400;
+
+    min-height: 53px;
+
+    opacity: 0;
+    transform: translateX(-30px);
+
+    transition:
+        opacity 0.65s ease 0.48s,
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.48s;
+}
+
+.vision-visible .vision-content h3,
+.vision-visible .vision-content p {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.vision-divider {
+    width: 100%;
+    height: 1px;
+    background: #d8dfe2;
+    margin: 20px 0 18px;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition:
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.65s;
+}
+
+.vision-visible .vision-divider {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   LEARN MORE
+========================================================= */
+
+.vision-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+
+    color: #082536;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.6s ease 0.75s,
+        transform 0.6s ease 0.75s;
+}
+
+.vision-visible .vision-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vision-arrow {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #45ad3e;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.vision-link:hover .vision-arrow {
+    background: #082536;
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.vision-card {
+    transition:
+        opacity 0.75s ease var(--card-delay),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) var(--card-delay),
+        box-shadow 0.35s ease;
+}
+
+.vision-card:hover {
+    box-shadow: 0 18px 40px rgba(8, 37, 54, 0.08);
+}
+
+.vision-card:hover .vision-image {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+    .vision-section {
+        padding: 65px 25px;
+    }
+
+    .vision-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .vision-image-wrapper {
+        height: 245px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+    .vision-section {
+        padding: 50px 18px 60px;
+    }
+
+    .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .vision-card {
+        padding: 17px;
+        border-radius: 13px;
+    }
+
+    .vision-image-wrapper {
+        height: 225px;
+        border-radius: 12px;
+    }
+
+    .vision-icon {
+        top: 22px;
+        left: 22px;
+
+        width: 48px;
+        height: 48px;
+    }
+
+    .vision-content {
+        padding: 25px 8px 8px;
+    }
+
+    .vision-content h3 {
+        font-size: 19px;
+    }
+
+    .vision-content p {
+        font-size: 15px;
+        min-height: auto;
+    }
+
+    .vision-divider {
+        margin: 18px 0 17px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+    .vision-section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .vision-image-wrapper {
+        height: 205px;
+    }
+
+    .vision-card {
+        padding: 15px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .vision-card,
+    .vision-image,
+    .vision-icon,
+    .vision-content h3,
+    .vision-content p,
+    .vision-divider,
+    .vision-link,
+    .vision-image-reveal::after {
+        transition: none !important;
+    }
+
+    .vision-card,
+    .vision-content h3,
+    .vision-content p,
+    .vision-link {
+        opacity: 1;
+        transform: none;
+    }
+
+    .vision-image-reveal::after {
+        transform: scaleX(0);
+    }
+
+    .vision-icon {
+        opacity: 1;
+        transform: none;
+    }
+
+    .vision-divider {
+        transform: scaleX(1);
+    }
+}

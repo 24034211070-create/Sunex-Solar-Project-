@@ -1,0 +1,469 @@
+.home3-pricing {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #f3f8fa;
+    padding: 92px 0 55px;
+}
+
+.home3-pricing-bg {
+    position: absolute;
+    inset: auto 0 0;
+    height: 38%;
+    opacity: 0.08;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 15% 90%, #789096 0 70px, transparent 71px),
+        radial-gradient(circle at 40% 100%, #789096 0 90px, transparent 91px),
+        radial-gradient(circle at 68% 90%, #789096 0 75px, transparent 76px),
+        linear-gradient(125deg,
+            transparent 30%,
+            #789096 30.2%,
+            transparent 30.5%,
+            transparent 65%,
+            #789096 65.2%,
+            transparent 65.5%);
+}
+
+/* ================= CONTAINER ================= */
+
+.home3-pricing-container {
+    position: relative;
+    z-index: 2;
+    width: min(1280px, calc(100% - 70px));
+    margin: 0 auto;
+}
+
+/* ================= HEADING ================= */
+
+.home3-pricing-heading {
+    text-align: center;
+    margin-bottom: 82px;
+}
+
+.home3-pricing-label {
+    width: max-content;
+    margin: 0 auto 17px;
+    padding: 8px 17px;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #092536;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.home3-pricing-label span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #4caf43;
+}
+
+.home3-pricing-heading h2 {
+    margin: 0;
+    color: #06283d;
+    font-size: 45px;
+    line-height: 1.16;
+    font-weight: 600;
+    letter-spacing: -1.5px;
+}
+
+/* ================= BILLING TOGGLE ================= */
+
+.home3-billing-toggle {
+    width: 190px;
+    height: 46px;
+    margin: 28px auto 0;
+    padding: 4px;
+    border-radius: 30px;
+    background: #e4edef;
+    display: flex;
+    align-items: center;
+}
+
+.home3-billing-toggle button {
+    width: 50%;
+    height: 100%;
+    border: none;
+    border-radius: 25px;
+    background: transparent;
+    color: #092536;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.home3-billing-toggle button.active {
+    background: #4caf43;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(76, 175, 67, 0.2);
+}
+
+/* ================= CARDS ================= */
+
+.home3-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.home3-pricing-card {
+    position: relative;
+    padding: 39px 40px;
+    min-height: 570px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(9, 37, 54, 0.025);
+
+    opacity: 0;
+    transform: translateY(60px);
+
+    transition:
+        opacity 0.7s ease var(--card-delay),
+        transform 0.7s ease var(--card-delay),
+        box-shadow 0.3s ease;
+}
+
+.pricing-visible .home3-pricing-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home3-pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(9, 37, 54, 0.09);
+}
+
+/* ================= PLAN ICON ================= */
+
+.home3-plan-icon {
+    width: 51px;
+    height: 51px;
+    border-radius: 50%;
+    background: #4caf43;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.home3-plan-icon svg {
+    width: 25px;
+    height: 25px;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ================= PLAN NAME ================= */
+
+.home3-plan-name {
+    width: max-content;
+    max-width: 100%;
+    padding: 8px 14px;
+    border-radius: 25px;
+    background: #f2f6f7;
+    color: #092536;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* ================= PRICE ================= */
+
+.home3-plan-price {
+    display: flex;
+    align-items: baseline;
+    color: #06283d;
+    white-space: nowrap;
+}
+
+.home3-plan-price .currency {
+    font-size: 29px;
+    font-weight: 500;
+}
+
+.home3-plan-price strong {
+    font-size: 40px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -1.5px;
+    animation: priceChange 0.35s ease;
+}
+
+.price-period {
+    margin-left: 7px;
+    color: #06283d;
+    font-size: 14px;
+}
+
+@keyframes priceChange {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= DESCRIPTION ================= */
+
+.home3-plan-description {
+    margin: 13px 0 30px;
+    color: #728087;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+/* ================= DIVIDER ================= */
+
+.home3-plan-divider {
+    width: 100%;
+    height: 1px;
+    background: #dce3e5;
+    margin-bottom: 30px;
+}
+
+/* ================= IDEAL ================= */
+
+.home3-pricing-card h3 {
+    margin: 0 0 24px;
+    color: #092536;
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+/* ================= FEATURES ================= */
+
+.home3-plan-features {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.home3-plan-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    color: #708087;
+    font-size: 15px;
+}
+
+.home3-pricing-check {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    border-radius: 50%;
+    background: #4caf43;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home3-pricing-check svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ================= PLAN BUTTON ================= */
+
+.home3-plan-button {
+    width: 100%;
+    height: 51px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #4caf43;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.home3-plan-button:hover {
+    background: #000000;
+    transform: translateY(-2px);
+}
+
+/* ================= BOTTOM BENEFITS ================= */
+
+.home3-pricing-benefits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+    margin-top: 58px;
+}
+
+.home3-benefit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #092536;
+    font-size: 15px;
+}
+
+.benefit-icon {
+    width: 22px;
+    height: 22px;
+    color: #4caf43;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1100px) {
+    .home3-pricing-container {
+        width: min(960px, calc(100% - 40px));
+    }
+
+    .home3-pricing-grid {
+        gap: 18px;
+    }
+
+    .home3-pricing-card {
+        padding: 32px 27px;
+    }
+
+    .home3-plan-price strong {
+        font-size: 34px;
+    }
+
+    .home3-plan-price .currency {
+        font-size: 25px;
+    }
+
+    .home3-plan-features li {
+        font-size: 13px;
+    }
+
+    .home3-pricing-benefits {
+        gap: 25px;
+    }
+
+    .home3-benefit {
+        font-size: 13px;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 767px) {
+    .home3-pricing {
+        padding: 65px 0 65px;
+    }
+
+    .home3-pricing-container {
+        width: calc(100% - 30px);
+    }
+
+    .home3-pricing-heading {
+        margin-bottom: 55px;
+    }
+
+    .home3-pricing-heading h2 {
+        font-size: 31px;
+        line-height: 1.15;
+        letter-spacing: -0.8px;
+    }
+
+    .home3-pricing-heading h2 br {
+        display: none;
+    }
+
+    .home3-pricing-label {
+        padding: 8px 14px;
+        font-size: 11px;
+    }
+
+    .home3-billing-toggle {
+        width: 175px;
+        height: 43px;
+        margin-top: 23px;
+    }
+
+    .home3-pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .home3-pricing-card {
+        min-height: auto;
+        padding: 32px 27px;
+    }
+
+    .home3-pricing-card:hover {
+        transform: none;
+    }
+
+    .home3-plan-icon {
+        margin-bottom: 23px;
+    }
+
+    .home3-plan-price strong {
+        font-size: 37px;
+    }
+
+    .home3-plan-description {
+        font-size: 14px;
+    }
+
+    .home3-pricing-benefits {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        margin: 40px 0 0;
+        padding-left: 10px;
+    }
+
+    .home3-benefit {
+        font-size: 14px;
+    }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 400px) {
+    .home3-pricing-heading h2 {
+        font-size: 28px;
+    }
+
+    .home3-pricing-card {
+        padding: 28px 22px;
+    }
+
+    .home3-plan-price strong {
+        font-size: 32px;
+    }
+
+    .home3-plan-price .currency {
+        font-size: 23px;
+    }
+}

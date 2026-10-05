@@ -1,0 +1,1094 @@
+/* =====================================================
+   HOME 3 - WHAT WE DO
+===================================================== */
+
+.home3-do {
+    width: 100%;
+    background: #ffffff;
+
+    padding: 105px 0 90px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.home3-do-container {
+    width: min(1165px, calc(100% - 70px));
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   TOP SECTION
+===================================================== */
+
+.home3-do-top {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 70px;
+
+    align-items: start;
+
+    margin-bottom: 78px;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.home3-do-heading {
+    width: 100%;
+}
+
+
+.section-tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 7px 14px;
+
+    background: #f3f7f8;
+
+    border-radius: 30px;
+
+    color: #092839;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 18px;
+}
+
+
+.tag-dot {
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    background: #45ad3b;
+
+    border-radius: 50%;
+}
+
+
+.home3-do-heading h2 {
+    margin: 0;
+
+    color: #062536;
+
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    letter-spacing: -1.5px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.home3-do-intro {
+    width: 100%;
+
+    padding-top: 10px;
+}
+
+
+.home3-do-intro p {
+    max-width: 540px;
+
+    margin: 0 0 27px;
+
+    color: #777f83;
+
+    font-size: 15px;
+
+    line-height: 1.65;
+}
+
+
+/* =====================================================
+   LEARN MORE
+===================================================== */
+
+.learn-more-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 17px;
+
+    background: #45ad3b;
+
+    color: #ffffff;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.learn-more-btn:hover {
+    background: #38972f;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(69, 173, 59, 0.2);
+}
+
+
+.learn-arrow {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: transform 0.3s ease;
+}
+
+
+.learn-more-btn:hover .learn-arrow {
+    transform: translate(3px, -3px);
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.home3-do-content {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 40px;
+
+    align-items: stretch;
+}
+
+
+/* =====================================================
+   CARDS GRID
+===================================================== */
+
+.home3-do-cards {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   SERVICE CARD
+===================================================== */
+
+.service-card {
+    width: 100%;
+
+    min-width: 0;
+
+    height: 250px;
+
+    box-sizing: border-box;
+
+    padding: 25px 30px 24px;
+
+    background: #f4f8f9;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: flex-start;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.service-card:hover {
+    background: #f1f7f3;
+
+    box-shadow:
+        0 18px 40px rgba(6, 37, 54, 0.08);
+
+    transform: translateY(-7px);
+}
+
+
+/* =====================================================
+   CARD ANIMATION
+===================================================== */
+
+.home3-do.is-visible .card-1 {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition-delay: 0.12s;
+}
+
+
+.home3-do.is-visible .card-2 {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition-delay: 0.24s;
+}
+
+
+.home3-do.is-visible .card-3 {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition-delay: 0.36s;
+}
+
+
+.home3-do.is-visible .card-4 {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition-delay: 0.48s;
+}
+
+
+/* =====================================================
+   SERVICE ICON
+===================================================== */
+
+.service-icon {
+    width: 39px;
+    height: 39px;
+
+    min-width: 39px;
+    min-height: 39px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #45ad3b;
+
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    margin: 0 0 20px 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    z-index: 5;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+
+/* Icon hover */
+
+.service-card:hover .service-icon {
+    transform: scale(1.08) rotate(8deg);
+
+    background: #38972f;
+}
+
+
+/* =====================================================
+   CARD TITLE
+===================================================== */
+
+.service-card h3 {
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    color: #062536;
+
+    font-size: 19px;
+
+    line-height: 1.32;
+
+    font-weight: 600;
+
+    letter-spacing: -0.45px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   CARD DIVIDER
+===================================================== */
+
+.card-line {
+    width: 100%;
+
+    height: 1px;
+
+    min-height: 1px;
+
+    flex-shrink: 0;
+
+    background: #d5dde0;
+
+    margin: 18px 0 17px;
+}
+
+
+/* =====================================================
+   NUMBER
+===================================================== */
+
+.counter-number {
+    margin: 0;
+
+    padding: 0;
+
+    color: #062536;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: -1.8px;
+
+    white-space: nowrap;
+}
+
+
+.counter-number span {
+    font-size: 38px;
+}
+
+
+/* =====================================================
+   CARD TEXT
+===================================================== */
+
+.service-card p {
+    margin: 11px 0 0;
+
+    padding: 0;
+
+    color: #7b8184;
+
+    font-size: 15px;
+
+    line-height: 1.3;
+}
+
+
+/* =====================================================
+   IMAGE WRAPPER
+===================================================== */
+
+.home3-do-image-wrapper {
+    width: 100%;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.home3-do-image {
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 530px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+
+.home3-do-image img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transform: scale(1.12);
+
+    opacity: 0;
+
+    transition:
+        transform 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 1s ease;
+}
+
+
+.home3-do.is-visible .home3-do-image img {
+    transform: scale(1);
+
+    opacity: 1;
+}
+
+
+.home3-do-image:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   BOTTOM CTA
+===================================================== */
+
+.home3-do-bottom {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 60px;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.8s ease 0.7s,
+        transform 0.8s ease 0.7s;
+}
+
+
+.home3-do.is-visible .home3-do-bottom {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   CTA CONTACT
+===================================================== */
+
+.cta-contact {
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    width: 58px;
+
+    height: 34px;
+}
+
+
+/* =====================================================
+   AVATAR WRAPPER
+===================================================== */
+
+.avatar-wrapper {
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 2px solid #ffffff;
+
+    background: #eeeeee;
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    z-index: 2;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   AVATAR IMAGE
+===================================================== */
+
+.cta-avatar-image {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* =====================================================
+   PHONE CIRCLE
+===================================================== */
+
+.cta-phone {
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: #45ad3b;
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: absolute;
+
+    left: 24px;
+
+    top: 0;
+
+    z-index: 3;
+
+    border: 2px solid #ffffff;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.cta-contact:hover .cta-phone {
+    transform: scale(1.08);
+
+    background: #38972f;
+}
+
+
+/* =====================================================
+   CTA TEXT
+===================================================== */
+
+.home3-do-bottom p {
+    margin: 0;
+
+    color: #172e3c;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+}
+
+
+.home3-do-bottom a {
+    color: #45ad3b;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+
+.home3-do-bottom a:hover {
+    color: #287e24;
+}
+
+
+/* =====================================================
+   TEXT REVEAL
+===================================================== */
+
+.reveal-left,
+.reveal-right {
+    opacity: 0;
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.reveal-left {
+    transform: translateX(-60px);
+}
+
+
+.reveal-right {
+    transform: translateX(60px);
+}
+
+
+.home3-do.is-visible .reveal-left,
+.home3-do.is-visible .reveal-right {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+/* =====================================================
+   TABLET - 1100
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .home3-do-container {
+        width: min(1000px, calc(100% - 50px));
+    }
+
+
+    .home3-do-top {
+        gap: 40px;
+    }
+
+
+    .home3-do-content {
+        gap: 28px;
+    }
+
+
+    .home3-do-cards {
+        gap: 20px;
+    }
+
+
+    .service-card {
+        padding: 23px 24px;
+    }
+
+
+    .service-card h3 {
+        font-size: 17px;
+    }
+
+
+    .counter-number {
+        font-size: 37px;
+    }
+
+
+    .counter-number span {
+        font-size: 34px;
+    }
+}
+
+
+/* =====================================================
+   TABLET - 900
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .home3-do {
+        padding: 80px 0;
+    }
+
+
+    .home3-do-top {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        margin-bottom: 55px;
+    }
+
+
+    .home3-do-intro {
+        padding-top: 0;
+    }
+
+
+    .home3-do-intro p {
+        max-width: 650px;
+    }
+
+
+    .home3-do-content {
+        grid-template-columns: 1fr;
+    }
+
+
+    .home3-do-image-wrapper {
+        order: -1;
+    }
+
+
+    .home3-do-image {
+        min-height: 420px;
+    }
+
+
+    .home3-do-cards {
+        gap: 24px;
+    }
+
+
+    .service-card {
+        height: 250px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE - 768
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .home3-do {
+        padding: 70px 0;
+    }
+
+
+    .home3-do-container {
+        width: calc(100% - 32px);
+    }
+
+
+    .home3-do-heading h2 {
+        font-size: 35px;
+
+        line-height: 1.13;
+
+        letter-spacing: -1px;
+    }
+
+
+    .home3-do-intro p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    /* IMAGE */
+
+    .home3-do-image {
+        min-height: 360px;
+    }
+
+
+    /* CARDS */
+
+    .home3-do-cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+
+    .service-card {
+        height: 235px;
+
+        padding: 21px 20px;
+    }
+
+
+    .service-icon {
+        width: 38px;
+
+        height: 38px;
+
+        min-width: 38px;
+
+        min-height: 38px;
+
+        margin-bottom: 17px;
+    }
+
+
+    .service-card h3 {
+        font-size: 16px;
+
+        line-height: 1.3;
+    }
+
+
+    .card-line {
+        margin: 15px 0;
+    }
+
+
+    .counter-number {
+        font-size: 32px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .counter-number span {
+        font-size: 29px;
+    }
+
+
+    .service-card p {
+        font-size: 13px;
+    }
+
+
+    /* CTA */
+
+    .home3-do-bottom {
+        margin-top: 42px;
+
+        gap: 8px;
+    }
+
+
+    .home3-do-bottom p {
+        font-size: 14px;
+    }
+
+
+    .cta-contact {
+        width: 55px;
+
+        height: 32px;
+
+        flex-shrink: 0;
+    }
+
+
+    .avatar-wrapper {
+        width: 32px;
+
+        height: 32px;
+    }
+
+
+    .cta-phone {
+        width: 32px;
+
+        height: 32px;
+
+        left: 23px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE - 500
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .home3-do {
+        padding: 60px 0;
+    }
+
+
+    .home3-do-container {
+        width: calc(100% - 28px);
+    }
+
+
+    .home3-do-heading h2 {
+        font-size: 31px;
+
+        line-height: 1.12;
+    }
+
+
+    .section-tag {
+        font-size: 12px;
+
+        padding: 7px 12px;
+    }
+
+
+    /* IMAGE */
+
+    .home3-do-image {
+        min-height: 300px;
+
+        border-radius: 10px;
+    }
+
+
+    /* CARDS */
+
+    .home3-do-cards {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .service-card {
+        height: 225px;
+
+        padding: 23px 24px;
+    }
+
+
+    .service-icon {
+        width: 39px;
+
+        height: 39px;
+
+        min-width: 39px;
+
+        min-height: 39px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .service-card h3 {
+        font-size: 18px;
+    }
+
+
+    .counter-number {
+        font-size: 36px;
+    }
+
+
+    .counter-number span {
+        font-size: 32px;
+    }
+
+
+    .service-card p {
+        font-size: 14px;
+    }
+
+
+    /* CTA */
+
+    .home3-do-bottom {
+        justify-content: flex-start;
+
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+
+
+    .home3-do-bottom p {
+        max-width: 250px;
+
+        text-align: left;
+
+        line-height: 1.5;
+    }
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .service-card,
+    .reveal-left,
+    .reveal-right,
+    .home3-do-image img,
+    .home3-do-bottom {
+        transition: none !important;
+
+        transform: none !important;
+
+        opacity: 1 !important;
+    }
+}

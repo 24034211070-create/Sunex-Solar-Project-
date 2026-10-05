@@ -1,0 +1,588 @@
+.home3-page {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.home3-hero {
+    position: relative;
+    width: 100%;
+    min-height: 790px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.home3-background {
+    position: absolute;
+    inset: 0;
+    z-index: -5;
+    overflow: hidden;
+}
+
+.home3-background-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center bottom;
+    transform: scale(1.06);
+    transition: transform 2s cubic-bezier(.2, .65, .2, 1);
+}
+
+.home3-visible .home3-background-image {
+    transform: scale(1);
+}
+
+/* =========================================
+   WHITE FADE
+========================================= */
+
+.home3-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    pointer-events: none;
+    background:
+        linear-gradient(to bottom,
+            rgba(255, 255, 255, .99) 0%,
+            rgba(255, 255, 255, .985) 13%,
+            rgba(255, 255, 255, .96) 25%,
+            rgba(255, 255, 255, .88) 38%,
+            rgba(255, 255, 255, .65) 51%,
+            rgba(255, 255, 255, .28) 63%,
+            rgba(255, 255, 255, .07) 73%,
+            rgba(255, 255, 255, 0) 84%);
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.home3-content {
+    position: relative;
+    z-index: 5;
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+    padding-top: 78px;
+    text-align: center;
+}
+
+/* =========================================
+   BADGE
+========================================= */
+
+.home3-badge {
+    width: max-content;
+    margin: 0 auto 18px;
+    padding: 7px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 30px;
+    background: #e9eded;
+    color: #092536;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 500;
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+        margin-top: 15px;
+}
+
+.home3-badge>span {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #4caf43;
+}
+
+.home3-badge:hover {
+    background: #4caf43;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.home3-badge:hover>span {
+    background: #ffffff;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.home3-title {
+    max-width: 1120px;
+    margin: 0 auto;
+    color: #062334;
+    font-size: clamp(40px, 5.10vw, 55px);
+    line-height: 1.04;
+    letter-spacing: -3.2px;
+    font-weight: 500;
+}
+
+.home3-title span {
+    display: inline;
+}
+
+.home3-title-image {
+    width: 58px;
+    height: 58px;
+    margin: 0 7px;
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: contain;
+    animation: home3-image-float 4s ease-in-out infinite;
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+.home3-title-image:nth-of-type(2) {
+    animation-delay: .6s;
+}
+
+.home3-title-image:nth-of-type(3) {
+    animation-delay: 1.1s;
+}
+
+.home3-title-image:hover {
+    transform: translateY(-5px) scale(1.06);
+    filter: drop-shadow(0 8px 12px rgba(6, 35, 52, .14));
+}
+
+@keyframes home3-image-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.home3-description {
+    max-width: 900px;
+    margin: 25px auto 0;
+    color: #737c80;
+    font-size: 15px;
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.home3-actions {
+    margin-top: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 27px;
+}
+
+/* =========================================
+   CONSULTATION BUTTON
+========================================= */
+
+.home3-consult-btn {
+    min-width: 214px;
+    height: 46px;
+    padding: 0 16px 0 18px;
+    border: none;
+    border-radius: 4px;
+    background: #49ad40;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.home3-consult-btn strong {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 400;
+    transition: transform .3s ease;
+}
+
+.home3-consult-btn:hover {
+    background: #062334;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(6, 35, 52, .20);
+}
+
+.home3-consult-btn:hover strong {
+    transform: translate(3px, -3px);
+}
+
+/* =========================================
+   WATCH STORY
+========================================= */
+
+.home3-story-btn {
+    height: 46px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #082637;
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.home3-play {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #062536;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2px;
+    font-size: 13px;
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.home3-story-btn:hover .home3-play {
+    background: #49ad40;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(73, 173, 64, .25);
+}
+
+.home3-story-btn:hover {
+    color: #49ad40;
+}
+
+/* =========================================
+   MAN + WOMAN
+   BUTTONS KE NICHE
+========================================= */
+
+.home3-people-wrapper {
+    position: relative;
+    z-index: 4;
+    width: 570px;
+    max-width: 70vw;
+    margin: 22px auto 0;
+    opacity: 0;
+    transform: translateY(60px);
+    pointer-events: none;
+    transition:
+        opacity 1s ease .65s,
+        transform 1.1s cubic-bezier(.2, .65, .2, 1) .65s;
+}
+
+.home3-visible .home3-people-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home3-people-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, .08));
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
+.home3-people-image:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, .13));
+}
+
+/* =========================================
+   REVEAL
+========================================= */
+
+.home3-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2, .65, .2, 1);
+}
+
+.home3-visible .home3-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home3-visible .home3-badge {
+    transition-delay: .08s;
+}
+
+.home3-visible .home3-title {
+    transition-delay: .18s;
+}
+
+.home3-visible .home3-description {
+    transition-delay: .32s;
+}
+
+.home3-visible .home3-actions {
+    transition-delay: .45s;
+}
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1400px) {
+    .home3-hero {
+        min-height: 820px;
+    }
+
+    .home3-content {
+        padding-top: 80px;
+    }
+
+    .home3-title {
+        font-size: 72px;
+    }
+
+    .home3-title-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .home3-people-wrapper {
+        width: 620px;
+        margin-top: 24px;
+    }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+    .home3-hero {
+        min-height: 760px;
+    }
+
+    .home3-content {
+        width: calc(100% - 32px);
+        padding-top: 65px;
+    }
+
+    .home3-title {
+        font-size: 48px;
+        line-height: 1.07;
+        letter-spacing: -2px;
+    }
+
+    .home3-title-image {
+        width: 46px;
+        height: 46px;
+        margin: 0 5px;
+    }
+
+    .home3-description {
+        font-size: 14px;
+        margin-top: 23px;
+    }
+
+    .home3-actions {
+        margin-top: 30px;
+    }
+
+    .home3-people-wrapper {
+        width: 500px;
+        max-width: 65vw;
+        margin-top: 22px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+    .home3-hero {
+        min-height: 800px;
+    }
+
+    .home3-content {
+        width: calc(100% - 24px);
+        padding-top: 42px;
+    }
+
+    .home3-badge {
+        margin-bottom: 18px;
+        padding: 7px 13px;
+        font-size: 12px;
+    }
+
+    .home3-title {
+        max-width: 500px;
+        font-size: 37px;
+        line-height: 1.08;
+        letter-spacing: -1.5px;
+    }
+
+    .home3-title-image {
+        width: 34px;
+        height: 34px;
+        margin: 0 3px;
+    }
+
+    .home3-description {
+        max-width: 350px;
+        margin-top: 21px;
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .home3-desktop-break {
+        display: none;
+    }
+
+    .home3-actions {
+        margin-top: 27px;
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    .home3-background-image {
+        object-position: center bottom;
+        transform: scale(1.08);
+    }
+
+    .home3-visible .home3-background-image {
+        transform: scale(1.03);
+    }
+
+    .home3-people-wrapper {
+        width: 400px;
+        max-width: 94vw;
+        margin-top: 22px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+    .home3-hero {
+        min-height: 790px;
+    }
+
+    .home3-content {
+        padding-top: 34px;
+    }
+
+    .home3-badge {
+        font-size: 11.5px;
+    }
+
+    .home3-title {
+        font-size: 32px;
+        line-height: 1.1;
+        letter-spacing: -1px;
+    }
+
+    .home3-title-image {
+        width: 29px;
+        height: 29px;
+        margin: 0 2px;
+    }
+
+    .home3-description {
+        max-width: 330px;
+        font-size: 13px;
+    }
+
+    .home3-consult-btn {
+        min-width: 205px;
+    }
+
+    .home3-people-wrapper {
+        width: 350px;
+        max-width: 96vw;
+        margin-top: 20px;
+    }
+}
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+    .home3-content {
+        width: calc(100% - 18px);
+        padding-top: 30px;
+    }
+
+    .home3-title {
+        font-size: 29px;
+    }
+
+    .home3-title-image {
+        width: 26px;
+        height: 26px;
+    }
+
+    .home3-description {
+        font-size: 12px;
+        max-width: 310px;
+    }
+
+    .home3-people-wrapper {
+        width: 320px;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .home3-background-image,
+    .home3-title-image,
+    .home3-reveal,
+    .home3-people-wrapper,
+    .home3-consult-btn,
+    .home3-play,
+    .home3-people-image {
+        animation: none;
+        transition: none;
+    }
+}

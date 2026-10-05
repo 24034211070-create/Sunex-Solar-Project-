@@ -1,0 +1,636 @@
+/* =========================================================
+   OUR PROJECTS SECTION
+========================================================= */
+
+.our-projects-section {
+    width: 100%;
+    background: #ffffff;
+
+    padding: 105px 22px 75px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.projects-heading {
+    text-align: center;
+
+    margin-bottom: 82px;
+}
+
+.projects-label {
+    width: fit-content;
+
+    margin: 0 auto 18px;
+
+    padding: 8px 17px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    background: #f3f7f8;
+
+    border-radius: 30px;
+
+    color: #062231;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.projects-label span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #4caf3d;
+}
+
+.projects-heading h2 {
+    margin: 0;
+
+    color: #062231;
+
+    font-size: clamp(42px, 4vw, 56px);
+
+    line-height: 1.08;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+}
+
+
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
+.projects-grid {
+    width: 100%;
+
+    max-width: 1320px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+   IMAGE SIZE YAHAN SE BADA KIYA HAI
+========================================================= */
+
+.project-card {
+    position: relative;
+
+    width: 100%;
+
+    /*
+       Pehle card chhota tha.
+       Ab height 570px rakhi hai.
+    */
+
+    height: 570px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #062231;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.project-image {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    /*
+       Image poore bade card ko fill karegi
+    */
+
+    object-fit: cover;
+
+    /*
+       Image center se crop hogi
+       aur visually badi lagegi
+    */
+
+    object-position: center center;
+
+    transform: scale(1.01);
+
+    transition:
+        transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+
+/* =========================================================
+   IMAGE HOVER ZOOM
+========================================================= */
+
+.project-card:hover .project-image {
+    transform: scale(1.07);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.project-image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.02) 20%,
+            rgba(0, 10, 20, 0.04) 42%,
+            rgba(0, 15, 25, 0.72) 100%);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   GLASS CONTENT BOX
+========================================================= */
+
+.project-info {
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+
+    bottom: 12px;
+
+    min-height: 108px;
+
+    padding: 29px 30px;
+
+    box-sizing: border-box;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: rgba(20, 38, 49, 0.64);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    backdrop-filter: blur(13px);
+
+    -webkit-backdrop-filter: blur(13px);
+
+    z-index: 3;
+
+    transition:
+        min-height 0.55s cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1),
+        background 0.4s ease;
+}
+
+
+/* =========================================================
+   PROJECT TITLE
+========================================================= */
+
+.project-info h3 {
+    max-width: 360px;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    line-height: 1.35;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.project-details {
+    height: 0;
+
+    margin-top: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    transition:
+        height 0.45s ease,
+        margin-top 0.45s ease,
+        opacity 0.4s ease,
+        transform 0.5s ease;
+}
+
+.project-details span {
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   GREEN ARROW
+========================================================= */
+
+.project-arrow {
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #4caf3d;
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    transition:
+        transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+        background 0.3s ease;
+}
+
+
+/* =========================================================
+   ARROW -> RIGHT SIDE
+========================================================= */
+
+.project-arrow:hover {
+    transform: translateX(7px);
+
+    background: #55b947;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.project-card:hover .project-info {
+    min-height: 152px;
+
+    transform: translateY(-3px);
+
+    background: rgba(8, 30, 42, 0.84);
+}
+
+.project-card:hover .project-info h3 {
+    transform: translateY(-5px);
+}
+
+.project-card:hover .project-details {
+    height: 30px;
+
+    margin-top: 13px;
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   SCROLL ANIMATION
+========================================================= */
+
+.project-scroll {
+    opacity: 0;
+
+    transform: translateY(55px);
+
+    transition:
+        opacity 0.85s ease,
+        transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.project-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   CARD ANIMATION DELAYS
+========================================================= */
+
+.project-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.project-delay-2 {
+    transition-delay: 0.25s;
+}
+
+.project-delay-3 {
+    transition-delay: 0.4s;
+}
+
+
+/* =========================================================
+   BOTTOM SECTION
+========================================================= */
+
+.projects-bottom {
+    max-width: 900px;
+
+    margin: 58px auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.projects-free {
+    flex-shrink: 0;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    background: #4caf3d;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.projects-bottom p {
+    margin: 0;
+
+    color: #062231;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.projects-bottom a {
+    color: #4caf3d;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+
+    transition: color 0.3s ease;
+}
+
+.projects-bottom a:hover {
+    color: #062231;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .our-projects-section {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .projects-grid {
+        max-width: 1320px;
+
+        gap: 30px;
+    }
+
+    .project-card {
+        height: 590px;
+    }
+
+    .project-info {
+        left: 13px;
+        right: 13px;
+        bottom: 13px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .our-projects-section {
+        padding: 90px 25px 65px;
+    }
+
+    .projects-heading {
+        margin-bottom: 60px;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 24px;
+    }
+
+    .project-card {
+        height: 550px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .our-projects-section {
+        padding: 75px 16px 50px;
+    }
+
+    .projects-heading {
+        margin-bottom: 45px;
+    }
+
+    .projects-heading h2 {
+        font-size: 35px;
+
+        line-height: 1.12;
+
+        letter-spacing: -1px;
+    }
+
+    .projects-heading h2 br {
+        display: none;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    /*
+       Mobile par bhi image/card bada
+    */
+
+    .project-card {
+        height: 500px;
+
+        border-radius: 14px;
+    }
+
+    .project-info {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+
+        padding: 25px;
+    }
+
+    .project-info h3 {
+        font-size: 19px;
+    }
+
+    .projects-bottom {
+        margin-top: 40px;
+
+        align-items: flex-start;
+
+        text-align: left;
+    }
+
+    .projects-bottom p {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .projects-heading h2 {
+        font-size: 31px;
+    }
+
+    .project-card {
+        height: 450px;
+    }
+
+    .project-info {
+        padding: 22px;
+    }
+
+    .project-info h3 {
+        font-size: 18px;
+    }
+
+    .projects-bottom {
+        gap: 8px;
+    }
+
+    .projects-free {
+        font-size: 12px;
+    }
+
+    .projects-bottom p {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .project-scroll {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+    .project-image,
+    .project-info,
+    .project-info h3,
+    .project-details,
+    .project-arrow {
+        transition: none;
+    }
+}

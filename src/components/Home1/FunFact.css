@@ -1,0 +1,433 @@
+.funfacts-section {
+    position: relative;
+    width: 100%;
+    padding: 110px 36px 75px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.funfacts-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1290px;
+    margin: 0 auto;
+}
+
+.funfacts-main {
+    display: grid;
+    grid-template-columns: 1.08fr 1fr;
+    gap: 44px;
+    align-items: center;
+}
+
+.funfacts-content {
+    position: relative;
+    z-index: 2;
+}
+
+.funfacts-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #f3f8fa;
+    color: #061b2a;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.funfacts-label span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #45ad43;
+}
+
+.funfacts-title {
+    margin: 20px 0 22px;
+    color: #031b2b;
+    font-size: 44px;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    font-weight: 600;
+}
+
+.funfacts-description {
+    max-width: 620px;
+    margin: 0;
+    color: #718294;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.funfacts-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 40px;
+    padding: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f3f7f9;
+}
+
+.funfact-card {
+    position: relative;
+    min-height: 175px;
+    padding: 38px 25px 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.funfact-card:nth-child(1),
+.funfact-card:nth-child(2) {
+    border-bottom: 1px solid #d7e0e5;
+}
+
+.funfact-card:nth-child(1),
+.funfact-card:nth-child(3) {
+    border-right: 1px solid #d7e0e5;
+}
+
+.funfact-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    background: #48ad42;
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.funfact-card:hover .funfact-icon {
+    transform: rotate(8deg) scale(1.08);
+}
+
+.funfact-card h3 {
+    margin: 0 0 7px;
+    color: #031b2b;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.funfact-card p {
+    margin: 0;
+    color: #718294;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.funfacts-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 555px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.funfacts-image-wrap img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.funfacts-image-dot {
+    position: absolute;
+    left: 12%;
+    bottom: 28%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #45ad43;
+    box-shadow: 0 0 0 6px rgba(69, 173, 67, 0.12);
+}
+
+.funfacts-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 54px;
+}
+
+.funfacts-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+
+.funfacts-avatar {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.funfacts-avatar img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.funfacts-message-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #48ad42;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.funfacts-message p {
+    margin: 0;
+    color: #031b2b;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.funfacts-message a {
+    margin-left: 5px;
+    color: #45a940;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.funfacts-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.rating-number {
+    color: #031b2b;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.rating-stars {
+    color: #48ad42;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.funfacts-rating strong {
+    color: #031b2b;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.funfacts-bg-shape {
+    position: absolute;
+    left: -80px;
+    bottom: 150px;
+    width: 600px;
+    height: 300px;
+    opacity: 0.55;
+    background: repeating-linear-gradient(-45deg,
+            transparent 0,
+            transparent 8px,
+            #edf1f2 8px,
+            #edf1f2 11px);
+    transform: rotate(-2deg);
+}
+
+.funfacts-reveal {
+    opacity: 0;
+    transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.funfacts-reveal-left {
+    transform: translateX(-70px);
+}
+
+.funfacts-reveal-right {
+    transform: translateX(70px);
+}
+
+.funfacts-reveal-up {
+    transform: translateY(65px);
+}
+
+.funfacts-reveal-active {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+.funfact-card-1 {
+    transition-delay: 0.05s;
+}
+
+.funfact-card-2 {
+    transition-delay: 0.15s;
+}
+
+.funfact-card-3 {
+    transition-delay: 0.25s;
+}
+
+.funfact-card-4 {
+    transition-delay: 0.35s;
+}
+
+@media (max-width: 1100px) {
+    .funfacts-section {
+        padding: 90px 28px 65px;
+    }
+
+    .funfacts-main {
+        gap: 30px;
+    }
+
+    .funfacts-title {
+        font-size: 38px;
+    }
+
+    .funfacts-image-wrap {
+        height: 510px;
+    }
+}
+
+@media (max-width: 900px) {
+    .funfacts-main {
+        grid-template-columns: 1fr;
+    }
+
+    .funfacts-content {
+        max-width: 760px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .funfacts-image-wrap {
+        height: 500px;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .funfacts-section {
+        padding: 70px 18px 55px;
+    }
+
+    .funfacts-title {
+        margin-top: 18px;
+        font-size: 32px;
+        line-height: 1.18;
+        letter-spacing: -1px;
+    }
+
+    .funfacts-title br {
+        display: none;
+    }
+
+    .funfacts-description {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .funfacts-grid {
+        margin-top: 30px;
+    }
+
+    .funfact-card {
+        min-height: 155px;
+        padding: 25px 12px;
+    }
+
+    .funfact-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 12px;
+        font-size: 22px;
+    }
+
+    .funfact-card h3 {
+        font-size: 19px;
+    }
+
+    .funfact-card p {
+        font-size: 13px;
+    }
+
+    .funfacts-image-wrap {
+        height: 360px;
+        border-radius: 12px;
+    }
+
+    .funfacts-bottom {
+        margin-top: 35px;
+    }
+
+    .funfacts-message {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .funfacts-message p {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .funfacts-message a {
+        margin-left: 3px;
+    }
+
+    .funfacts-rating {
+        flex-wrap: wrap;
+        gap: 6px 9px;
+    }
+
+    .rating-number {
+        font-size: 18px;
+    }
+
+    .rating-stars {
+        font-size: 19px;
+    }
+
+    .funfacts-rating strong {
+        font-size: 15px;
+    }
+
+    .funfacts-bg-shape {
+        left: -160px;
+        bottom: 180px;
+        width: 500px;
+        height: 250px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .funfacts-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .funfact-card:hover .funfact-icon {
+        transform: none;
+    }
+}

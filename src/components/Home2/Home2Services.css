@@ -1,0 +1,578 @@
+/* =========================================
+   HOME 2 SERVICES
+========================================= */
+
+.home2-services {
+    position: relative;
+
+    width: 100%;
+
+    padding: 80px 0 110px;
+
+    background: #f4f8f9;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND DECORATION
+========================================= */
+
+.home2-services-bg {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 300px;
+
+    opacity: 0.28;
+
+    background:
+        radial-gradient(ellipse at 10% 100%,
+            rgba(180, 193, 198, 0.22) 0,
+            rgba(180, 193, 198, 0.22) 18%,
+            transparent 19%),
+        radial-gradient(ellipse at 30% 100%,
+            rgba(180, 193, 198, 0.18) 0,
+            rgba(180, 193, 198, 0.18) 15%,
+            transparent 16%),
+        radial-gradient(ellipse at 70% 100%,
+            rgba(180, 193, 198, 0.18) 0,
+            rgba(180, 193, 198, 0.18) 16%,
+            transparent 17%),
+        linear-gradient(to top,
+            rgba(213, 222, 225, 0.7),
+            transparent);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.home2-services-container {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1280px, calc(100% - 80px));
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.home2-services-header {
+    text-align: center;
+
+    margin-bottom: 80px;
+}
+
+.home2-services-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 8px 18px;
+
+    background: #ffffff;
+
+    border-radius: 30px;
+
+    color: #071a28;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.home2-services-badge span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+}
+
+
+.home2-services-header h2 {
+    margin: 20px auto 0;
+
+    max-width: 900px;
+
+    color: #071a28;
+
+    font-size: clamp(42px, 4.2vw, 60px);
+
+    font-weight: 600;
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+}
+
+
+/* =========================================
+   SERVICE GRID
+========================================= */
+
+.home2-service-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* =========================================
+   SERVICE CARD
+========================================= */
+
+.home2-service-card {
+    position: relative;
+
+    height: 445px;
+
+    border-radius: 13px;
+
+    overflow: hidden;
+
+    background: #071a28;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(7, 26, 40, 0.08);
+
+    transition:
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.5s ease;
+}
+
+.home2-service-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(7, 26, 40, 0.16);
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.home2-service-image {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+}
+
+.home2-service-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.7s ease;
+}
+
+.home2-service-card:hover .home2-service-image img {
+    transform: scale(1.08);
+
+    filter: brightness(1.05);
+}
+
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.home2-service-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(5, 22, 34, 0.03) 20%,
+            rgba(5, 22, 34, 0.25) 45%,
+            rgba(3, 21, 32, 0.88) 100%);
+
+    transition:
+        background 0.5s ease;
+}
+
+.home2-service-card:hover .home2-service-overlay {
+    background:
+        linear-gradient(to bottom,
+            rgba(5, 22, 34, 0.05) 20%,
+            rgba(5, 22, 34, 0.32) 45%,
+            rgba(3, 21, 32, 0.92) 100%);
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.home2-service-content {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 2;
+
+    padding: 0 38px 40px;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   SERVICE ICON
+========================================= */
+
+.home2-service-icon {
+    width: 55px;
+    height: 55px;
+
+    margin-bottom: 28px;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    transition:
+        transform 0.45s ease,
+        background 0.45s ease;
+}
+
+.home2-service-card:hover .home2-service-icon {
+    transform: rotate(12deg) scale(1.08);
+
+    background: #cbea4d;
+    color: #071a28;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.home2-service-content h3 {
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.home2-service-content p {
+    margin: 0;
+
+    max-width: 340px;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.home2-services-bottom {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+/* =========================================
+   PERSON + PHONE
+========================================= */
+
+.home2-services-person {
+    display: flex;
+
+    align-items: center;
+}
+
+.home2-services-avatar {
+    width: 31px;
+    height: 31px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 2px solid #ffffff;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.home2-services-avatar span {
+    font-size: 19px;
+
+    line-height: 1;
+}
+
+
+.home2-services-phone {
+    width: 31px;
+    height: 31px;
+
+    margin-left: -4px;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #ffffff;
+}
+
+
+/* =========================================
+   CTA TEXT
+========================================= */
+
+.home2-services-bottom p {
+    margin: 0;
+
+    color: #1d3340;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.home2-services-bottom p a {
+    color: #43ad3d;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+
+    text-underline-offset: 2px;
+
+    transition:
+        color 0.3s ease;
+}
+
+.home2-services-bottom p a:hover {
+    color: #071a28;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .home2-services-container {
+        width: calc(100% - 50px);
+    }
+
+    .home2-service-grid {
+        gap: 20px;
+    }
+
+    .home2-service-content {
+        padding: 0 25px 30px;
+    }
+
+    .home2-service-content h3 {
+        font-size: 19px;
+    }
+
+    .home2-service-content p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+    .home2-services {
+        padding: 70px 0 85px;
+    }
+
+    .home2-services-container {
+        width: calc(100% - 32px);
+    }
+
+    .home2-services-header {
+        margin-bottom: 50px;
+    }
+
+    .home2-services-header h2 {
+        margin-top: 18px;
+
+        font-size: 35px;
+
+        line-height: 1.12;
+
+        letter-spacing: -1px;
+    }
+
+    .home2-service-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .home2-service-card {
+        height: 420px;
+    }
+
+    .home2-service-content {
+        padding: 0 25px 30px;
+    }
+
+    .home2-service-icon {
+        width: 51px;
+        height: 51px;
+
+        margin-bottom: 22px;
+    }
+
+    .home2-service-content h3 {
+        font-size: 20px;
+    }
+
+    .home2-service-content p {
+        font-size: 14px;
+    }
+
+    .home2-services-bottom {
+        margin-top: 38px;
+
+        align-items: flex-start;
+
+        justify-content: flex-start;
+
+        gap: 10px;
+    }
+
+    .home2-services-bottom p {
+        font-size: 14px;
+    }
+
+    .home2-services-bg {
+        height: 250px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+    .home2-services-container {
+        width: calc(100% - 24px);
+    }
+
+    .home2-services-header h2 {
+        font-size: 31px;
+    }
+
+    .home2-service-card {
+        height: 390px;
+    }
+
+    .home2-service-content {
+        padding: 0 22px 26px;
+    }
+
+    .home2-service-content h3 {
+        font-size: 18px;
+    }
+
+    .home2-service-content p {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .home2-service-card,
+    .home2-service-image img,
+    .home2-service-overlay,
+    .home2-service-icon {
+        transition: none;
+    }
+}

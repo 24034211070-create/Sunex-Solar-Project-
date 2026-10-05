@@ -1,0 +1,333 @@
+/* =========================================================
+   IMAGE GALLERY PAGE
+========================================================= */
+
+.image-gallery-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.gallery-hero {
+    width: 100%;
+    height: 402px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg,
+            rgba(0, 29, 45, 0.92) 0%,
+            rgba(0, 35, 52, 0.78) 35%,
+            rgba(0, 32, 49, 0.42) 65%,
+            rgba(0, 25, 40, 0.08) 100%);
+}
+
+.gallery-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    margin-top: 8px;
+}
+
+.gallery-hero-content h1 {
+    margin: 0;
+    font-size: 56px;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -1.5px;
+}
+
+.gallery-breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.gallery-breadcrumb span {
+    color: #fff;
+}
+
+.breadcrumb-slash {
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   GALLERY SECTION
+========================================================= */
+
+.gallery-section {
+    width: 100%;
+    padding: 40px 40px 70px;
+    background: #fff;
+}
+
+.gallery-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+/* =========================================================
+   GALLERY IMAGE
+========================================================= */
+
+.gallery-image-wrap {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    border-radius: 14px;
+
+    opacity: 0;
+    transform: translateX(-90px) scale(0.96);
+
+    transition:
+        opacity 0.8s ease var(--delay),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--delay);
+
+    will-change: transform, opacity;
+}
+
+.gallery-image-wrap.gallery-visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.gallery-image-wrap img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.gallery-image-wrap:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   BUY NOW BUTTON
+========================================================= */
+
+.gallery-buy-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 100;
+
+    border: none;
+    outline: none;
+
+    height: 48px;
+    min-width: 157px;
+    padding: 0 22px;
+
+    border-radius: 30px;
+
+    background: #d0ef4f;
+    color: #101010;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.gallery-buy-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+    background: #c9e94a;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .gallery-hero {
+        height: 360px;
+    }
+
+    .gallery-hero-content h1 {
+        font-size: 48px;
+    }
+
+    .gallery-section {
+        padding: 35px 25px 60px;
+    }
+
+    .gallery-container {
+        gap: 22px;
+    }
+
+    .gallery-image-wrap {
+        height: 320px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .gallery-hero {
+        height: 320px;
+        background-position: center;
+    }
+
+    .gallery-hero-overlay {
+        background:
+            linear-gradient(90deg,
+                rgba(0, 29, 45, 0.88),
+                rgba(0, 29, 45, 0.48));
+    }
+
+    .gallery-hero-content {
+        padding: 0 20px;
+    }
+
+    .gallery-hero-content h1 {
+        font-size: 42px;
+        letter-spacing: -1px;
+    }
+
+    .gallery-breadcrumb {
+        margin-top: 14px;
+        font-size: 15px;
+        gap: 8px;
+    }
+
+    .gallery-section {
+        padding: 30px 20px 65px;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .gallery-image-wrap {
+        height: 360px;
+
+        transform: translateX(-70px) scale(0.96);
+    }
+
+    .gallery-image-wrap.gallery-visible {
+        transform: translateX(0) scale(1);
+    }
+
+    .gallery-buy-btn {
+        right: 15px;
+        bottom: 15px;
+        min-width: 145px;
+        height: 46px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .gallery-hero {
+        height: 285px;
+    }
+
+    .gallery-hero-content h1 {
+        font-size: 36px;
+    }
+
+    .gallery-breadcrumb {
+        font-size: 14px;
+    }
+
+    .gallery-section {
+        padding: 25px 15px 60px;
+    }
+
+    .gallery-container {
+        gap: 18px;
+    }
+
+    .gallery-image-wrap {
+        height: 300px;
+        border-radius: 12px;
+    }
+
+    .gallery-buy-btn {
+        right: 12px;
+        bottom: 12px;
+        min-width: 135px;
+        height: 44px;
+        padding: 0 18px;
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .gallery-image-wrap {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .gallery-image-wrap img,
+    .gallery-buy-btn {
+        transition: none;
+    }
+}

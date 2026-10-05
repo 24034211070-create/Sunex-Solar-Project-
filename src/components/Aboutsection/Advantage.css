@@ -1,0 +1,588 @@
+.advantage-section {
+    width: 100%;
+    background: #ffffff;
+    padding: 100px 0 105px;
+    overflow: hidden;
+}
+
+.advantage-container {
+    width: calc(100% - 80px);
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.advantage-heading {
+    text-align: center;
+}
+
+.advantage-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 17px;
+    margin-bottom: 17px;
+    border-radius: 30px;
+    background: #f3f8fa;
+    color: #082536;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.advantage-badge span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #49ad3e;
+}
+
+.advantage-title {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #062536;
+    font-size: 44px;
+    line-height: 1.18;
+    font-weight: 500;
+    letter-spacing: -1.5px;
+}
+
+.title-row {
+    display: block;
+    opacity: 0;
+    transform: translateY(35px);
+}
+
+.is-visible .title-row {
+    animation: textReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.is-visible .title-row:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.is-visible .title-row:nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+@keyframes textReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   INLINE IMAGE
+========================= */
+
+.title-inline-image {
+    display: inline-flex;
+    width: 100px;
+    height: 40px;
+    margin: 0 8px;
+    vertical-align: middle;
+    border-radius: 25px;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.7);
+}
+
+.is-visible .title-inline-image {
+    animation: inlineImageReveal 0.8s ease 0.35s forwards;
+}
+
+.title-inline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.title-inline-image:hover img {
+    transform: scale(1.15);
+}
+
+@keyframes inlineImageReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   MAIN 3 COLUMN AREA
+========================= */
+
+.advantage-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 82px;
+    align-items: stretch;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.advantage-card {
+    height: 370px;
+    padding: 40px;
+    box-sizing: border-box;
+    border-radius: 13px;
+    background: #f3f7f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.advantage-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 20px 42px rgba(3, 35, 50, 0.13);
+}
+
+.advantage-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #49ad3e;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.advantage-card:hover .advantage-icon {
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(73, 173, 62, 0.25);
+}
+
+.advantage-content {
+    margin-top: auto;
+}
+
+.advantage-content h3 {
+    margin: 0;
+    color: #062536;
+    font-size: 46px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.advantage-card-label {
+    margin: 13px 0 0;
+    color: #082536;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.card-divider {
+    width: 100%;
+    height: 1px;
+    margin: 22px 0 16px;
+    background: #d6dfe2;
+}
+
+.advantage-description {
+    max-width: 320px;
+    margin: 0;
+    color: #708089;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+/* =========================
+   CENTER IMAGE
+========================= */
+
+.advantage-center-image {
+    position: relative;
+    height: 370px;
+    border-radius: 13px;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.advantage-center-image:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 22px 45px rgba(3, 35, 50, 0.17);
+}
+
+.advantage-center-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.advantage-center-image:hover img {
+    transform: scale(1.08);
+}
+
+.image-green-dot {
+    position: absolute;
+    left: 50%;
+    bottom: 58px;
+    width: 9px;
+    height: 9px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #49ad3e;
+}
+
+/* =========================
+   SCROLL IMAGE ANIMATION
+========================= */
+
+.reveal-image {
+    opacity: 0;
+    transform: translateY(45px) scale(0.94);
+}
+
+.is-visible .reveal-image {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: 0.28s;
+}
+
+/* =========================
+   CARD SCROLL ANIMATION
+========================= */
+
+.reveal-card {
+    opacity: 0;
+    transform: translateY(45px);
+}
+
+.is-visible .reveal-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.is-visible .left-card {
+    transition-delay: 0.18s;
+}
+
+.is-visible .right-card {
+    transition-delay: 0.42s;
+}
+
+/* =========================
+   BOTTOM PILLS
+========================= */
+
+.advantage-pills {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.advantage-pill {
+    min-height: 40px;
+    padding: 0 17px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid #dce3e6;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #092638;
+    font-size: 15px;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.advantage-pill span {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #49ad3e;
+}
+
+.advantage-pill:hover {
+    transform: translateY(-4px);
+    border-color: #49ad3e;
+    box-shadow: 0 8px 20px rgba(73, 173, 62, 0.12);
+    background: black;
+    color: beige;
+}
+
+/* =========================
+   REVIEW
+========================= */
+
+.advantage-review {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #062536;
+}
+
+.review-rating,
+.review-count {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.review-stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: #49ad3e;
+}
+
+.review-count {
+    margin-left: 2px;
+}
+
+/* =========================
+   BOTTOM ANIMATION
+========================= */
+
+.reveal-bottom {
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+.is-visible .reveal-bottom {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: 0.55s;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1050px) {
+    .advantage-container {
+        width: calc(100% - 50px);
+    }
+
+    .advantage-title {
+        font-size: 39px;
+    }
+
+    .advantage-main {
+        gap: 20px;
+    }
+
+    .advantage-card {
+        padding: 30px;
+    }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+    .advantage-section {
+        padding: 75px 0;
+    }
+
+    .advantage-title {
+        font-size: 35px;
+    }
+
+    .advantage-main {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 60px;
+    }
+
+    .advantage-center-image {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .left-card {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .right-card {
+        grid-column: 2;
+        grid-row: 2;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+    .advantage-section {
+        padding: 60px 0 70px;
+    }
+
+    .advantage-container {
+        width: calc(100% - 36px);
+    }
+
+    .advantage-title {
+        font-size: 29px;
+        line-height: 1.2;
+        letter-spacing: -0.7px;
+    }
+
+    .title-inline-image {
+        width: 75px;
+        height: 32px;
+        margin: 0 4px;
+    }
+
+    .advantage-main {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 48px;
+    }
+
+    .advantage-center-image {
+        order: 1;
+        width: 100%;
+        height: 300px;
+    }
+
+    .left-card {
+        order: 2;
+    }
+
+    .right-card {
+        order: 3;
+    }
+
+    .advantage-card {
+        width: 100%;
+        height: 320px;
+        padding: 30px;
+    }
+
+    .advantage-content h3 {
+        font-size: 40px;
+    }
+
+    .advantage-description {
+        font-size: 15px;
+    }
+
+    .advantage-pills {
+        margin-top: 42px;
+        gap: 10px;
+    }
+
+    .advantage-pill {
+        font-size: 13px;
+        padding: 0 13px;
+    }
+
+    .advantage-review {
+        margin-top: 25px;
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+
+    .review-rating,
+    .review-count {
+        font-size: 16px;
+    }
+
+    .review-stars svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+    .advantage-title {
+        font-size: 26px;
+    }
+
+    .title-inline-image {
+        width: 65px;
+        height: 29px;
+    }
+
+    .advantage-center-image {
+        height: 270px;
+    }
+
+    .advantage-card {
+        height: 300px;
+        padding: 25px;
+    }
+
+    .advantage-content h3 {
+        font-size: 37px;
+    }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .title-row,
+    .title-inline-image,
+    .reveal-image,
+    .reveal-card,
+    .reveal-bottom {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        transition: none;
+    }
+
+    .advantage-card,
+    .advantage-center-image,
+    .advantage-center-image img,
+    .advantage-pill {
+        transition: none;
+    }
+}

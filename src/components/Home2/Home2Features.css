@@ -1,0 +1,954 @@
+/* =========================================
+   HOME 2 FEATURES
+========================================= */
+
+.home2-features {
+    position: relative;
+    width: 100%;
+    padding: 105px 0 120px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.home2-features-container {
+    width: min(1280px, calc(100% - 80px));
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(560px, 1fr) minmax(520px, 1fr);
+
+    gap: 45px;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   LEFT
+========================================= */
+
+.home2-features-left {
+    width: 100%;
+}
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+.home2-reveal-left {
+    opacity: 0;
+    transform: translateX(-55px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home2-reveal-left.home2-feature-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
+
+.home2-features-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px 17px;
+
+    background: #f1f7f8;
+    border-radius: 30px;
+
+    color: #071a28;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.home2-features-badge span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.home2-features-left h2 {
+    margin: 22px 0 46px;
+
+    color: #071a28;
+
+    font-size: clamp(42px, 4vw, 58px);
+    font-weight: 600;
+
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+
+/* =========================================
+   FEATURE GRID
+========================================= */
+
+.home2-feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+
+/* =========================================
+   FEATURE CARD
+========================================= */
+
+.home2-feature-card {
+    min-height: 97px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    background: #f3f8f9;
+    border-radius: 12px;
+
+    opacity: 0;
+    transform: translateY(45px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.home2-feature-card.home2-feature-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home2-card-delay-1 {
+    transition-delay: 0.05s;
+}
+
+.home2-card-delay-2 {
+    transition-delay: 0.15s;
+}
+
+.home2-card-delay-3 {
+    transition-delay: 0.25s;
+}
+
+.home2-card-delay-4 {
+    transition-delay: 0.35s;
+}
+
+.home2-feature-card:hover {
+    transform: translateY(-6px) !important;
+
+    background: #eef7f0;
+
+    box-shadow:
+        0 15px 35px rgba(7, 26, 40, 0.08);
+}
+
+
+/* =========================================
+   FEATURE ICON
+========================================= */
+
+.home2-feature-icon {
+    width: 50px;
+    height: 50px;
+
+    flex: 0 0 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+    color: #ffffff;
+
+    transition:
+        transform 0.45s ease,
+        background 0.45s ease,
+        color 0.45s ease;
+}
+
+.home2-feature-card:hover .home2-feature-icon {
+    transform:
+        rotate(10deg) scale(1.08);
+
+    background: #cfea48;
+    color: #071a28;
+}
+
+
+/* =========================================
+   FEATURE TEXT
+========================================= */
+
+.home2-feature-text h3 {
+    margin: 0;
+
+    color: #071a28;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 1.35;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.home2-features-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 40px 0;
+
+    background: #e0e5e7;
+}
+
+
+/* =========================================
+   BOTTOM CONTACT
+========================================= */
+
+.home2-features-contact {
+    display: flex;
+    align-items: center;
+
+    gap: 40px;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.home2-features-solar-btn {
+    min-width: 187px;
+    height: 50px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    border-radius: 5px;
+
+    background: #43ad3d;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.home2-features-solar-btn:hover {
+    background: #000000;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   PHONE
+========================================= */
+
+.home2-features-phone {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.home2-features-phone-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.home2-features-phone:hover .home2-features-phone-icon {
+    transform: rotate(-8deg) scale(1.06);
+}
+
+.home2-features-phone-text {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.home2-features-phone-text span {
+    color: #80858a;
+    font-size: 14px;
+}
+
+.home2-features-phone-text strong {
+    color: #071a28;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   RIGHT IMAGE
+========================================= */
+
+.home2-features-right {
+    width: 100%;
+
+    opacity: 0;
+
+    transform:
+        translateX(65px) scale(0.96);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+
+    transition-delay: 0.15s;
+}
+
+.home2-features-right.home2-feature-visible {
+    opacity: 1;
+
+    transform:
+        translateX(0) scale(1);
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.home2-features-image {
+    position: relative;
+
+    width: 100%;
+    height: 605px;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #dce7ea;
+}
+
+.home2-features-image>img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.6s ease;
+}
+
+.home2-features-image:hover>img {
+    transform: scale(1.06);
+    filter: brightness(1.04);
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.home2-features-image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(4, 22, 35, 0.01),
+            rgba(4, 22, 35, 0.08));
+}
+
+
+/* =========================================
+   GREEN DOT
+========================================= */
+
+.home2-features-green-dot {
+    position: absolute;
+
+    top: 45px;
+    left: -7px;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #43ad3d;
+
+    animation:
+        home2FeatureDotPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes home2FeatureDotPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 0.55;
+    }
+}
+
+
+/* =========================================
+   CUSTOMER CARD
+========================================= */
+
+.home2-customer-trust {
+    position: absolute;
+
+    left: 24px;
+    bottom: 20px;
+
+    width: 225px;
+
+    padding: 15px 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    border-radius: 12px;
+
+    background: rgba(12, 34, 47, 0.74);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.14);
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+
+    transition-delay: 0.75s;
+
+    z-index: 20;
+}
+
+.home2-features-right.home2-feature-visible .home2-customer-trust {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   AVATAR ROW
+========================================= */
+
+.home2-trust-avatars {
+    width: max-content !important;
+    height: 32px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    gap: 0 !important;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   AVATAR - SMALL CIRCLE
+========================================= */
+
+.home2-customer-trust .home2-trust-avatar {
+    width: 30px !important;
+    height: 30px !important;
+
+    min-width: 30px !important;
+    max-width: 30px !important;
+
+    min-height: 30px !important;
+    max-height: 30px !important;
+
+    flex: 0 0 30px !important;
+
+    display: block !important;
+
+    margin: 0 0 0 -7px !important;
+    padding: 0 !important;
+
+    border: 2px solid #ffffff !important;
+    border-radius: 50% !important;
+
+    background: #d9e0e2 !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    aspect-ratio: 1 / 1 !important;
+
+    overflow: hidden !important;
+
+    box-sizing: border-box !important;
+
+    position: relative;
+
+    z-index: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        z-index 0.3s ease;
+}
+
+.home2-customer-trust .home2-trust-avatar:first-child {
+    margin-left: 0 !important;
+}
+
+.home2-customer-trust .home2-trust-avatar:hover {
+    transform:
+        translateY(-3px) scale(1.08) !important;
+
+    z-index: 10;
+}
+
+
+/* =========================================
+   PLUS CIRCLE
+========================================= */
+
+.home2-customer-trust .home2-trust-plus {
+    width: 32px !important;
+    height: 32px !important;
+
+    min-width: 32px !important;
+    max-width: 32px !important;
+
+    min-height: 32px !important;
+    max-height: 32px !important;
+
+    flex: 0 0 32px !important;
+
+    margin: 0 0 0 -4px !important;
+    padding: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+
+    border: 2px solid #ffffff !important;
+
+    background: #43ad3d !important;
+
+    color: #ffffff !important;
+
+    font-size: 20px !important;
+
+    font-weight: 400 !important;
+
+    line-height: 1 !important;
+
+    box-sizing: border-box !important;
+
+    position: relative;
+
+    z-index: 5;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.home2-customer-trust .home2-trust-plus:hover {
+    transform: scale(1.08);
+
+    background: #359c35 !important;
+}
+
+
+/* =========================================
+   TRUST TEXT
+========================================= */
+
+.home2-trust-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.home2-trust-text strong {
+    margin: 0;
+    padding: 0;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+}
+
+.home2-trust-text span {
+    margin: 0;
+    padding: 0;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================
+   REVEAL DELAYS
+========================================= */
+
+.home2-reveal-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.home2-reveal-delay-5 {
+    transition-delay: 0.2s;
+}
+
+.home2-reveal-delay-6 {
+    transition-delay: 0.3s;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .home2-features-container {
+        width: calc(100% - 50px);
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+    .home2-features-left {
+        max-width: 850px;
+        margin: 0 auto;
+    }
+
+    .home2-features-right {
+        width: min(850px, 100%);
+        margin: 0 auto;
+    }
+
+    .home2-features-image {
+        height: 560px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+    .home2-features {
+        padding: 70px 0 80px;
+    }
+
+    .home2-features-container {
+        width: calc(100% - 32px);
+
+        gap: 45px;
+    }
+
+    .home2-features-left h2 {
+        margin-bottom: 35px;
+
+        font-size: 35px;
+
+        line-height: 1.12;
+
+        letter-spacing: -1px;
+    }
+
+    .home2-feature-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .home2-feature-card {
+        min-height: 88px;
+
+        padding: 16px;
+    }
+
+    .home2-feature-icon {
+        width: 46px;
+        height: 46px;
+
+        flex-basis: 46px;
+    }
+
+    .home2-feature-text h3 {
+        font-size: 17px;
+    }
+
+    .home2-features-divider {
+        margin: 30px 0;
+    }
+
+    .home2-features-contact {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+    .home2-features-solar-btn {
+        width: 100%;
+    }
+
+    .home2-features-image {
+        height: 460px;
+
+        border-radius: 11px;
+    }
+
+    .home2-customer-trust {
+        left: 15px;
+        bottom: 15px;
+
+        width: 195px;
+
+        padding: 12px 13px;
+    }
+
+    .home2-trust-avatars {
+        height: 29px !important;
+    }
+
+    .home2-customer-trust .home2-trust-avatar {
+        width: 27px !important;
+        height: 27px !important;
+
+        min-width: 27px !important;
+        max-width: 27px !important;
+
+        min-height: 27px !important;
+        max-height: 27px !important;
+
+        flex-basis: 27px !important;
+
+        margin-left: -6px !important;
+
+        border-width: 1.5px !important;
+    }
+
+    .home2-customer-trust .home2-trust-avatar:first-child {
+        margin-left: 0 !important;
+    }
+
+    .home2-customer-trust .home2-trust-plus {
+        width: 29px !important;
+        height: 29px !important;
+
+        min-width: 29px !important;
+        max-width: 29px !important;
+
+        min-height: 29px !important;
+        max-height: 29px !important;
+
+        flex-basis: 29px !important;
+
+        margin-left: -4px !important;
+
+        font-size: 18px !important;
+
+        border-width: 1.5px !important;
+    }
+
+    .home2-trust-text strong {
+        font-size: 13px;
+    }
+
+    .home2-trust-text span {
+        font-size: 12px;
+    }
+
+    .home2-features-right {
+        transform:
+            translateY(45px) scale(0.97);
+    }
+
+    .home2-features-right.home2-feature-visible {
+        transform:
+            translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+    .home2-features-container {
+        width: calc(100% - 24px);
+    }
+
+    .home2-features-left h2 {
+        font-size: 31px;
+    }
+
+    .home2-features-image {
+        height: 400px;
+    }
+
+    .home2-customer-trust {
+        width: 180px;
+    }
+
+    .home2-customer-trust .home2-trust-avatar {
+        width: 25px !important;
+        height: 25px !important;
+
+        min-width: 25px !important;
+        max-width: 25px !important;
+
+        min-height: 25px !important;
+        max-height: 25px !important;
+
+        flex-basis: 25px !important;
+    }
+
+    .home2-customer-trust .home2-trust-plus {
+        width: 27px !important;
+        height: 27px !important;
+
+        min-width: 27px !important;
+        max-width: 27px !important;
+
+        min-height: 27px !important;
+        max-height: 27px !important;
+
+        flex-basis: 27px !important;
+
+        font-size: 17px !important;
+    }
+}
+
+
+/* =========================================
+   REDUCE MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .home2-reveal-left,
+    .home2-feature-card,
+    .home2-features-right,
+    .home2-customer-trust {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+    .home2-features-green-dot {
+        animation: none;
+    }
+
+    .home2-features-image>img {
+        transition: none;
+    }
+}

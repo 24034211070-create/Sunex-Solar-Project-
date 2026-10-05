@@ -1,0 +1,152 @@
+.top-navbar {
+    width: 100%;
+    background-color: #f5f6ef;
+    padding: 12px 20px;
+    box-sizing: border-box;
+
+}
+
+.top-navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+}
+
+.offer-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #171717;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.offer-icon {
+    font-size: 15px;
+}
+
+/* Buy Now + Arrow */
+
+.buy-now-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Buy Now Button */
+
+.buy-now-btn {
+    border: none;
+    outline: none;
+    background-color: #d9f45b;
+    color: #111;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Arrow */
+/* Is code ko touch nahi kiya */
+
+.animated-arrow {
+    width: 45px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    transform: rotate(-180deg);
+}
+
+.animated-arrow img {
+    width: 45px;
+    height: auto;
+    display: block;
+
+    transform: scaleX(-1);
+    transform: scaleY(1);
+}
+
+
+/* ================================= */
+/* Mobile View */
+/* ================================= */
+
+@media (max-width: 767px) {
+
+    .top-navbar {
+        width: 100%;
+        height: 40px;
+        padding: 4px 10px;
+    }
+
+    .top-navbar-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+    }
+
+    /* Mobile Offer Text */
+
+    .offer-text {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 12px;
+        line-height: 1;
+        font-weight: 600;
+        white-space: nowrap;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .offer-icon {
+        font-size: 13px;
+        line-height: 1;
+        flex-shrink: 0;
+    }
+
+    /* Buy Now */
+
+    .buy-now-wrapper {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .buy-now-btn {
+        padding: 4px 8px;
+        font-size: 13px;
+        line-height: 1;
+
+        border-radius: 20px;
+
+        white-space: nowrap;
+    }
+
+    /* Mobile par Arrow nahi */
+
+    .animated-arrow {
+        display: none;
+    }
+}
+
+/* =============================== */
+/* Buy Now Hover - Desktop + iPad */
+/* =============================== */
+
+@media (min-width: 768px) {
+
+    .buy-now-btn:hover {
+        background-color: #000;
+        color: #fff;
+    }
+
+}

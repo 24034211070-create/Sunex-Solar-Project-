@@ -1,0 +1,411 @@
+/* =========================================
+   CONTACT NAVBAR
+========================================= */
+
+.contact-navbar {
+    width: 100%;
+    background-color: #43ad3d;
+    color: #fff;
+}
+
+.contact-navbar-container {
+    width: 100%;
+    max-width: auto;
+    min-height: 60px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   LEFT CONTACT INFO
+========================================= */
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+    color: #000;
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   RIGHT SOCIAL
+========================================= */
+
+.social-section {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.follow-text {
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 19px;
+
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #000;
+}
+
+.facebook {
+    font-family: Arial, sans-serif;
+}
+
+.social-divider {
+    width: 1px;
+    height: 22px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1200px) {
+
+    .contact-navbar-container {
+        padding: 16px 40px;
+    }
+
+    .contact-item,
+    .follow-text {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1199px) {
+
+    .contact-navbar-container {
+        padding: 14px 25px;
+    }
+
+    .contact-info {
+        gap: 22px;
+    }
+
+    .contact-item,
+    .follow-text {
+        font-size: 17px;
+    }
+
+    .social-section {
+        gap: 12px;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+
+    .social-link {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================
+   IPAD
+========================================= */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .contact-navbar-container {
+        min-height: 55px;
+        padding: 12px 20px;
+    }
+
+    .contact-info {
+        gap: 15px;
+    }
+
+    .contact-item {
+        gap: 6px;
+        font-size: 15px;
+    }
+
+    .follow-text {
+        font-size: 15px;
+    }
+
+    .social-section {
+        gap: 8px;
+    }
+
+    .social-links {
+        gap: 8px;
+    }
+
+    .social-link {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   PHONE + EMAIL
+   LABELS HIDDEN
+========================================= */
+
+@media (max-width: 767px) {
+
+    .contact-navbar {
+        width: 100%;
+        background-color: #43ad3d;
+    }
+
+    .contact-navbar-container {
+        width: 100%;
+        max-width: 100%;
+        min-height: 0;
+        height: 40px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .contact-info {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
+        text-decoration: none;
+        flex-shrink: 0;
+    }
+
+    /* ICON */
+
+    .contact-icon {
+        width: 17px;
+        height: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* HIDE LABELS ONLY */
+
+    .contact-label {
+        display: none;
+    }
+
+    /* KEEP ACTUAL PHONE + EMAIL */
+
+    .contact-value {
+        display: inline;
+    }
+
+    /* HIDE SOCIAL */
+
+    .social-section {
+        display: none;
+    }
+}
+
+/* =========================================
+   MOBILE 600px
+========================================= */
+
+@media (max-width: 600px) {
+
+    .contact-navbar-container {
+        height: 40px;
+        padding: 0 12px;
+    }
+
+    .contact-info {
+        gap: 15px;
+    }
+
+    .contact-item {
+        font-size: 14px;
+        /* 13px → 14px */
+        gap: 5px;
+    }
+
+    .contact-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .contact-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+
+/* =========================================
+   MOBILE 480px
+========================================= */
+
+@media (max-width: 480px) {
+
+    .contact-navbar-container {
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    .contact-info {
+        gap: 8px;
+    }
+
+    .contact-item {
+        font-size: 20px;
+        /* 12px → 13px */
+        gap: 4px;
+    }
+
+    .contact-icon {
+        width: 17px;
+        height: 17px;
+    }
+
+    .contact-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+
+/* =========================================
+   MOBILE 400px
+========================================= */
+
+@media (max-width: 400px) {
+
+    .contact-navbar-container {
+        height: 40px;
+        padding: 0 8px;
+    }
+
+    .contact-info {
+        gap: 5px;
+    }
+
+    .contact-item {
+        font-size: 12px;
+        /* 11px → 12px */
+        gap: 3px;
+    }
+
+    .contact-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .contact-icon svg {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+
+/* =========================================
+   MOBILE 360px
+========================================= */
+
+@media (max-width: 360px) {
+
+    .contact-navbar-container {
+        height: 39px;
+        padding: 0 6px;
+    }
+
+    .contact-info {
+        gap: 3px;
+    }
+
+    .contact-item {
+        font-size: 11px;
+        /* 10px → 11px */
+        gap: 3px;
+    }
+
+    .contact-icon {
+        width: 15px;
+        height: 15px;
+    }
+
+    .contact-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+}

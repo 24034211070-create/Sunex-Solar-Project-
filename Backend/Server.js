@@ -644,7 +644,6 @@ app.put("/api/pages/:id", authMiddleware, adminMiddleware, async (req, res) => {
       title,
       description,
       image,
-
       badge,
       video,
       primary_button_text,
@@ -656,7 +655,6 @@ app.put("/api/pages/:id", authMiddleware, adminMiddleware, async (req, res) => {
       avatar_2,
       avatar_3,
       avatar_4,
-
       content,
     } = req.body;
 
@@ -670,12 +668,6 @@ app.put("/api/pages/:id", authMiddleware, adminMiddleware, async (req, res) => {
         message: "Page not found",
       });
     }
-
-    // --------------------------------------------------
-    // IMPORTANT:
-    // Only update fields that were actually supplied.
-    // This prevents missing fields becoming NULL.
-    // --------------------------------------------------
 
     const updateData = {
       pageName: page_name !== undefined ? page_name : existingPage.pageName,
@@ -795,10 +787,7 @@ app.post("/api/pages", authMiddleware, adminMiddleware, async (req, res) => {
     return res.status(201).json({
       success: true,
       message: "Page created successfully",
-
-      // IMPORTANT
       id: page.id,
-
       page,
     });
   } catch (error) {
@@ -871,8 +860,8 @@ app.delete(
 // SERVER START
 // ======================================================
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Sunex Backend Server running on port ${PORT}`);
 });

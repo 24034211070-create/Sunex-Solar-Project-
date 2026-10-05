@@ -79,6 +79,7 @@
     clip-path: inset(0 0 100% 0);
     transform: translateY(45px);
     opacity: 0;
+
     transition:
         clip-path 0.9s cubic-bezier(0.22, 1, 0.36, 1),
         transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
@@ -120,42 +121,156 @@
 
 /* =========================================================
    CONTACT BUTTON
+   EXACT SCREENSHOT STYLE
 ========================================================= */
 
 .contact-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    margin-top: 28px;
+
+    width: 156px;
     min-width: 156px;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 10px;
+    height: 50px;
+
+    margin-top: 28px;
+    padding: 0 18px;
+
+    box-sizing: border-box;
+
     background: #48ad3d;
     color: #ffffff;
+
+    border: none;
+    border-radius: 5px;
+
+    gap: 12px;
+
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 1;
+
+    white-space: nowrap;
+    word-break: keep-all;
+
     cursor: pointer;
+
+    transform: none;
+    box-shadow: none;
+
+    /* Scroll reveal only */
     transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
+        opacity 0.7s ease 0.48s,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s;
+    
 }
+
+
+/* =========================================================
+   CONTACT BUTTON TEXT
+========================================================= */
+
+.contact-btn span {
+    display: inline-block;
+
+    margin: 0;
+    padding: 0;
+
+    /* color: #ffffff; */
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+
+    white-space: nowrap;
+
+    transform: none !important;
+    rotate: 0deg !important;
+    animation: none !important;
+}
+
+
+/* =========================================================
+   CONTACT BUTTON ICON
+========================================================= */
 
 .contact-btn svg {
-    transition: transform 0.35s ease;
+    display: block;
+
+    width: 17px;
+    height: 17px;
+
+    min-width: 17px;
+    min-height: 17px;
+
+    flex-shrink: 0;
+
 }
 
+
+/* =========================================================
+   CONTACT BUTTON - NO HOVER EFFECT
+========================================================= */
+
 .contact-btn:hover {
-    background: #000000;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(72, 173, 61, 0.2);
+    background: #48ad3d;
+    color: black;
+
+    border: none;
+    border-radius: 4px;
+
+    box-shadow: none;
+
+    /* No lift / no scale / no rotation */
+    transform: none;
+}
+
+/* .contact-btn:hover span {
+    color: #ffffff;
+    transform: none !important;
+    rotate: 0deg !important;
 }
 
 .contact-btn:hover svg {
-    transform: translate(4px, -4px);
+    color: #ffffff;
+    transform: none !important;
+    rotate: 0deg !important;
+} */
+
+
+/* =========================================================
+   CONTACT BUTTON - FOCUS / ACTIVE
+========================================================= */
+
+.contact-btn:focus,
+.contact-btn:focus-visible,
+.contact-btn:active {
+    background: #48ad3d;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 4px;
+
+    outline: none;
+    box-shadow: none;
+
+    transform: none;
 }
+/* 
+.contact-btn:focus span,
+.contact-btn:focus-visible span,
+.contact-btn:active span {
+    transform: none !important;
+    rotate: 0deg !important;
+}
+
+.contact-btn:focus svg,
+.contact-btn:focus-visible svg,
+.contact-btn:active svg {
+    transform: none !important;
+    rotate: 0deg !important;
+} */
 
 
 /* =========================================================
@@ -178,6 +293,7 @@
     position: relative;
     height: 560px;
     overflow: visible;
+
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -190,12 +306,16 @@
 
 .solar-circle {
     position: absolute;
+
     width: 390px;
     height: 390px;
+
     left: 0;
     bottom: 25px;
-    background: #e2f1e8;
+
+    background: black;
     border-radius: 50%;
+
     z-index: 1;
 
     opacity: 0;
@@ -206,10 +326,10 @@
         transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.solar-image-wrapper.active .solar-circle {
+/* .solar-image-wrapper.active .solar-circle {
     opacity: 1;
     transform: scale(1);
-}
+} */
 
 
 /* =========================================================
@@ -218,10 +338,13 @@
 
 .solar-worker {
     position: absolute;
+
     z-index: 3;
+
     height: 650px;
     width: auto;
     max-width: none;
+
     left: 50%;
     bottom: 0;
 
@@ -242,39 +365,10 @@
 
 .solar-image-wrapper.active .solar-worker {
     opacity: 1;
+
     transform:
         translateX(-50%) translateY(0) scale(1);
 }
-
-
-/* =========================================================
-   IMAGE DOT
-========================================================= */
-
-.image-dot {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: -34px;
-    left: 58%;
-    background: #48ad3d;
-    border-radius: 50%;
-    z-index: 5;
-
-    opacity: 0;
-    transform: scale(0);
-
-    transition:
-        opacity 0.5s ease 0.65s,
-        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.65s;
-}
-
-.solar-image-wrapper.active .image-dot {
-    opacity: 1;
-    transform: scale(1);
-    animation: dotFloat 3s ease-in-out 1.2s infinite;
-}
-
 
 /* =========================================================
    FEATURE GRID
@@ -294,9 +388,12 @@
 
 .feature-card {
     position: relative;
+
     min-height: 236px;
     padding: 30px;
+
     box-sizing: border-box;
+
     background: #ffffff;
     border-radius: 14px;
 
@@ -305,7 +402,9 @@
     justify-content: space-between;
 
     opacity: 0;
-    transform: translateY(55px) scale(0.97);
+
+    transform:
+        translateY(55px) scale(0.97);
 
     transition:
         opacity 0.8s ease var(--card-delay),
@@ -315,12 +414,17 @@
 
 .feature-card.active {
     opacity: 1;
-    transform: translateY(0) scale(1);
+
+    transform:
+        translateY(0) scale(1);
 }
 
 .feature-card:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 20px 45px rgba(20, 50, 70, 0.09);
+    transform:
+        translateY(-8px) scale(1.01);
+
+    box-shadow:
+        0 20px 45px rgba(20, 50, 70, 0.09);
 }
 
 
@@ -342,10 +446,13 @@
 .feature-icon {
     width: 50px;
     height: 50px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     border-radius: 50%;
+
     background: #48ad3d;
     color: #ffffff;
 
@@ -355,8 +462,11 @@
 }
 
 .feature-card:hover .feature-icon {
-    transform: rotate(8deg) scale(1.1);
-    box-shadow: 0 8px 18px rgba(72, 173, 61, 0.25);
+    transform:
+        rotate(8deg) scale(1.1);
+
+    box-shadow:
+        0 8px 18px rgba(72, 173, 61, 0.25);
 }
 
 
@@ -381,7 +491,9 @@
 
 .card-content h3 {
     margin: 0 0 10px;
+
     color: #08273a;
+
     font-size: 20px;
     line-height: 1.25;
     font-weight: 600;
@@ -401,8 +513,11 @@
 
 .card-content p {
     margin: 0;
+
     max-width: 400px;
+
     color: #7b8085;
+
     font-size: 16px;
     line-height: 1.5;
 
@@ -426,22 +541,27 @@
 
 .decor-dot {
     position: absolute;
+
     width: 10px;
     height: 10px;
+
     background: #48ad3d;
     border-radius: 50%;
+
     z-index: 4;
 }
 
 .decor-dot-one {
     left: 20%;
     top: 295px;
+
     animation: dotFloat 3.5s ease-in-out infinite;
 }
 
 .decor-dot-two {
     right: 4%;
     top: 250px;
+
     animation: dotFloat 4s ease-in-out 0.5s infinite;
 }
 
@@ -452,17 +572,23 @@
 
 .solar-background-lines {
     position: absolute;
+
     left: 31%;
     right: 0;
     bottom: 0;
+
     height: 430px;
+
     pointer-events: none;
+
     opacity: 0.65;
+
     z-index: 1;
 }
 
 .line-house {
     position: absolute;
+
     border: 1px solid #d6e1e5;
     opacity: 0.8;
 }
@@ -470,24 +596,30 @@
 .line-house-one {
     width: 300px;
     height: 180px;
+
     left: 7%;
     bottom: -70px;
+
     transform: skewY(-8deg);
 }
 
 .line-house-two {
     width: 350px;
     height: 200px;
+
     left: 38%;
     bottom: -80px;
+
     transform: skewY(5deg);
 }
 
 .line-house-three {
     width: 280px;
     height: 170px;
+
     right: 5%;
     bottom: -60px;
+
     transform: skewY(-5deg);
 }
 
@@ -498,7 +630,9 @@
 
 .reveal {
     opacity: 0;
+
     transform: translateY(45px);
+
     transition:
         opacity 0.8s ease,
         transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
@@ -529,6 +663,7 @@
 .solar-intro p {
     transform: translateY(18px);
     opacity: 0;
+
     transition:
         opacity 0.75s ease 0.3s,
         transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
@@ -539,14 +674,19 @@
     transform: translateY(0);
 }
 
+
+/* =========================================================
+   CONTACT BUTTON REVEAL
+========================================================= */
+
 .solar-intro .contact-btn {
     opacity: 0;
+
     transform: translateY(18px);
+
     transition:
         opacity 0.7s ease 0.48s,
-        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s;
 }
 
 .solar-intro.active .contact-btn {
@@ -662,11 +802,14 @@
 
     .solar-circle {
         left: 50%;
-        transform: translateX(-50%) scale(0.65);
+
+        transform:
+            translateX(-50%) scale(0.65);
     }
 
     .solar-image-wrapper.active .solar-circle {
-        transform: translateX(-50%) scale(1);
+        transform:
+            translateX(-50%) scale(1);
     }
 
     .feature-grid {
@@ -705,6 +848,7 @@
 
     .solar-title {
         margin: 18px 0 0;
+
         font-size: 32px;
         line-height: 1.12;
         letter-spacing: -1px;
@@ -724,40 +868,106 @@
         line-height: 1.55;
     }
 
+
+    /* =====================================================
+       MOBILE CONTACT BUTTON
+    ===================================================== */
+
     .contact-btn {
+        width: 156px;
+        min-width: 156px;
+        height: 50px;
+
         margin-top: 20px;
-        min-width: 140px;
-        padding: 13px 18px;
-        font-size: 14px;
+        padding: 0 18px;
+
+        border-radius: 4px;
+
+        gap: 12px;
+
+        background: #48ad3d;
+        color: #ffffff;
+
+        font-size: 16px;
+        font-weight: 700;
+
+        line-height: 1;
+
+        white-space: nowrap;
+        word-break: keep-all;
+        flex-wrap: nowrap;
     }
+
+    .contact-btn span {
+        font-size: 16px;
+        font-weight: 700;
+
+        white-space: nowrap;
+
+        transform: none !important;
+        rotate: 0deg !important;
+        animation: none !important;
+    }
+
+    .contact-btn svg {
+        width: 17px;
+        height: 17px;
+
+        min-width: 17px;
+        min-height: 17px;
+
+        transform: none !important;
+        rotate: 0deg !important;
+        animation: none !important;
+    }
+
+    .contact-btn:hover,
+    .contact-btn:focus,
+    .contact-btn:focus-visible,
+    .contact-btn:active {
+        background: #48ad3d;
+        color: #ffffff;
+
+        border: none;
+        border-radius: 4px;
+
+        box-shadow: none;
+
+        transform: none;
+    }
+
+
+    /* =====================================================
+       IMAGE
+    ===================================================== */
 
     .solar-main {
         display: flex;
         flex-direction: column;
+
         margin-top: 40px;
         gap: 25px;
     }
-
-
-    /* IMAGE */
 
     .solar-image-wrapper {
         width: 100%;
         height: 420px;
         margin: 0;
+
         overflow: visible;
     }
 
     .solar-circle {
         width: 285px;
         height: 285px;
+
         left: 50%;
         bottom: 10px;
     }
 
     .solar-worker {
         height: 470px;
-        width: auto;
+
         left: 50%;
         bottom: 0;
     }
@@ -765,6 +975,7 @@
     .image-dot {
         width: 8px;
         height: 8px;
+
         top: -10px;
         left: 65%;
     }
@@ -776,75 +987,99 @@
 
     .feature-grid {
         width: 100%;
+
         display: grid;
+
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
+
         gap: 0;
-        background: #ffffff;
-        border-radius: 9px;
+
+        background: #f2f6f8;
+
+        border-radius: 14px;
+
         overflow: hidden;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+
+        box-shadow:
+            0 2px 12px rgba(0, 0, 0, 0.03);
     }
 
 
-    /* CARDS */
+    /* =====================================================
+       MOBILE CARDS
+    ===================================================== */
 
     .feature-card {
         position: relative;
-        min-height: 88px;
-        height: 88px;
-        padding: 10px 6px;
+
+        min-height: 145px;
+        height: 145px;
+
+        padding: 14px 6px;
+
         margin: 0;
 
         border-radius: 0;
-        background: #ffffff;
+
+        background: #f2f6f8;
 
         display: flex;
         flex-direction: column;
+
         align-items: center;
         justify-content: center;
+
         text-align: center;
 
         opacity: 1;
         transform: none;
+
         box-shadow: none;
 
         transition:
-            background 0.3s ease,
-            transform 0.3s ease;
+            background 0.3s ease;
     }
 
     .feature-card:hover {
         transform: none;
         box-shadow: none;
-        background: #fbfdfd;
+        background: #f2f6f8;
     }
 
 
-    /* Vertical divider */
+    /* =====================================================
+       VERTICAL DIVIDER
+    ===================================================== */
 
     .feature-card:nth-child(1),
     .feature-card:nth-child(3) {
-        border-right: 1px solid #e5eaec;
+        border-right: 1px solid #d5dfe3;
     }
 
 
-    /* Horizontal divider */
+    /* =====================================================
+       HORIZONTAL DIVIDER
+    ===================================================== */
 
     .feature-card:nth-child(1),
     .feature-card:nth-child(2) {
-        border-bottom: 1px solid #e5eaec;
+        border-bottom: 1px solid #d5dfe3;
     }
 
 
-    /* ICON */
+    /* =====================================================
+       MOBILE ICON
+    ===================================================== */
 
     .feature-icon {
-        width: 34px;
-        height: 34px;
-        min-width: 34px;
-        min-height: 34px;
-        margin: 0 0 5px;
+        width: 45px;
+        height: 45px;
+
+        min-width: 45px;
+        min-height: 45px;
+
+        margin: 0 0 9px;
         padding: 0;
 
         display: flex;
@@ -853,11 +1088,13 @@
 
         background: #48ad3d;
         color: #ffffff;
+
         border-radius: 50%;
 
         flex-shrink: 0;
 
-        transform: scale(0.85);
+        transform: scale(0.9);
+
         transition:
             transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -871,48 +1108,65 @@
     }
 
     .feature-icon svg {
-        width: 18px;
-        height: 18px;
+        width: 21px;
+        height: 21px;
     }
 
 
-    /* TEXT */
+    /* =====================================================
+       MOBILE CARD CONTENT
+    ===================================================== */
 
     .card-content {
         width: 100%;
+
         margin: 0;
         padding: 0;
 
         display: flex;
         flex-direction: column;
+
         align-items: center;
         justify-content: center;
     }
 
     .card-content h3 {
+        width: 100%;
+
         margin: 0;
         padding: 0;
 
         color: #09283d;
-        font-size: 10px;
+
+        /* Bigger mobile text */
+        font-size: 17px;
+
         line-height: 1.2;
         font-weight: 700;
+
         text-align: center;
-        white-space: nowrap;
+
+        white-space: normal;
 
         opacity: 1;
         transform: none;
     }
 
     .card-content p {
-        margin: 3px 0 0;
+        width: 100%;
+        max-width: 185px;
+
+        margin: 6px auto 0;
         padding: 0;
 
-        max-width: 110px;
-        color: #8a9094;
-        font-size: 7px;
-        line-height: 1.25;
+        color: #71808a;
+
+        /* Bigger mobile description */
+        font-size: 12px;
+
+        line-height: 1.35;
         font-weight: 400;
+
         text-align: center;
 
         opacity: 1;
@@ -934,7 +1188,9 @@
     }
 
 
-    /* HIDE DESKTOP DECORATIONS */
+    /* =====================================================
+       HIDE DESKTOP DECORATIONS
+    ===================================================== */
 
     .decor-dot-one,
     .decor-dot-two,
@@ -962,6 +1218,11 @@
         font-size: 29px;
     }
 
+
+    /* =====================================================
+       IMAGE
+    ===================================================== */
+
     .solar-image-wrapper {
         height: 390px;
     }
@@ -975,32 +1236,207 @@
         height: 265px;
     }
 
+
+    /* =====================================================
+       CONTACT BUTTON
+    ===================================================== */
+
+    .contact-btn {
+        width: 156px;
+        min-width: 156px;
+        height: 50px;
+
+        padding: 0 18px;
+
+        margin-top: 20px;
+
+        border-radius: 4px;
+
+        gap: 12px;
+
+        font-size: 16px;
+        font-weight: 700;
+
+        white-space: nowrap;
+        flex-wrap: nowrap;
+    }
+
+    .contact-btn:hover,
+    .contact-btn:focus,
+    .contact-btn:focus-visible,
+    .contact-btn:active {
+        background: #48ad3d;
+        color: #ffffff;
+
+        border-radius: 4px;
+
+        box-shadow: none;
+
+        transform: none;
+    }
+
+    .contact-btn span {
+        font-size: 16px;
+
+        white-space: nowrap;
+
+        transform: none !important;
+        rotate: 0deg !important;
+        animation: none !important;
+    }
+
+    .contact-btn svg {
+        width: 17px;
+        height: 17px;
+
+        transform: none !important;
+        rotate: 0deg !important;
+        animation: none !important;
+    }
+
+
+    /* =====================================================
+       FEATURE CARDS
+    ===================================================== */
+
     .feature-card {
-        min-height: 86px;
-        height: 86px;
-        padding: 8px 5px;
+        min-height: 140px;
+        height: 140px;
+
+        padding: 10px 5px;
     }
 
     .feature-icon {
-        width: 25px;
-        height: 25px;
-        min-width: 25px;
-        min-height: 25px;
-        margin-bottom: 4px;
+        width: 42px;
+        height: 42px;
+
+        min-width: 42px;
+        min-height: 42px;
+
+        margin-bottom: 7px;
     }
 
     .feature-icon svg {
-        width: 13px;
-        height: 13px;
+        width: 20px;
+        height: 20px;
     }
 
     .card-content h3 {
-        font-size: 9.5px;
+        font-size: 16px;
     }
 
     .card-content p {
-        max-width: 105px;
-        font-size: 6.8px;
+        max-width: 165px;
+
+        margin-top: 5px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .solar-container {
+        width: calc(100% - 16px);
+    }
+
+    .solar-title {
+        font-size: 27px;
+    }
+
+
+    /* =====================================================
+       BUTTON
+    ===================================================== */
+
+    .contact-btn {
+        width: 156px;
+        min-width: 156px;
+        height: 50px;
+
+        padding: 0 18px;
+
+        font-size: 16px;
+        font-weight: 700;
+
+        gap: 12px;
+
+        white-space: nowrap;
+        flex-wrap: nowrap;
+    }
+
+    .contact-btn:hover,
+    .contact-btn:focus,
+    .contact-btn:focus-visible,
+    .contact-btn:active {
+        background: #48ad3d;
+        color: #ffffff;
+
+        border-radius: 4px;
+
+        box-shadow: none;
+
+        transform: none;
+    }
+
+    .contact-btn span {
+        font-size: 16px;
+
+        white-space: nowrap;
+
+        transform: none !important;
+        rotate: 0deg !important;
+        animation: none !important;
+    }
+
+    .contact-btn svg {
+        width: 17px;
+        height: 17px;
+
+        transform: none !important;
+        rotate: 0deg !important;
+        animation: none !important;
+    }
+
+
+    /* =====================================================
+       SMALL CARDS
+    ===================================================== */
+
+    .feature-card {
+        min-height: 132px;
+        height: 132px;
+
+        padding: 10px 4px;
+    }
+
+    .feature-icon {
+        width: 38px;
+        height: 38px;
+
+        min-width: 38px;
+        min-height: 38px;
+
+        margin-bottom: 6px;
+    }
+
+    .feature-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .card-content h3 {
+        font-size: 14px;
+    }
+
+    .card-content p {
+        max-width: 150px;
+        font-size: 10px;
     }
 }
 

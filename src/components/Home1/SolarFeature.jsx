@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import {
     Sun,
     Globe,
@@ -9,7 +10,6 @@ import {
 
 import "./SolarFeature.css";
 import m8 from "../../assets/Heroimages/m8.png";
-
 import { getPages } from "../../Api/api";
 
 const DEFAULT_FEATURE = {
@@ -53,7 +53,6 @@ const DEFAULT_FEATURE = {
     ],
 };
 
-// Icon name ko actual Lucide icon mein convert karega
 const iconMap = {
     Sun,
     Globe,
@@ -76,40 +75,39 @@ function SolarFeature() {
             try {
                 const data = await getPages();
 
-                if (
-                    !data.success ||
-                    !Array.isArray(data.pages)
-                ) {
-                    return;
-                }
+                /*
+                 * getPages() returns pages array directly.
+                 * So we handle the current API structure here.
+                 */
+                const pages = Array.isArray(data)
+                    ? data
+                    : Array.isArray(data?.pages)
+                        ? data.pages
+                        : [];
 
-                const featurePage =
-                    data.pages.find(
-                        (page) =>
-                            page.page_name ===
-                            "Home" &&
-                            page.section_name ===
-                            "SolarFeature"
-                    );
+                const featurePage = pages.find(
+                    (page) =>
+                        page.page_name?.trim().toLowerCase() ===
+                        "home" &&
+                        page.section_name?.trim().toLowerCase() ===
+                        "solarfeature"
+                );
 
                 if (!featurePage) {
                     return;
                 }
 
-                let content =
-                    featurePage.content;
+                let content = featurePage.content;
 
                 // JSONB string handle
                 if (typeof content === "string") {
                     try {
-                        content =
-                            JSON.parse(content);
+                        content = JSON.parse(content);
                     } catch (error) {
                         console.error(
                             "Solar Feature content parse error:",
                             error
                         );
-
                         return;
                     }
                 }
@@ -143,9 +141,7 @@ function SolarFeature() {
                         DEFAULT_FEATURE.image,
 
                     features:
-                        Array.isArray(
-                            content.features
-                        ) &&
+                        Array.isArray(content.features) &&
                             content.features.length > 0
                             ? content.features
                             : DEFAULT_FEATURE.features,
@@ -166,34 +162,27 @@ function SolarFeature() {
     // ============================
 
     useEffect(() => {
-        const section =
-            sectionRef.current;
+        const section = sectionRef.current;
 
         if (!section) return;
 
         const elements =
-            section.querySelectorAll(
-                ".reveal"
-            );
+            section.querySelectorAll(".reveal");
 
         const observer =
             new IntersectionObserver(
                 (entries) => {
-                    entries.forEach(
-                        (entry) => {
-                            if (
-                                entry.isIntersecting
-                            ) {
-                                entry.target.classList.add(
-                                    "active"
-                                );
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add(
+                                "active"
+                            );
 
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
+                            observer.unobserve(
+                                entry.target
+                            );
                         }
-                    );
+                    });
                 },
                 {
                     threshold: 0.12,
@@ -206,8 +195,7 @@ function SolarFeature() {
             observer.observe(element);
         });
 
-        return () =>
-            observer.disconnect();
+        return () => observer.disconnect();
     }, [featureData]);
 
     // ============================
@@ -223,10 +211,13 @@ function SolarFeature() {
             ref={sectionRef}
         >
             {/* Decorative dots */}
+
             <span className="decor-dot decor-dot-one"></span>
+
             <span className="decor-dot decor-dot-two"></span>
 
             {/* Background line art */}
+
             <div className="solar-background-lines">
                 <div className="line-house line-house-one"></div>
                 <div className="line-house line-house-two"></div>
@@ -242,6 +233,7 @@ function SolarFeature() {
                 <div className="solar-top">
 
                     {/* LEFT */}
+
                     <div className="solar-heading-area">
 
                         <div className="section-label reveal">
@@ -261,14 +253,19 @@ function SolarFeature() {
                     </div>
 
                     {/* RIGHT */}
+
                     <div className="solar-intro reveal">
 
                         <p>
                             {featureData.description}
                         </p>
 
-                        <button className="contact-btn">
+                        {/* CONTACT BUTTON */}
 
+                        <a
+                            href="/contact"
+                            className="contact-btn"
+                        >
                             <span>
                                 {featureData.button_text}
                             </span>
@@ -277,8 +274,7 @@ function SolarFeature() {
                                 size={20}
                                 strokeWidth={2}
                             />
-
-                        </button>
+                        </a>
 
                     </div>
                 </div>
@@ -290,6 +286,7 @@ function SolarFeature() {
                 <div className="solar-main">
 
                     {/* IMAGE */}
+
                     <div className="solar-image-wrapper reveal">
 
                         <div className="solar-circle"></div>
@@ -305,6 +302,7 @@ function SolarFeature() {
                     </div>
 
                     {/* FEATURE CARDS */}
+
                     <div className="feature-grid">
 
                         {featureData.features.map(
@@ -323,7 +321,8 @@ function SolarFeature() {
                                             index
                                         }
                                         style={{
-                                            "--card-delay": `${index * 0.14}s`,
+                                            "--card-delay":
+                                                `${index * 0.14}s`,
                                         }}
                                     >
 

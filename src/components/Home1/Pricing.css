@@ -1,3 +1,7 @@
+/* =========================================
+   PRICING SECTION
+========================================= */
+
 .pricing-section {
     position: relative;
     width: 100%;
@@ -5,6 +9,10 @@
     background: #ffffff;
     overflow: hidden;
 }
+
+/* =========================================
+   HEADER
+========================================= */
 
 .pricing-header {
     text-align: center;
@@ -40,6 +48,11 @@
     font-weight: 700;
     letter-spacing: -2px;
 }
+
+
+/* =========================================
+   BILLING TOGGLE
+========================================= */
 
 .billing-toggle {
     display: flex;
@@ -92,6 +105,11 @@
     transform: translateX(40px);
 }
 
+
+/* =========================================
+   PRICING CONTAINER
+========================================= */
+
 .pricing-container {
     width: 100%;
     max-width: 1280px;
@@ -100,6 +118,11 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
+
+
+/* =========================================
+   PRICING CARD
+========================================= */
 
 .pricing-card {
     position: relative;
@@ -114,6 +137,11 @@
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(3, 27, 40, 0.08);
 }
+
+
+/* =========================================
+   PLAN HEADER
+========================================= */
 
 .plan-header {
     display: flex;
@@ -147,6 +175,11 @@
     letter-spacing: -0.5px;
 }
 
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
 .plan-description {
     max-width: 340px;
     margin: 25px 0 22px;
@@ -160,6 +193,11 @@
     height: 1px;
     background: #d6dfe2;
 }
+
+
+/* =========================================
+   PRICE
+========================================= */
 
 .plan-price {
     display: flex;
@@ -193,6 +231,11 @@
     font-weight: 700;
 }
 
+
+/* =========================================
+   PLAN BUTTON
+========================================= */
+
 .plan-button {
     height: 50px;
     padding: 0 20px;
@@ -223,6 +266,11 @@
 .plan-button:hover .plan-button-arrow {
     transform: translate(3px, -3px);
 }
+
+
+/* =========================================
+   INCLUDED BOX
+========================================= */
 
 .included-box {
     background: #ffffff;
@@ -274,6 +322,11 @@
     font-weight: 700;
 }
 
+
+/* =========================================
+   BENEFITS
+========================================= */
+
 .pricing-benefits {
     max-width: 720px;
     margin: 60px auto 0;
@@ -304,10 +357,16 @@
     font-size: 11px;
 }
 
-/* ==================== SCROLL ANIMATIONS ==================== */
+
+/* =========================================
+   SCROLL ANIMATIONS
+========================================= */
+
 .pricing-reveal {
     opacity: 0;
-    transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    transition:
+        opacity 0.85s ease,
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .pricing-reveal-up {
@@ -347,7 +406,13 @@
     transition-delay: 0.29s;
 }
 
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
     .pricing-reveal {
         opacity: 1;
         transform: none;
@@ -359,8 +424,13 @@
     }
 }
 
-/* ==================== LARGE DESKTOP ==================== */
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
 @media (min-width: 1400px) {
+
     .pricing-section {
         padding-top: 100px;
     }
@@ -374,8 +444,13 @@
     }
 }
 
-/* ==================== TABLET ==================== */
+
+/* =========================================
+   TABLET
+========================================= */
+
 @media (max-width: 1050px) {
+
     .pricing-section {
         padding: 70px 25px 60px;
     }
@@ -411,10 +486,21 @@
     }
 }
 
-/* ==================== MOBILE ==================== */
+
+/* =========================================
+   MOBILE
+   PRICING CARDS = HORIZONTAL SLIDER
+========================================= */
+
 @media (max-width: 767px) {
+
     .pricing-section {
-        padding: 60px 18px 50px;
+        padding: 60px 0 50px;
+        overflow: hidden;
+    }
+
+    .pricing-header {
+        padding: 0 18px;
     }
 
     .pricing-label {
@@ -433,10 +519,16 @@
         display: none;
     }
 
+
+    /* =====================================
+       BILLING TOGGLE
+    ===================================== */
+
     .billing-toggle {
         gap: 14px;
         margin-top: 45px;
         margin-bottom: 35px;
+        padding: 0 18px;
     }
 
     .billing-text {
@@ -459,23 +551,76 @@
         transform: translateX(32px);
     }
 
+
+    /* =====================================
+       MOBILE PRICING SLIDER
+    ===================================== */
+
     .pricing-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        width: 100%;
+        max-width: none;
+
+        display: flex;
+        flex-direction: row;
+
+        gap: 16px;
+
+        overflow-x: auto;
+        overflow-y: visible;
+
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+
+        -webkit-overflow-scrolling: touch;
+
+        padding: 0 18px 12px;
+
+        box-sizing: border-box;
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
+    .pricing-container::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /* =====================================
+       EACH SLIDER CARD
+    ===================================== */
+
     .pricing-card {
-        width: 100%;
+        flex: 0 0 calc(100vw - 36px);
+
+        width: calc(100vw - 36px);
+        max-width: calc(100vw - 36px);
+
+        min-width: calc(100vw - 36px);
+
         min-height: auto;
+
         padding: 28px 22px 18px;
+
         border-radius: 12px;
+
+        box-sizing: border-box;
+
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
     }
 
     .pricing-card:last-child {
         grid-column: auto;
-        max-width: none;
+        max-width: calc(100vw - 36px);
+        width: calc(100vw - 36px);
         margin: 0;
     }
+
+
+    /* =====================================
+       PLAN HEADER
+    ===================================== */
 
     .plan-header {
         gap: 14px;
@@ -491,10 +636,20 @@
         font-size: 18px;
     }
 
+
+    /* =====================================
+       DESCRIPTION
+    ===================================== */
+
     .plan-description {
         font-size: 14px;
         margin-top: 20px;
     }
+
+
+    /* =====================================
+       PRICE
+    ===================================== */
 
     .price {
         font-size: 35px;
@@ -504,11 +659,21 @@
         font-size: 13px;
     }
 
+
+    /* =====================================
+       BUTTON
+    ===================================== */
+
     .plan-button {
         width: 100%;
         height: 48px;
         font-size: 13px;
     }
+
+
+    /* =====================================
+       INCLUDED BOX
+    ===================================== */
 
     .included-box {
         padding: 18px;
@@ -519,12 +684,19 @@
         font-size: 13px;
     }
 
+
+    /* =====================================
+       BENEFITS
+    ===================================== */
+
     .pricing-benefits {
         margin-top: 40px;
         flex-direction: column;
         align-items: flex-start;
         gap: 18px;
         width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .benefit-item {
@@ -532,9 +704,19 @@
     }
 }
 
-/* ==================== SMALL MOBILE ==================== */
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
 @media (max-width: 400px) {
+
     .pricing-section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .pricing-header {
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -543,8 +725,29 @@
         font-size: 30px;
     }
 
+    .billing-toggle {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .pricing-container {
+        padding-left: 15px;
+        padding-right: 15px;
+        gap: 14px;
+    }
+
     .pricing-card {
+        flex-basis: calc(100vw - 30px);
+        width: calc(100vw - 30px);
+        max-width: calc(100vw - 30px);
+        min-width: calc(100vw - 30px);
+
         padding: 25px 18px 18px;
+    }
+
+    .pricing-card:last-child {
+        max-width: calc(100vw - 30px);
+        width: calc(100vw - 30px);
     }
 
     .plan-header h3 {

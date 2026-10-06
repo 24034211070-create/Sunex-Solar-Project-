@@ -123,7 +123,6 @@
    CONTACT BUTTON
    EXACT SCREENSHOT STYLE
 ========================================================= */
-
 .contact-btn {
     display: inline-flex;
     align-items: center;
@@ -155,21 +154,15 @@
     word-break: keep-all;
 
     cursor: pointer;
+    text-decoration: none;
 
     transform: none;
     box-shadow: none;
 
-    /* Scroll reveal only */
     transition:
         opacity 0.7s ease 0.48s,
         transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s;
-    
 }
-
-
-/* =========================================================
-   CONTACT BUTTON TEXT
-========================================================= */
 
 .contact-btn span {
     display: inline-block;
@@ -177,7 +170,7 @@
     margin: 0;
     padding: 0;
 
-    /* color: #ffffff; */
+    color: #ffffff;
 
     font-size: 16px;
     font-weight: 700;
@@ -190,11 +183,6 @@
     animation: none !important;
 }
 
-
-/* =========================================================
-   CONTACT BUTTON ICON
-========================================================= */
-
 .contact-btn svg {
     display: block;
 
@@ -206,42 +194,30 @@
 
     flex-shrink: 0;
 
+    color: #ffffff;
 }
-
-
-/* =========================================================
-   CONTACT BUTTON - NO HOVER EFFECT
-========================================================= */
 
 .contact-btn:hover {
     background: #48ad3d;
-    color: black;
+    color: #ffffff;
 
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
 
     box-shadow: none;
 
-    /* No lift / no scale / no rotation */
     transform: none;
 }
 
-/* .contact-btn:hover span {
+.contact-btn:hover span {
     color: #ffffff;
     transform: none !important;
-    rotate: 0deg !important;
 }
 
 .contact-btn:hover svg {
     color: #ffffff;
     transform: none !important;
-    rotate: 0deg !important;
-} */
-
-
-/* =========================================================
-   CONTACT BUTTON - FOCUS / ACTIVE
-========================================================= */
+}
 
 .contact-btn:focus,
 .contact-btn:focus-visible,
@@ -250,28 +226,13 @@
     color: #ffffff;
 
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
 
     outline: none;
     box-shadow: none;
 
     transform: none;
 }
-/* 
-.contact-btn:focus span,
-.contact-btn:focus-visible span,
-.contact-btn:active span {
-    transform: none !important;
-    rotate: 0deg !important;
-}
-
-.contact-btn:focus svg,
-.contact-btn:focus-visible svg,
-.contact-btn:active svg {
-    transform: none !important;
-    rotate: 0deg !important;
-} */
-
 
 /* =========================================================
    MAIN AREA

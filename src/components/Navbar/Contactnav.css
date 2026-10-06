@@ -386,7 +386,7 @@
 @media (max-width: 600px) {
 
     .contact-navbar-container {
-        height: 36px;
+        height: 45px;
         min-height: 36px;
         padding: 0 12px;
     }
@@ -424,7 +424,7 @@
 @media (max-width: 480px) {
 
     .contact-navbar-container {
-        height: 36px;
+        height: 45px;
         min-height: 36px;
         padding: 0 10px;
     }
@@ -462,7 +462,7 @@
 @media (max-width: 400px) {
 
     .contact-navbar-container {
-        height: 35px;
+        height: 45px;
         min-height: 35px;
         padding: 0 8px;
     }
@@ -500,7 +500,7 @@
 @media (max-width: 360px) {
 
     .contact-navbar-container {
-        height: 34px;
+        height: 45px;
         min-height: 34px;
         padding: 0 6px;
     }

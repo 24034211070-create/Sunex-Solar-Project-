@@ -58,6 +58,11 @@ import States from "./Pages/States";
 import Testi from "./Pages/Testi";
 import LatestBlog from "./Pages/LatestBlog";
 
+// ================= NAVBAR PAGES =================
+
+import Topbar from "../Admin/Navbar/Topbar";
+import Contactnav from "../Admin/Navbar/Contactnav";
+import Navbar from "../Admin/Navbar/Navbar";
 // ================= BLOG PAGES =================
 
 import Blog from "./Blog/Blog";
@@ -118,6 +123,10 @@ const AdminLayout = () => {
         location.pathname.startsWith("/admin/pages/projects")
     );
 
+    const [navbarOpen, setNavbarOpen] = useState(
+        location.pathname.startsWith("/admin/pages/navbar")
+    );
+
     // ================= LOGOUT =================
 
     const handleLogout = () => {
@@ -129,6 +138,7 @@ const AdminLayout = () => {
 
     return (
         <SidebarProvider>
+
             <div className="flex min-h-screen w-full bg-slate-50">
 
                 {/* =====================================================
@@ -136,6 +146,7 @@ const AdminLayout = () => {
                 ====================================================== */}
 
                 <Sidebar>
+
                     <SidebarContent>
 
                         {/* ================= LOGO ================= */}
@@ -161,6 +172,7 @@ const AdminLayout = () => {
 
                         </div>
 
+
                         {/* =================================================
                             MAIN MENU
                         ================================================== */}
@@ -185,10 +197,10 @@ const AdminLayout = () => {
                                                 to="/admin"
                                                 end
                                                 className={({ isActive }) =>
-                                                    `flex items-center gap-3 ${isActive
+                                                    `flex items - center gap - 3 ${isActive
                                                         ? "bg-green-500 text-white hover:bg-green-600 hover:text-white"
                                                         : "text-slate-700 hover:bg-green-50"
-                                                    }`
+                                                    } `
                                                 }
                                             >
 
@@ -274,10 +286,10 @@ const AdminLayout = () => {
                                                                 to="/admin/pages/home"
                                                                 end
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Home Sections
@@ -327,10 +339,10 @@ const AdminLayout = () => {
                                                                 to="/admin/pages/about-us"
                                                                 end
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 About Us Sections
@@ -340,10 +352,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/about-us/hero"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Hero
@@ -353,10 +365,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/about-us/approach"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Approach
@@ -366,10 +378,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/about-us/what-we-do"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 What We Do
@@ -379,10 +391,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/about-us/advantage"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Advantage
@@ -392,10 +404,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/about-us/expert-team"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Expert Team
@@ -445,10 +457,10 @@ const AdminLayout = () => {
                                                                 to="/admin/pages/services"
                                                                 end
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Services Sections
@@ -458,10 +470,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/services/hero"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Hero
@@ -476,10 +488,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/services/solar-battery-storage"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Solar Battery Storage
@@ -489,10 +501,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/services/residential-solar-solutions"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Residential Solar Solutions
@@ -502,10 +514,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/services/solar-system-maintenance"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Solar System Maintenance
@@ -515,10 +527,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/services/rooftop-solar-solutions"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Rooftop Solar Solutions
@@ -528,10 +540,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/services/solar-panel-maintenance"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Solar Panel Maintenance
@@ -541,10 +553,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/services/hybrid-solar-systems"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Hybrid Solar Systems
@@ -566,10 +578,10 @@ const AdminLayout = () => {
                                                     <NavLink
                                                         to="/admin/pages/blog"
                                                         className={({ isActive }) =>
-                                                            `flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${isActive
+                                                            `flex items - center gap - 2 rounded - md px - 3 py - 2 text - sm font - medium ${isActive
                                                                 ? "bg-green-500 text-white"
                                                                 : "text-slate-700 hover:bg-green-50"
-                                                            }`
+                                                            } `
                                                         }
                                                     >
 
@@ -583,10 +595,10 @@ const AdminLayout = () => {
                                                     <NavLink
                                                         to="/admin/pages/blog-details"
                                                         className={({ isActive }) =>
-                                                            `flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${isActive
+                                                            `flex items - center gap - 2 rounded - md px - 3 py - 2 text - sm font - medium ${isActive
                                                                 ? "bg-green-500 text-white"
                                                                 : "text-slate-700 hover:bg-green-50"
-                                                            }`
+                                                            } `
                                                         }
                                                     >
 
@@ -638,10 +650,10 @@ const AdminLayout = () => {
                                                                 to="/admin/pages/projects"
                                                                 end
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Projects Page
@@ -656,10 +668,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/projects/project-1"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Project 1
@@ -669,10 +681,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/projects/project-2"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Project 2
@@ -682,10 +694,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/projects/project-3"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Project 3
@@ -695,10 +707,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/projects/project-4"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Project 4
@@ -708,10 +720,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/projects/project-5"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Project 5
@@ -721,10 +733,10 @@ const AdminLayout = () => {
                                                             <NavLink
                                                                 to="/admin/pages/projects/project-6"
                                                                 className={({ isActive }) =>
-                                                                    `mb-1 block rounded-md px-3 py-2 text-sm ${isActive
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
                                                                         ? "bg-green-500 text-white"
                                                                         : "text-slate-600 hover:bg-green-50"
-                                                                    }`
+                                                                    } `
                                                                 }
                                                             >
                                                                 Project 6
@@ -746,10 +758,10 @@ const AdminLayout = () => {
                                                     <NavLink
                                                         to="/admin/pages/image-gallery"
                                                         className={({ isActive }) =>
-                                                            `flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${isActive
+                                                            `flex items - center gap - 2 rounded - md px - 3 py - 2 text - sm font - medium ${isActive
                                                                 ? "bg-green-500 text-white"
                                                                 : "text-slate-700 hover:bg-green-50"
-                                                            }`
+                                                            } `
                                                         }
                                                     >
 
@@ -760,6 +772,92 @@ const AdminLayout = () => {
                                                         </span>
 
                                                     </NavLink>
+
+                                                </div>
+
+
+                                                {/* =================================================
+                                                    NAVBAR
+                                                ================================================== */}
+
+                                                <div className="mt-2">
+
+                                                    <button
+                                                        type="button"
+                                                        onClick={() =>
+                                                            setNavbarOpen(
+                                                                !navbarOpen
+                                                            )
+                                                        }
+                                                        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-slate-700 transition hover:bg-green-50"
+                                                    >
+
+                                                        {navbarOpen ? (
+                                                            <ChevronDown size={15} />
+                                                        ) : (
+                                                            <ChevronRight size={15} />
+                                                        )}
+
+                                                        <FileText size={15} />
+
+                                                        <span>
+                                                            Navbar
+                                                        </span>
+
+                                                    </button>
+
+
+                                                    {navbarOpen && (
+
+                                                        <div className="ml-5 border-l border-slate-200 pl-2">
+
+                                                            {/* TOPBAR */}
+
+                                                            <NavLink
+                                                                to="/admin/pages/navbar/topbar"
+                                                                className={({ isActive }) =>
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
+                                                                        ? "bg-green-500 text-white"
+                                                                        : "text-slate-600 hover:bg-green-50"
+                                                                    } `
+                                                                }
+                                                            >
+                                                                Topbar
+                                                            </NavLink>
+
+
+                                                            {/* CONTACT BAR */}
+
+                                                            <NavLink
+                                                                to="/admin/pages/navbar/contact-bar"
+                                                                className={({ isActive }) =>
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
+                                                                        ? "bg-green-500 text-white"
+                                                                        : "text-slate-600 hover:bg-green-50"
+                                                                    } `
+                                                                }
+                                                            >
+                                                                Contact Bar
+                                                            </NavLink>
+
+
+                                                            {/* NAVBAR */}
+
+                                                            <NavLink
+                                                                to="/admin/pages/navbar/navbar"
+                                                                className={({ isActive }) =>
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
+                                                                        ? "bg-green-500 text-white"
+                                                                        : "text-slate-600 hover:bg-green-50"
+                                                                    } `
+                                                                }
+                                                            >
+                                                                Navbar
+                                                            </NavLink>
+
+                                                        </div>
+
+                                                    )}
 
                                                 </div>
 
@@ -779,10 +877,10 @@ const AdminLayout = () => {
                                             <NavLink
                                                 to="/admin/services"
                                                 className={({ isActive }) =>
-                                                    `flex items-center gap-3 ${isActive
+                                                    `flex items - center gap - 3 ${isActive
                                                         ? "bg-green-500 text-white hover:bg-green-600 hover:text-white"
                                                         : "text-slate-700 hover:bg-green-50"
-                                                    }`
+                                                    } `
                                                 }
                                             >
 
@@ -808,10 +906,10 @@ const AdminLayout = () => {
                                             <NavLink
                                                 to="/admin/contact-us"
                                                 className={({ isActive }) =>
-                                                    `flex items-center gap-3 ${isActive
+                                                    `flex items - center gap - 3 ${isActive
                                                         ? "bg-green-500 text-white hover:bg-green-600 hover:text-white"
                                                         : "text-slate-700 hover:bg-green-50"
-                                                    }`
+                                                    } `
                                                 }
                                             >
 
@@ -837,10 +935,10 @@ const AdminLayout = () => {
                                             <NavLink
                                                 to="/admin/users"
                                                 className={({ isActive }) =>
-                                                    `flex items-center gap-3 ${isActive
+                                                    `flex items - center gap - 3 ${isActive
                                                         ? "bg-green-500 text-white hover:bg-green-600 hover:text-white"
                                                         : "text-slate-700 hover:bg-green-50"
-                                                    }`
+                                                    } `
                                                 }
                                             >
 
@@ -1037,14 +1135,19 @@ const AdminLayout = () => {
 
 
                             {/* =================================================
+                                NAVBAR
+                            ================================================== */}
+
+                            <Route path="/pages/navbar/topbar" element={<Topbar />} />
+
+                            <Route path="/pages/navbar/contact-bar" element={<Contactnav />} />
+
+                            <Route path="/pages/navbar/navbar" element={<Navbar />} />
+                            {/* =================================================
                                 BLOG
                             ================================================== */}
 
-                            <Route
-                                path="/pages/blog"
-                                element={<Blog />}
-                            />
-
+                            <Route path="/pages/blog" element={<Blog />} />
 
                             {/* =================================================
                                 BLOG DETAILS
@@ -1226,8 +1329,9 @@ const AdminLayout = () => {
                 </main>
 
             </div>
+
         </SidebarProvider>
     );
 };
 
-export default AdminLayout
+export default AdminLayout;

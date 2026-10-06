@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
+import { getPages } from "../../Api/api";
 
 const Navbar = ({ variant = "default" }) => {
     const location = useLocation();
@@ -9,7 +10,178 @@ const Navbar = ({ variant = "default" }) => {
     const [homeOpen, setHomeOpen] = useState(false);
     const [pagesOpen, setPagesOpen] = useState(false);
 
+    const [navbar, setNavbar] = useState({
+        logoText: "Sunex",
+        logoImage: "",
+        logoLink: "/",
+
+        homeText: "Home",
+        aboutText: "About Us",
+        aboutLink: "/about",
+
+        servicesText: "Services",
+        servicesLink: "/services",
+
+        blogsText: "Blogs",
+        blogsLink: "/blogs",
+
+        pagesText: "Pages",
+
+        contactText: "Contact Us",
+        contactLink: "/contact",
+
+        buttonText: "Contact Us",
+        buttonLink: "/contact",
+
+        homeDropdown: [
+            {
+                text: "Home-Version-1",
+                mobileText: "Home 1",
+                link: "/",
+            },
+            {
+                text: "Home-Version-2",
+                mobileText: "Home 2",
+                link: "/home-2",
+            },
+            {
+                text: "Home-Version-3",
+                mobileText: "Home 3",
+                link: "/home-3",
+            },
+        ],
+
+        pagesDropdown: [
+            {
+                text: "Service Details",
+                link: "/service-details",
+            },
+            {
+                text: "Blog Details",
+                link: "/blog-details",
+            },
+            {
+                text: "Projects",
+                link: "/projects",
+            },
+            {
+                text: "Project Details",
+                link: "/project-details",
+            },
+            {
+                text: "Image Gallery",
+                link: "/gallery",
+            },
+            {
+                text: "404",
+                link: "/404",
+            },
+        ],
+    });
+
     const isHome2 = variant === "home2";
+
+    /* =========================================
+       LOAD NAVBAR FROM CMS
+    ========================================= */
+
+    useEffect(() => {
+        const loadNavbar = async () => {
+            try {
+                const pages = await getPages();
+
+                const data = pages.find(
+                    (page) =>
+                        page.page_name?.trim().toLowerCase() === "navbar" &&
+                        page.section_name?.trim().toLowerCase() === "navbar"
+                );
+
+                if (!data?.content) return;
+
+                const content = data.content;
+
+                setNavbar((previous) => ({
+                    ...previous,
+
+                    logoText:
+                        content.logoText ??
+                        previous.logoText,
+
+                    logoImage:
+                        content.logoImage ??
+                        previous.logoImage,
+
+                    logoLink:
+                        content.logoLink ??
+                        previous.logoLink,
+
+                    homeText:
+                        content.homeText ??
+                        previous.homeText,
+
+                    aboutText:
+                        content.aboutText ??
+                        previous.aboutText,
+
+                    aboutLink:
+                        content.aboutLink ??
+                        previous.aboutLink,
+
+                    servicesText:
+                        content.servicesText ??
+                        previous.servicesText,
+
+                    servicesLink:
+                        content.servicesLink ??
+                        previous.servicesLink,
+
+                    blogsText:
+                        content.blogsText ??
+                        previous.blogsText,
+
+                    blogsLink:
+                        content.blogsLink ??
+                        previous.blogsLink,
+
+                    pagesText:
+                        content.pagesText ??
+                        previous.pagesText,
+
+                    contactText:
+                        content.contactText ??
+                        previous.contactText,
+
+                    contactLink:
+                        content.contactLink ??
+                        previous.contactLink,
+
+                    buttonText:
+                        content.buttonText ??
+                        previous.buttonText,
+
+                    buttonLink:
+                        content.buttonLink ??
+                        previous.buttonLink,
+
+                    homeDropdown:
+                        Array.isArray(content.homeDropdown) &&
+                            content.homeDropdown.length > 0
+                            ? content.homeDropdown
+                            : previous.homeDropdown,
+
+                    pagesDropdown:
+                        Array.isArray(content.pagesDropdown) &&
+                            content.pagesDropdown.length > 0
+                            ? content.pagesDropdown
+                            : previous.pagesDropdown,
+                }));
+            } catch (error) {
+                console.error("Navbar load error:", error);
+            }
+        };
+
+        loadNavbar();
+    }, []);
 
     /* =========================================
        CURRENT HOME VERSION
@@ -19,14 +191,20 @@ const Navbar = ({ variant = "default" }) => {
     const isCurrentHome2 = location.pathname === "/home-2";
     const isCurrentHome3 = location.pathname === "/home-3";
 
-    let currentHome = "Home";
+    let currentHome = navbar.homeText;
 
     if (isHome1) {
-        currentHome = "Home 1";
+        currentHome =
+            navbar.homeDropdown?.[0]?.mobileText ||
+            "Home 1";
     } else if (isCurrentHome2) {
-        currentHome = "Home 2";
+        currentHome =
+            navbar.homeDropdown?.[1]?.mobileText ||
+            "Home 2";
     } else if (isCurrentHome3) {
-        currentHome = "Home 3";
+        currentHome =
+            navbar.homeDropdown?.[2]?.mobileText ||
+            "Home 3";
     }
 
     /* =========================================
@@ -72,25 +250,34 @@ const Navbar = ({ variant = "default" }) => {
                 ===================================== */}
 
                 <Link
-                    to="/"
+                    to={navbar.logoLink || "/"}
                     className="navbar-logo"
                     onClick={closeMobileMenu}
                 >
-                    <div className="logo-circle">
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M13.5 2L6 13h5l-1 9 7.5-12h-5L13.5 2z"
-                                fill="white"
-                            />
-                        </svg>
-                    </div>
+                    {navbar.logoImage ? (
+                        <img
+                            src={navbar.logoImage}
+                            alt={navbar.logoText || "Logo"}
+                            className="navbar-logo-image"
+                        />
+                    ) : (
+                        <div className="logo-circle">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M13.5 2L6 13h5l-1 9 7.5-12h-5L13.5 2z"
+                                    fill="white"
+                                />
+                            </svg>
+                        </div>
+                    )}
 
                     <span className="logo-text">
-                        Sunex<span>.</span>
+                        {navbar.logoText}
+                        <span>.</span>
                     </span>
                 </Link>
 
@@ -106,7 +293,10 @@ const Navbar = ({ variant = "default" }) => {
 
                     <div className="nav-dropdown">
                         <Link
-                            to="/"
+                            to={
+                                navbar.homeDropdown?.[0]?.link ||
+                                "/"
+                            }
                             className={`nav-link ${isHome1 ||
                                 isCurrentHome2 ||
                                 isCurrentHome3
@@ -114,7 +304,7 @@ const Navbar = ({ variant = "default" }) => {
                                 : ""
                                 }`}
                         >
-                            <span>Home</span>
+                            <span>{navbar.homeText}</span>
 
                             <span className="arrow">
                                 ⌄
@@ -122,38 +312,22 @@ const Navbar = ({ variant = "default" }) => {
                         </Link>
 
                         <div className="dropdown-menu">
-                            <Link
-                                to="/"
-                                className={
-                                    isHome1
-                                        ? "selected-home"
-                                        : ""
-                                }
-                            >
-                                Home-Version-1
-                            </Link>
-
-                            <Link
-                                to="/home-2"
-                                className={
-                                    isCurrentHome2
-                                        ? "selected-home"
-                                        : ""
-                                }
-                            >
-                                Home-Version-2
-                            </Link>
-
-                            <Link
-                                to="/home-3"
-                                className={
-                                    isCurrentHome3
-                                        ? "selected-home"
-                                        : ""
-                                }
-                            >
-                                Home-Version-3
-                            </Link>
+                            {navbar.homeDropdown?.map(
+                                (item, index) => (
+                                    <Link
+                                        key={index}
+                                        to={item.link || "#"}
+                                        className={
+                                            location.pathname ===
+                                                item.link
+                                                ? "selected-home"
+                                                : ""
+                                        }
+                                    >
+                                        {item.text}
+                                    </Link>
+                                )
+                            )}
                         </div>
                     </div>
 
@@ -162,10 +336,10 @@ const Navbar = ({ variant = "default" }) => {
                     ================================= */}
 
                     <Link
-                        to="/about"
+                        to={navbar.aboutLink || "/about"}
                         className="nav-link"
                     >
-                        About Us
+                        {navbar.aboutText}
                     </Link>
 
                     {/* =================================
@@ -173,10 +347,13 @@ const Navbar = ({ variant = "default" }) => {
                     ================================= */}
 
                     <Link
-                        to="/services"
+                        to={
+                            navbar.servicesLink ||
+                            "/services"
+                        }
                         className="nav-link"
                     >
-                        Services
+                        {navbar.servicesText}
                     </Link>
 
                     {/* =================================
@@ -184,10 +361,10 @@ const Navbar = ({ variant = "default" }) => {
                     ================================= */}
 
                     <Link
-                        to="/blogs"
+                        to={navbar.blogsLink || "/blogs"}
                         className="nav-link"
                     >
-                        Blogs
+                        {navbar.blogsText}
                     </Link>
 
                     {/* =================================
@@ -201,7 +378,7 @@ const Navbar = ({ variant = "default" }) => {
                             className="nav-link"
                             onClick={handlePagesClick}
                         >
-                            <span>Pages</span>
+                            <span>{navbar.pagesText}</span>
 
                             <span className="arrow">
                                 ⌄
@@ -210,35 +387,16 @@ const Navbar = ({ variant = "default" }) => {
 
                         <div className="dropdown-menu pages-dropdown">
 
-                            {/* 1. SERVICE DETAILS */}
-                            <Link to="/service-details">
-                                Service Details
-                            </Link>
-
-                            {/* 2. BLOG DETAILS */}
-                            <Link to="/blog-details">
-                                Blog Details
-                            </Link>
-
-                            {/* 3. PROJECTS */}
-                            <Link to="/projects">
-                                Projects
-                            </Link>
-
-                            {/* 4. PROJECT DETAILS */}
-                            <Link to="/project-details">
-                                Project Details
-                            </Link>
-
-                            {/* 5. IMAGE GALLERY */}
-                            <Link to="/gallery">
-                                Image Gallery
-                            </Link>
-
-                            {/* 6. 404 */}
-                            <Link to="/404">
-                                404
-                            </Link>
+                            {navbar.pagesDropdown?.map(
+                                (item, index) => (
+                                    <Link
+                                        key={index}
+                                        to={item.link || "#"}
+                                    >
+                                        {item.text}
+                                    </Link>
+                                )
+                            )}
 
                         </div>
                     </div>
@@ -248,10 +406,13 @@ const Navbar = ({ variant = "default" }) => {
                     ================================= */}
 
                     <Link
-                        to="/contact"
+                        to={
+                            navbar.contactLink ||
+                            "/contact"
+                        }
                         className="nav-link"
                     >
-                        Contact Us
+                        {navbar.contactText}
                     </Link>
 
                 </div>
@@ -261,11 +422,14 @@ const Navbar = ({ variant = "default" }) => {
                 ===================================== */}
 
                 <Link
-                    to="/contact"
+                    to={
+                        navbar.buttonLink ||
+                        "/contact"
+                    }
                     className="navbar-button"
                 >
                     <span>
-                        Contact Us
+                        {navbar.buttonText}
                     </span>
 
                     <svg
@@ -346,41 +510,26 @@ const Navbar = ({ variant = "default" }) => {
                         className={`mobile-submenu ${homeOpen ? "show" : ""
                             }`}
                     >
-                        <Link
-                            to="/"
-                            className={
-                                isHome1
-                                    ? "active-home-option"
-                                    : ""
-                            }
-                            onClick={closeMobileMenu}
-                        >
-                            Home 1
-                        </Link>
-
-                        <Link
-                            to="/home-2"
-                            className={
-                                isCurrentHome2
-                                    ? "active-home-option"
-                                    : ""
-                            }
-                            onClick={closeMobileMenu}
-                        >
-                            Home 2
-                        </Link>
-
-                        <Link
-                            to="/home-3"
-                            className={
-                                isCurrentHome3
-                                    ? "active-home-option"
-                                    : ""
-                            }
-                            onClick={closeMobileMenu}
-                        >
-                            Home 3
-                        </Link>
+                        {navbar.homeDropdown?.map(
+                            (item, index) => (
+                                <Link
+                                    key={index}
+                                    to={item.link || "#"}
+                                    className={
+                                        location.pathname ===
+                                            item.link
+                                            ? "active-home-option"
+                                            : ""
+                                    }
+                                    onClick={
+                                        closeMobileMenu
+                                    }
+                                >
+                                    {item.mobileText ||
+                                        item.text}
+                                </Link>
+                            )
+                        )}
                     </div>
 
                 </div>
@@ -390,11 +539,14 @@ const Navbar = ({ variant = "default" }) => {
                 ===================================== */}
 
                 <Link
-                    to="/about"
+                    to={
+                        navbar.aboutLink ||
+                        "/about"
+                    }
                     className="mobile-nav-link"
                     onClick={closeMobileMenu}
                 >
-                    About Us
+                    {navbar.aboutText}
                 </Link>
 
                 {/* =====================================
@@ -402,11 +554,14 @@ const Navbar = ({ variant = "default" }) => {
                 ===================================== */}
 
                 <Link
-                    to="/services"
+                    to={
+                        navbar.servicesLink ||
+                        "/services"
+                    }
                     className="mobile-nav-link"
                     onClick={closeMobileMenu}
                 >
-                    Services
+                    {navbar.servicesText}
                 </Link>
 
                 {/* =====================================
@@ -414,11 +569,14 @@ const Navbar = ({ variant = "default" }) => {
                 ===================================== */}
 
                 <Link
-                    to="/blogs"
+                    to={
+                        navbar.blogsLink ||
+                        "/blogs"
+                    }
                     className="mobile-nav-link"
                     onClick={closeMobileMenu}
                 >
-                    Blogs
+                    {navbar.blogsText}
                 </Link>
 
                 {/* =====================================
@@ -431,11 +589,13 @@ const Navbar = ({ variant = "default" }) => {
                         type="button"
                         className={`mobile-nav-link ${pagesOpen ? "active" : ""
                             }`}
-                        onClick={handleMobilePagesClick}
+                        onClick={
+                            handleMobilePagesClick
+                        }
                         aria-expanded={pagesOpen}
                     >
                         <span>
-                            Pages
+                            {navbar.pagesText}
                         </span>
 
                         <span
@@ -450,55 +610,19 @@ const Navbar = ({ variant = "default" }) => {
                         className={`mobile-submenu ${pagesOpen ? "show" : ""
                             }`}
                     >
-
-                        {/* 1. SERVICE DETAILS */}
-                        <Link
-                            to="/service-details"
-                            onClick={closeMobileMenu}
-                        >
-                            Service Details
-                        </Link>
-
-                        {/* 2. BLOG DETAILS */}
-                        <Link
-                            to="/blog-details"
-                            onClick={closeMobileMenu}
-                        >
-                            Blog Details
-                        </Link>
-
-                        {/* 3. PROJECTS */}
-                        <Link
-                            to="/projects"
-                            onClick={closeMobileMenu}
-                        >
-                            Projects
-                        </Link>
-
-                        {/* 4. PROJECT DETAILS */}
-                        <Link
-                            to="/project-details"
-                            onClick={closeMobileMenu}
-                        >
-                            Project Details
-                        </Link>
-
-                        {/* 5. IMAGE GALLERY */}
-                        <Link
-                            to="/gallery"
-                            onClick={closeMobileMenu}
-                        >
-                            Image Gallery
-                        </Link>
-
-                        {/* 6. 404 */}
-                        <Link
-                            to="/404"
-                            onClick={closeMobileMenu}
-                        >
-                            404
-                        </Link>
-
+                        {navbar.pagesDropdown?.map(
+                            (item, index) => (
+                                <Link
+                                    key={index}
+                                    to={item.link || "#"}
+                                    onClick={
+                                        closeMobileMenu
+                                    }
+                                >
+                                    {item.text}
+                                </Link>
+                            )
+                        )}
                     </div>
 
                 </div>
@@ -508,11 +632,14 @@ const Navbar = ({ variant = "default" }) => {
                 ===================================== */}
 
                 <Link
-                    to="/contact"
+                    to={
+                        navbar.contactLink ||
+                        "/contact"
+                    }
                     className="mobile-nav-link"
                     onClick={closeMobileMenu}
                 >
-                    Contact Us
+                    {navbar.contactText}
                 </Link>
 
                 {/* =====================================
@@ -520,12 +647,15 @@ const Navbar = ({ variant = "default" }) => {
                 ===================================== */}
 
                 <Link
-                    to="/contact"
+                    to={
+                        navbar.buttonLink ||
+                        "/contact"
+                    }
                     className="mobile-contact-button"
                     onClick={closeMobileMenu}
                 >
                     <span>
-                        Contact Us
+                        {navbar.buttonText}
                     </span>
 
                     <svg

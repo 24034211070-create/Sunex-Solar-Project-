@@ -86,16 +86,44 @@
     align-items: center;
     justify-content: center;
 
+    width: 20px;
+    height: 20px;
+
     color: #fff;
     text-decoration: none;
 
     font-size: 19px;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .social-link:hover {
     color: #000;
+}
+
+/* =========================================
+   CUSTOM SOCIAL ICON IMAGE
+========================================= */
+
+.social-icon-image {
+    width: 18px;
+    height: 18px;
+
+    display: block;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.social-link:hover .social-icon-image {
+    opacity: 0.75;
 }
 
 .facebook {
@@ -122,6 +150,11 @@
     .contact-item,
     .follow-text {
         font-size: 18px;
+    }
+
+    .social-icon-image {
+        width: 18px;
+        height: 18px;
     }
 }
 
@@ -155,6 +188,13 @@
 
     .social-link {
         font-size: 18px;
+        width: 19px;
+        height: 19px;
+    }
+
+    .social-icon-image {
+        width: 17px;
+        height: 17px;
     }
 }
 
@@ -193,6 +233,13 @@
 
     .social-link {
         font-size: 17px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .social-icon-image {
+        width: 17px;
+        height: 17px;
     }
 }
 
@@ -244,7 +291,9 @@
         flex-shrink: 0;
     }
 
-    /* ICON */
+    /* =====================================
+       CONTACT ICON
+    ===================================== */
 
     .contact-icon {
         width: 17px;
@@ -260,24 +309,41 @@
         height: 16px;
     }
 
-    /* HIDE LABELS ONLY */
+    /* =====================================
+       CUSTOM SOCIAL ICON
+    ===================================== */
+
+    .social-icon-image {
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+    }
+
+    /* =====================================
+       HIDE LABELS ONLY
+    ===================================== */
 
     .contact-label {
         display: none;
     }
 
-    /* KEEP ACTUAL PHONE + EMAIL */
+    /* =====================================
+       KEEP ACTUAL PHONE + EMAIL
+    ===================================== */
 
     .contact-value {
         display: inline;
     }
 
-    /* HIDE SOCIAL */
+    /* =====================================
+       HIDE SOCIAL
+    ===================================== */
 
     .social-section {
         display: none;
     }
 }
+
 
 /* =========================================
    MOBILE 600px
@@ -296,7 +362,6 @@
 
     .contact-item {
         font-size: 14px;
-        /* 13px → 14px */
         gap: 5px;
     }
 
@@ -306,6 +371,11 @@
     }
 
     .contact-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .social-icon-image {
         width: 17px;
         height: 17px;
     }
@@ -329,7 +399,6 @@
 
     .contact-item {
         font-size: 20px;
-        /* 12px → 13px */
         gap: 4px;
     }
 
@@ -339,6 +408,11 @@
     }
 
     .contact-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .social-icon-image {
         width: 16px;
         height: 16px;
     }
@@ -362,7 +436,6 @@
 
     .contact-item {
         font-size: 12px;
-        /* 11px → 12px */
         gap: 3px;
     }
 
@@ -372,6 +445,11 @@
     }
 
     .contact-icon svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .social-icon-image {
         width: 15px;
         height: 15px;
     }
@@ -395,7 +473,6 @@
 
     .contact-item {
         font-size: 11px;
-        /* 10px → 11px */
         gap: 3px;
     }
 
@@ -405,6 +482,11 @@
     }
 
     .contact-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .social-icon-image {
         width: 14px;
         height: 14px;
     }

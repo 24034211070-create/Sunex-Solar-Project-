@@ -57,6 +57,22 @@ const normalizePage = (page) => {
 };
 
 // ======================================================
+// AUTH HEADER HELPER
+// ======================================================
+
+const getAuthHeaders = (token) => {
+  const headers = {};
+
+  const savedToken = token || localStorage.getItem("token");
+
+  if (savedToken) {
+    headers.Authorization = `Bearer ${savedToken}`;
+  }
+
+  return headers;
+};
+
+// ======================================================
 // ADMIN LOGIN
 // ======================================================
 
@@ -101,14 +117,8 @@ export const getPageById = async (id) => {
 // ======================================================
 
 export const createPage = async (pageData, token) => {
-  const headers = {};
-
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-
   const response = await api.post("/pages", pageData, {
-    headers,
+    headers: getAuthHeaders(token),
   });
 
   return {
@@ -122,15 +132,49 @@ export const createPage = async (pageData, token) => {
 // ======================================================
 
 export const updatePage = async (id, pageData, token) => {
-  const headers = {};
-
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
+  if (!id) {
+    throw new Error("Page ID is required to update a page.");
   }
 
   const response = await api.put(`/pages/${id}`, pageData, {
-    headers,
+    headers: getAuthHeaders(token),
   });
+
+  return {
+    ...response.data,
+    page: normalizePage(response.data?.page),
+  };
+};
+
+// ======================================================
+// UPSERT PAGE
+// ======================================================
+// Existing page → UPDATE
+// Missing page  → CREATE
+// ======================================================
+
+export const upsertPage = async (id, pageData, token) => {
+  const headers = getAuthHeaders(token);
+
+  let response;
+
+  if (id) {
+    // ==================================================
+    // EXISTING PAGE
+    // ==================================================
+
+    response = await api.put(`/pages/${id}`, pageData, {
+      headers,
+    });
+  } else {
+    // ==================================================
+    // NEW PAGE
+    // ==================================================
+
+    response = await api.post("/pages", pageData, {
+      headers,
+    });
+  }
 
   return {
     ...response.data,
@@ -143,14 +187,12 @@ export const updatePage = async (id, pageData, token) => {
 // ======================================================
 
 export const deletePage = async (id, token) => {
-  const headers = {};
-
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
+  if (!id) {
+    throw new Error("Page ID is required to delete a page.");
   }
 
   const response = await api.delete(`/pages/${id}`, {
-    headers,
+    headers: getAuthHeaders(token),
   });
 
   return {

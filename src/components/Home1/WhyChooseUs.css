@@ -277,9 +277,13 @@
     width: 100%;
 }
 
+/* =========================
+   MAIN IMAGE
+========================= */
+
 .image-hover-card {
     position: relative;
-    overflow: ;
+    overflow: hidden;
     border-radius: 13px;
     transition:
         transform 0.45s ease,
@@ -287,14 +291,19 @@
 }
 
 .image-hover-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(5, 38, 54, 0.18);
+    transform: translateY(-7px);
+    box-shadow: 0 18px 35px rgba(5, 38, 54, 0.16);
 }
 
 .why-main-image {
+    position: relative;
     width: 100%;
     height: 326px;
+    overflow: hidden;
+    border-radius: 13px;
 }
+
+/* IMAGE REMAINS STABLE */
 
 .main-image {
     position: absolute;
@@ -302,29 +311,63 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition:
-        opacity 0.6s ease,
-        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Important:
+       No zoom
+       No hide
+       No image swap */
+
+    opacity: 1 !important;
+    transform: none !important;
+
+    transition: filter 0.45s ease;
 }
 
-.main-image-first {
-    opacity: 1;
-    transform: scale(1);
-}
+/* Both image classes remain stable */
 
+.main-image-first,
 .main-image-second {
-    opacity: 0;
-    transform: scale(1);
+    opacity: 1 !important;
+    transform: none !important;
 }
 
-.why-main-image:hover .main-image-first {
-    opacity: 0;
-    transform: scale(1.1);
-}
+/* No opacity swap on hover */
 
+.why-main-image:hover .main-image-first,
 .why-main-image:hover .main-image-second {
-    opacity: 1;
-    transform: scale(1.08);
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Subtle brightness only */
+
+.why-main-image:hover .main-image {
+    filter: brightness(1.05);
+}
+
+/* =========================
+   IMAGE SHINE
+========================= */
+
+.why-main-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.22),
+            transparent);
+    transform: skewX(-20deg);
+    transition: left 0.8s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.why-main-image:hover::after {
+    left: 140%;
 }
 
 /* =========================
@@ -392,8 +435,11 @@
 }
 
 .why-small-image {
+    position: relative;
     width: 100%;
     height: 294px;
+    overflow: hidden;
+    border-radius: 13px;
 }
 
 .why-small-image img {
@@ -401,12 +447,41 @@
     height: 100%;
     display: block;
     object-fit: cover;
-    transition: transform 0.8s ease;
+    transform: none;
+    transition: filter 0.45s ease;
 }
 
 .why-small-image:hover img {
-    transform: scale(1.1);
+    transform: none;
+    filter: brightness(1.06);
 }
+
+/* SMALL IMAGE SHINE */
+
+.why-small-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transform: skewX(-20deg);
+    transition: left 0.8s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.why-small-image:hover::after {
+    left: 140%;
+}
+
+/* =========================
+   LONG SUPPORT CARD
+========================= */
 
 .long-support-card {
     position: relative;
@@ -420,7 +495,8 @@
     color: #fff;
     transition:
         transform 0.45s ease,
-        box-shadow 0.45s ease;
+        box-shadow 0.45s ease,
+        background 0.45s ease;
 }
 
 .long-support-card:hover {
@@ -534,7 +610,9 @@
     white-space: nowrap;
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 .why-pill:hover {

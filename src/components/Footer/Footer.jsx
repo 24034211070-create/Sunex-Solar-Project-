@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     Phone,
     Mail,
@@ -8,255 +8,349 @@ import {
 import { Link } from "react-router-dom";
 
 import "./Footer.css";
+import { getPages } from "../../Api/api";
 
-const LOGO_URL =
-    "https://demo.awaikenthemes.com/sunex/wp-content/uploads/2026/03/logo-white.svg";
+const defaultFooter = {
+    logoImage:
+        "https://demo.awaikenthemes.com/sunex/wp-content/uploads/2026/03/logo-white.svg",
+    logoLink: "/",
+
+    brandDescription:
+        "Empowering homes & business with reliable solar energy solutions. We design, install, & maintain high-performance",
+
+    socialTitle: "Follow Us On Socials:",
+
+    socials: [
+        {
+            name: "Pinterest",
+            icon: "P",
+            iconUrl: "",
+            link: "#",
+        },
+        {
+            name: "X",
+            icon: "X",
+            iconUrl: "",
+            link: "#",
+        },
+        {
+            name: "Facebook",
+            icon: "f",
+            iconUrl: "",
+            link: "#",
+        },
+        {
+            name: "Instagram",
+            icon: "◎",
+            iconUrl: "",
+            link: "#",
+        },
+    ],
+
+    quickLinksTitle: "Quick Links",
+
+    quickLinks: [
+        {
+            text: "Home",
+            link: "/",
+        },
+        {
+            text: "About Us",
+            link: "/about",
+        },
+        {
+            text: "Our Services",
+            link: "/services",
+        },
+        {
+            text: "Blogs",
+            link: "/blogs",
+        },
+        {
+            text: "Contact Us",
+            link: "/contact",
+        },
+    ],
+
+    servicesTitle: "Our Services",
+
+    services: [
+        {
+            text: "Solar Battery Storage",
+            link: "/services/solar-battery-storage",
+        },
+        {
+            text: "Solar System Maintenance",
+            link: "/services/solar-system-maintenance",
+        },
+        {
+            text: "Rooftop Solar Solutions",
+            link: "/services/rooftop-solar-solutions",
+        },
+        {
+            text: "Solar Panel Maintenance",
+            link: "/services/solar-panel-maintenance",
+        },
+        {
+            text: "Hybrid Solar Systems",
+            link: "/services/hybrid-solar-systems",
+        },
+        {
+            text: "Residential Solar Solutions",
+            link: "/services/residential-solar-solutions",
+        },
+    ],
+
+    newsletterTitle: "Subscribe To Newsletter",
+
+    newsletterText:
+        "Subscribe to receive solar tips, energy saving insights, & latest updates.",
+
+    newsletterPlaceholder: "Enter Email Address *",
+
+    phoneLabel: "Phone Number",
+    phone: "+1 (123) 456-789",
+    phoneIconUrl: "",
+
+    emailLabel: "Email Address",
+    email: "info@domainname.com",
+    emailIconUrl: "",
+
+    locationLabel: "Our Location",
+    location: "2118 Thornridge Cir. Syracuse",
+    locationIconUrl: "",
+
+    copyright: "Copyright © 2026 Sunex. All rights reserved.",
+};
 
 const Footer = () => {
+    const [footer, setFooter] = useState(defaultFooter);
+
+    useEffect(() => {
+        const loadFooter = async () => {
+            try {
+                const pages = await getPages();
+
+                const data = pages.find(
+                    (page) =>
+                        page.page_name?.trim().toLowerCase() === "footer" &&
+                        page.section_name?.trim().toLowerCase() === "footer"
+                );
+
+                if (data?.content) {
+                    setFooter({
+                        ...defaultFooter,
+                        ...data.content,
+                        socials: Array.isArray(data.content.socials)
+                            ? data.content.socials
+                            : defaultFooter.socials,
+                        quickLinks: Array.isArray(data.content.quickLinks)
+                            ? data.content.quickLinks
+                            : defaultFooter.quickLinks,
+                        services: Array.isArray(data.content.services)
+                            ? data.content.services
+                            : defaultFooter.services,
+                    });
+                }
+            } catch (error) {
+                console.error("Footer load error:", error);
+            }
+        };
+
+        loadFooter();
+    }, []);
+
+    const renderSocialIcon = (social) => {
+        if (social.iconUrl?.trim()) {
+            return (
+                <img
+                    src={social.iconUrl}
+                    alt={social.name}
+                    className="sunex-social-icon-image"
+                />
+            );
+        }
+
+        const iconClass =
+            social.name?.toLowerCase() === "pinterest"
+                ? "pinterest-icon"
+                : social.name?.toLowerCase() === "facebook"
+                    ? "facebook-icon"
+                    : social.name?.toLowerCase() === "instagram"
+                        ? "instagram-icon"
+                        : "x-icon";
+
+        return (
+            <span className={iconClass}>
+                {social.icon}
+            </span>
+        );
+    };
+
+    const renderContactIcon = (
+        iconUrl,
+        defaultIcon,
+        alt
+    ) => {
+        if (iconUrl?.trim()) {
+            return (
+                <img
+                    src={iconUrl}
+                    alt={alt}
+                    className="sunex-contact-icon-image"
+                />
+            );
+        }
+
+        return defaultIcon;
+    };
+
     return (
         <footer className="sunex-footer">
 
-            {/* Background Pattern */}
             <div className="sunex-footer-pattern"></div>
 
             <div className="sunex-footer-container">
 
-                {/* =====================================================
-                    TOP FOOTER
-                ===================================================== */}
+                {/* TOP */}
 
                 <div className="sunex-footer-top">
 
-                    {/* ================= BRAND ================= */}
+                    {/* BRAND */}
 
                     <div className="sunex-footer-brand">
 
-                        <a href="/" className="sunex-footer-logo">
+                        <a
+                            href={footer.logoLink || "/"}
+                            className="sunex-footer-logo"
+                        >
                             <img
-                                src={LOGO_URL}
+                                src={footer.logoImage}
                                 alt="Sunex"
                             />
                         </a>
 
                         <p className="sunex-brand-description">
-                            Empowering homes &amp; business with reliable
-                            solar energy solutions. We design, install, &amp;
-                            maintain high-performance
+                            {footer.brandDescription}
                         </p>
 
                         <div className="sunex-brand-divider"></div>
 
                         <h3 className="sunex-social-title">
-                            Follow Us On Socials:
+                            {footer.socialTitle}
                         </h3>
 
                         <div className="sunex-social-icons">
 
-                            <a
-                                href="#"
-                                className="sunex-social-icon"
-                                aria-label="Pinterest"
-                            >
-                                <span className="pinterest-icon">
-                                    P
-                                </span>
-                            </a>
-
-                            <a
-                                href="#"
-                                className="sunex-social-icon"
-                                aria-label="X"
-                            >
-                                <span className="x-icon">
-                                    X
-                                </span>
-                            </a>
-
-                            <a
-                                href="#"
-                                className="sunex-social-icon"
-                                aria-label="Facebook"
-                            >
-                                <span className="facebook-icon">
-                                    f
-                                </span>
-                            </a>
-
-                            <a
-                                href="#"
-                                className="sunex-social-icon"
-                                aria-label="Instagram"
-                            >
-                                <span className="instagram-icon">
-                                    ◎
-                                </span>
-                            </a>
+                            {footer.socials.map(
+                                (social, index) => (
+                                    <a
+                                        key={index}
+                                        href={social.link || "#"}
+                                        className="sunex-social-icon"
+                                        aria-label={
+                                            social.name
+                                        }
+                                    >
+                                        {renderSocialIcon(
+                                            social
+                                        )}
+                                    </a>
+                                )
+                            )}
 
                         </div>
                     </div>
 
-
-                    {/* ================= RIGHT PANEL ================= */}
+                    {/* LINKS PANEL */}
 
                     <div className="sunex-footer-links-panel">
 
                         <div className="sunex-panel-dot"></div>
 
-
-                        {/* ================= QUICK LINKS ================= */}
-
-                        <div className="sunex-footer-column">
-
-                            <h3>
-                                Quick Links
-                            </h3>
-
-                            <ul>
-
-                                <li>
-                                    <a href="/">
-                                        <span className="footer-bullet">•</span>
-                                        <span>Home</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/about">
-                                        <span className="footer-bullet">•</span>
-                                        <span>About Us</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/services">
-                                        <span className="footer-bullet">•</span>
-                                        <span>Our Services</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/blogs">
-                                        <span className="footer-bullet">•</span>
-                                        <span>Blogs</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/contact">
-                                        <span className="footer-bullet">•</span>
-                                        <span>Contact Us</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-
-                        {/* ================= OUR SERVICES ================= */}
+                        {/* QUICK LINKS */}
 
                         <div className="sunex-footer-column">
 
                             <h3>
-                                Our Services
+                                {footer.quickLinksTitle}
                             </h3>
 
                             <ul>
+                                {footer.quickLinks.map(
+                                    (item, index) => (
+                                        <li key={index}>
+                                            <a
+                                                href={
+                                                    item.link ||
+                                                    "#"
+                                                }
+                                            >
+                                                <span className="footer-bullet">
+                                                    •
+                                                </span>
 
-                                {/* Solar Battery Storage */}
-
-                                <li>
-                                    <Link to="/services/solar-battery-storage">
-                                        <span className="footer-bullet">•</span>
-                                        <span>
-                                            Solar Battery Storage
-                                        </span>
-                                    </Link>
-                                </li>
-
-
-                                {/* Solar System Maintenance */}
-
-                                <li>
-                                    <Link to="/services/solar-system-maintenance">
-                                        <span className="footer-bullet">•</span>
-                                        <span>
-                                            Solar System Maintenance
-                                        </span>
-                                    </Link>
-                                </li>
-
-
-                                {/* Rooftop Solar Solutions */}
-
-                                <li>
-                                    <Link to="/services/rooftop-solar-solutions">
-                                        <span className="footer-bullet">•</span>
-                                        <span>
-                                            Rooftop Solar Solutions
-                                        </span>
-                                    </Link>
-                                </li>
-
-
-                                {/* Solar Panel Maintenance */}
-
-                                <li>
-                                    <Link to="/services/solar-panel-maintenance">
-                                        <span className="footer-bullet">•</span>
-                                        <span>
-                                            Solar Panel Maintenance
-                                        </span>
-                                    </Link>
-                                </li>
-
-
-                                {/* Hybrid Solar Systems */}
-
-                                <li>
-                                    <Link to="/services/hybrid-solar-systems">
-                                        <span className="footer-bullet">•</span>
-                                        <span>
-                                            Hybrid Solar Systems
-                                        </span>
-                                    </Link>
-                                </li>
-
-
-                                {/* Residential Solar Solutions */}
-
-                                <li>
-                                    <Link to="/services/residential-solar-solutions">
-                                        <span className="footer-bullet">•</span>
-                                        <span>
-                                            Residential Solar Solutions
-                                        </span>
-                                    </Link>
-                                </li>
-
+                                                <span>
+                                                    {item.text}
+                                                </span>
+                                            </a>
+                                        </li>
+                                    )
+                                )}
                             </ul>
-
                         </div>
 
+                        {/* SERVICES */}
 
-                        {/* ================= NEWSLETTER ================= */}
+                        <div className="sunex-footer-column">
+
+                            <h3>
+                                {footer.servicesTitle}
+                            </h3>
+
+                            <ul>
+                                {footer.services.map(
+                                    (item, index) => (
+                                        <li key={index}>
+                                            <Link
+                                                to={
+                                                    item.link ||
+                                                    "#"
+                                                }
+                                            >
+                                                <span className="footer-bullet">
+                                                    •
+                                                </span>
+
+                                                <span>
+                                                    {item.text}
+                                                </span>
+                                            </Link>
+                                        </li>
+                                    )
+                                )}
+                            </ul>
+                        </div>
+
+                        {/* NEWSLETTER */}
 
                         <div className="sunex-footer-column newsletter-column">
 
                             <h3>
-                                Subscribe To Newsletter
+                                {footer.newsletterTitle}
                             </h3>
 
                             <p className="sunex-newsletter-text">
-                                Subscribe to receive solar tips, energy
-                                saving insights, &amp; latest updates.
+                                {footer.newsletterText}
                             </p>
 
                             <div className="sunex-newsletter-form">
 
                                 <input
                                     type="email"
-                                    placeholder="Enter Email Address *"
+                                    placeholder={
+                                        footer.newsletterPlaceholder
+                                    }
                                     aria-label="Email Address"
                                 />
 
@@ -272,17 +366,11 @@ const Footer = () => {
                                 </button>
 
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-                {/* =====================================================
-                    CONTACT ROW
-                ===================================================== */}
+                {/* CONTACT ROW */}
 
                 <div className="sunex-contact-row">
 
@@ -291,95 +379,104 @@ const Footer = () => {
                     <div className="sunex-contact-item">
 
                         <div className="sunex-contact-icon">
-                            <Phone
-                                size={25}
-                                strokeWidth={2}
-                            />
+
+                            {renderContactIcon(
+                                footer.phoneIconUrl,
+                                <Phone
+                                    size={25}
+                                    strokeWidth={2}
+                                />,
+                                "Phone"
+                            )}
+
                         </div>
 
                         <div className="sunex-contact-content">
 
                             <span>
-                                Phone Number
+                                {footer.phoneLabel}
                             </span>
 
                             <strong>
-                                +1 (123) 456-789
+                                {footer.phone}
                             </strong>
 
                         </div>
-
                     </div>
-
 
                     {/* EMAIL */}
 
                     <div className="sunex-contact-item">
 
                         <div className="sunex-contact-icon">
-                            <Mail
-                                size={25}
-                                strokeWidth={2}
-                            />
+
+                            {renderContactIcon(
+                                footer.emailIconUrl,
+                                <Mail
+                                    size={25}
+                                    strokeWidth={2}
+                                />,
+                                "Email"
+                            )}
+
                         </div>
 
                         <div className="sunex-contact-content">
 
                             <span>
-                                Email Address
+                                {footer.emailLabel}
                             </span>
 
                             <strong>
-                                info@domainname.com
+                                {footer.email}
                             </strong>
 
                         </div>
-
                     </div>
-
 
                     {/* LOCATION */}
 
                     <div className="sunex-contact-item">
 
                         <div className="sunex-contact-icon">
-                            <MapPin
-                                size={25}
-                                strokeWidth={2}
-                            />
+
+                            {renderContactIcon(
+                                footer.locationIconUrl,
+                                <MapPin
+                                    size={25}
+                                    strokeWidth={2}
+                                />,
+                                "Location"
+                            )}
+
                         </div>
 
                         <div className="sunex-contact-content">
 
                             <span>
-                                Our Location
+                                {footer.locationLabel}
                             </span>
 
                             <strong>
-                                2118 Thornridge Cir. Syracuse
+                                {footer.location}
                             </strong>
 
                         </div>
-
                     </div>
 
                 </div>
 
-
-                {/* =====================================================
-                    COPYRIGHT
-                ===================================================== */}
+                {/* BOTTOM */}
 
                 <div className="sunex-footer-bottom">
 
                     <p>
-                        Copyright © 2026 Sunex. All rights reserved.
+                        {footer.copyright}
                     </p>
 
                 </div>
 
             </div>
-
         </footer>
     );
 };

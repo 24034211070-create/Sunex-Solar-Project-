@@ -7,23 +7,17 @@
     box-sizing: border-box;
 }
 
-
 /* =========================================================
    FOOTER
 ========================================================= */
 
 .sunex-footer {
     position: relative;
-
     width: 100%;
-
     overflow: hidden;
-
     background: #032333;
-
     color: #ffffff;
 }
-
 
 /* =========================================================
    BACKGROUND PATTERN
@@ -31,13 +25,9 @@
 
 .sunex-footer-pattern {
     position: absolute;
-
     inset: 0;
-
     z-index: 0;
-
     pointer-events: none;
-
     opacity: 0.27;
 
     background-image:
@@ -48,26 +38,21 @@
     background-size: 43px 43px;
 }
 
-
 /* =========================================================
    CONTAINER
 ========================================================= */
 
 .sunex-footer-container {
     position: relative;
-
     z-index: 2;
 
     width: 100%;
-
     max-width: 1360px;
 
     margin: 0 auto;
 
-    padding:
-        103px 40px 0;
+    padding: 103px 40px 0;
 }
-
 
 /* =========================================================
    TOP FOOTER
@@ -86,46 +71,77 @@
     align-items: start;
 }
 
-
 /* =========================================================
    BRAND
 ========================================================= */
 
 .sunex-footer-brand {
     width: 100%;
-
     min-width: 0;
 }
 
 
 /* =========================================================
-   LOGO
+   LOGO WRAPPER
 ========================================================= */
 
 .sunex-footer-logo {
-    display: block;
-
     width: 160px;
+    height: 65px;
 
-    height: auto;
+    max-width: 160px;
+    max-height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    overflow: hidden;
 
     text-decoration: none;
 
     cursor: pointer;
+
+    flex-shrink: 0;
 }
+
+
+/* =========================================================
+   LOGO IMAGE
+========================================================= */
 
 .sunex-footer-logo img {
     display: block;
 
     width: 100%;
+    height: 100%;
 
-    height: auto;
+    min-width: 0;
+    min-height: 0;
 
+    max-width: 160px;
     max-height: 65px;
 
     object-fit: contain;
-
     object-position: left center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LOGO SAFETY
+========================================================= */
+
+/*
+   Admin se agar bahut bada image URL aaye tab bhi
+   logo apne wrapper se bahar nahi niklega.
+*/
+
+.sunex-footer-logo,
+.sunex-footer-logo img {
+    box-sizing: border-box;
 }
 
 
@@ -135,18 +151,14 @@
 
 .sunex-brand-description {
     width: 100%;
-
     max-width: 335px;
 
-    margin:
-        22px 0 0;
+    margin: 22px 0 0;
 
     color: #ffffff;
 
     font-size: 16px;
-
     line-height: 1.6;
-
     font-weight: 500;
 }
 
@@ -157,7 +169,6 @@
 
 .sunex-brand-divider {
     width: 100%;
-
     max-width: 330px;
 
     height: 1px;
@@ -180,9 +191,7 @@
     color: #ffffff;
 
     font-size: 20px;
-
     line-height: 1.25;
-
     font-weight: 600;
 }
 
@@ -201,9 +210,9 @@
     margin-top: 25px;
 }
 
+
 .sunex-social-icon {
     width: 38px;
-
     height: 38px;
 
     flex-shrink: 0;
@@ -211,7 +220,6 @@
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     border:
@@ -227,7 +235,10 @@
         transform 0.3s ease,
         background 0.3s ease,
         border-color 0.3s ease;
+
+    overflow: hidden;
 }
+
 
 .sunex-social-icon:hover {
     transform:
@@ -240,6 +251,34 @@
 
 
 /* =========================================================
+   CUSTOM SOCIAL ICON IMAGE
+========================================================= */
+
+/*
+   Admin se custom social icon URL dene par
+   image isi fixed size ke andar rahegi.
+*/
+
+.sunex-social-icon-image {
+    display: block;
+
+    width: 22px;
+    height: 22px;
+
+    max-width: 22px;
+    max-height: 22px;
+
+    min-width: 0;
+    min-height: 0;
+
+    object-fit: contain;
+    object-position: center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
    SOCIAL SYMBOLS
 ========================================================= */
 
@@ -247,13 +286,11 @@
     font-family: Georgia, serif;
 
     font-size: 21px;
-
     font-weight: 700;
 }
 
 .x-icon {
     font-size: 17px;
-
     font-weight: 600;
 }
 
@@ -261,13 +298,11 @@
     font-family: Arial, sans-serif;
 
     font-size: 22px;
-
     font-weight: 700;
 }
 
 .instagram-icon {
     font-size: 24px;
-
     line-height: 1;
 }
 
@@ -280,9 +315,7 @@
     position: relative;
 
     width: 100%;
-
     min-width: 0;
-
     min-height: 303px;
 
     display: grid;
@@ -311,11 +344,9 @@
     position: absolute;
 
     top: -5px;
-
     left: 135px;
 
     width: 10px;
-
     height: 10px;
 
     border-radius: 50%;
@@ -330,9 +361,9 @@
 
 .sunex-footer-column {
     width: 100%;
-
     min-width: 0;
 }
+
 
 .sunex-footer-column h3 {
     margin: 0;
@@ -340,9 +371,7 @@
     color: #ffffff;
 
     font-size: 20px;
-
     line-height: 1.3;
-
     font-weight: 600;
 }
 
@@ -362,11 +391,13 @@
     padding: 0;
 }
 
+
 .sunex-footer-column li {
     width: 100%;
 
     margin-bottom: 16px;
 }
+
 
 .sunex-footer-column li:last-child {
     margin-bottom: 0;
@@ -379,7 +410,6 @@
 
 .sunex-footer-column li a {
     width: 100%;
-
     min-width: 0;
 
     display: flex;
@@ -393,9 +423,7 @@
     text-decoration: none;
 
     font-size: 16px;
-
     line-height: 1.35;
-
     font-weight: 500;
 
     transition:
@@ -404,7 +432,9 @@
 }
 
 
-/* Bullet */
+/* =========================================================
+   BULLET
+========================================================= */
 
 .footer-bullet {
     flex-shrink: 0;
@@ -412,12 +442,13 @@
     color: #49b33f;
 
     font-size: 18px;
-
     line-height: 1.1;
 }
 
 
-/* Text */
+/* =========================================================
+   LINK TEXT
+========================================================= */
 
 .sunex-footer-column li a>span:last-child {
     min-width: 0;
@@ -442,9 +473,9 @@
     min-width: 0;
 }
 
+
 .sunex-newsletter-text {
     width: 100%;
-
     max-width: 320px;
 
     margin:
@@ -453,9 +484,7 @@
     color: #ffffff;
 
     font-size: 16px;
-
     line-height: 1.55;
-
     font-weight: 500;
 }
 
@@ -468,17 +497,16 @@
     position: relative;
 
     width: 100%;
-
     max-width: 300px;
 
     margin-top: 20px;
 }
 
+
 .sunex-newsletter-form input {
     display: block;
 
     width: 100%;
-
     height: 45px;
 
     padding:
@@ -498,15 +526,15 @@
     font-family: inherit;
 
     font-size: 16px;
-
     font-weight: 500;
 }
 
+
 .sunex-newsletter-form input::placeholder {
     color: #909ba2;
-
     opacity: 1;
 }
+
 
 .sunex-newsletter-form input:focus {
     border-bottom-color: #49b33f;
@@ -521,17 +549,14 @@
     position: absolute;
 
     top: 2px;
-
     right: 0;
 
     width: 35px;
-
     height: 35px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     padding: 0;
@@ -552,6 +577,7 @@
         box-shadow 0.3s ease;
 }
 
+
 .sunex-newsletter-button:hover {
     transform:
         translate(4px, -4px) rotate(8deg);
@@ -569,7 +595,6 @@
 
 .sunex-contact-row {
     width: 100%;
-
     min-height: 128px;
 
     display: grid;
@@ -595,7 +620,6 @@
 
 .sunex-contact-item {
     min-width: 0;
-
     min-height: 74px;
 
     display: flex;
@@ -608,9 +632,11 @@
         0 32px;
 }
 
+
 .sunex-contact-item:first-child {
     padding-left: 10px;
 }
+
 
 .sunex-contact-item+.sunex-contact-item {
     border-left:
@@ -624,7 +650,6 @@
 
 .sunex-contact-icon {
     width: 50px;
-
     height: 50px;
 
     flex-shrink: 0;
@@ -632,7 +657,6 @@
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     border-radius: 50%;
@@ -644,7 +668,10 @@
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
+
+    overflow: hidden;
 }
+
 
 .sunex-contact-item:hover .sunex-contact-icon {
     transform:
@@ -652,6 +679,35 @@
 
     box-shadow:
         0 8px 18px rgba(73, 179, 63, 0.22);
+}
+
+
+/* =========================================================
+   CUSTOM CONTACT ICON IMAGE
+========================================================= */
+
+/*
+   Admin se Phone / Email / Location ke liye
+   custom image dene par image fixed size ke
+   andar rahegi aur icon ka circle same rahega.
+*/
+
+.sunex-contact-icon-image {
+    display: block;
+
+    width: 25px;
+    height: 25px;
+
+    max-width: 25px;
+    max-height: 25px;
+
+    min-width: 0;
+    min-height: 0;
+
+    object-fit: contain;
+    object-position: center;
+
+    flex-shrink: 0;
 }
 
 
@@ -669,15 +725,15 @@
     gap: 7px;
 }
 
+
 .sunex-contact-content span {
     color: #ffffff;
 
     font-size: 15px;
-
     line-height: 1.2;
-
     font-weight: 500;
 }
+
 
 .sunex-contact-content strong {
     display: block;
@@ -687,9 +743,7 @@
     color: #ffffff;
 
     font-size: 18px;
-
     line-height: 1.25;
-
     font-weight: 700;
 
     overflow-wrap: anywhere;
@@ -702,15 +756,14 @@
 
 .sunex-footer-bottom {
     width: 100%;
-
     min-height: 145px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 }
+
 
 .sunex-footer-bottom p {
     margin: 0;
@@ -718,9 +771,7 @@
     color: #ffffff;
 
     font-size: 16px;
-
     line-height: 1.4;
-
     font-weight: 500;
 
     text-align: center;
@@ -743,6 +794,21 @@
             300px minmax(0, 1fr);
 
         gap: 30px;
+    }
+
+    /* LOGO */
+
+    .sunex-footer-logo {
+        width: 155px;
+        height: 62px;
+
+        max-width: 155px;
+        max-height: 62px;
+    }
+
+    .sunex-footer-logo img {
+        max-width: 155px;
+        max-height: 62px;
     }
 
     .sunex-footer-links-panel {
@@ -779,7 +845,6 @@
     .sunex-contact-content strong {
         font-size: 16px;
     }
-
 }
 
 
@@ -803,13 +868,27 @@
         max-width: 500px;
     }
 
+    /* LOGO */
+
+    .sunex-footer-logo {
+        width: 155px;
+        height: 62px;
+
+        max-width: 155px;
+        max-height: 62px;
+    }
+
+    .sunex-footer-logo img {
+        max-width: 155px;
+        max-height: 62px;
+    }
+
     .sunex-footer-links-panel {
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
 
         width: 100%;
     }
-
 }
 
 
@@ -825,14 +904,33 @@
     }
 
 
-    /* LOGO */
+    /* =====================================================
+       MOBILE LOGO
+    ===================================================== */
 
     .sunex-footer-logo {
         width: 150px;
+        height: 58px;
+
+        max-width: 150px;
+        max-height: 58px;
+    }
+
+    .sunex-footer-logo img {
+        width: 100%;
+        height: 100%;
+
+        max-width: 150px;
+        max-height: 58px;
+
+        object-fit: contain;
+        object-position: left center;
     }
 
 
-    /* BRAND */
+    /* =====================================================
+       BRAND
+    ===================================================== */
 
     .sunex-brand-description {
         max-width: 100%;
@@ -845,7 +943,9 @@
     }
 
 
-    /* PANEL */
+    /* =====================================================
+       PANEL
+    ===================================================== */
 
     .sunex-footer-links-panel {
         grid-template-columns: 1fr;
@@ -884,7 +984,9 @@
     }
 
 
-    /* NEWSLETTER */
+    /* =====================================================
+       NEWSLETTER
+    ===================================================== */
 
     .sunex-newsletter-text {
         max-width: 100%;
@@ -897,7 +999,9 @@
     }
 
 
-    /* CONTACT */
+    /* =====================================================
+       CONTACT
+    ===================================================== */
 
     .sunex-contact-row {
         grid-template-columns: 1fr;
@@ -927,8 +1031,15 @@
 
     .sunex-contact-icon {
         width: 46px;
-
         height: 46px;
+    }
+
+    .sunex-contact-icon-image {
+        width: 24px;
+        height: 24px;
+
+        max-width: 24px;
+        max-height: 24px;
     }
 
     .sunex-contact-content span {
@@ -940,7 +1051,9 @@
     }
 
 
-    /* COPYRIGHT */
+    /* =====================================================
+       COPYRIGHT
+    ===================================================== */
 
     .sunex-footer-bottom {
         min-height: 105px;
@@ -950,6 +1063,18 @@
         font-size: 14px;
     }
 
+
+    /* =====================================================
+       CUSTOM SOCIAL ICON
+    ===================================================== */
+
+    .sunex-social-icon-image {
+        width: 21px;
+        height: 21px;
+
+        max-width: 21px;
+        max-height: 21px;
+    }
 }
 
 
@@ -961,15 +1086,36 @@
 
     .sunex-footer-container {
         padding-left: 14px;
-
         padding-right: 14px;
     }
 
     .sunex-footer-links-panel {
         padding-left: 19px;
-
         padding-right: 19px;
     }
+
+
+    /* =====================================================
+       SMALL MOBILE LOGO
+    ===================================================== */
+
+    .sunex-footer-logo {
+        width: 140px;
+        height: 54px;
+
+        max-width: 140px;
+        max-height: 54px;
+    }
+
+    .sunex-footer-logo img {
+        max-width: 140px;
+        max-height: 54px;
+    }
+
+
+    /* =====================================================
+       SOCIAL
+    ===================================================== */
 
     .sunex-social-icons {
         gap: 11px;
@@ -977,12 +1123,36 @@
 
     .sunex-social-icon {
         width: 35px;
-
         height: 35px;
+    }
+
+    .sunex-social-icon-image {
+        width: 20px;
+        height: 20px;
+
+        max-width: 20px;
+        max-height: 20px;
+    }
+
+
+    /* =====================================================
+       CONTACT ICON
+    ===================================================== */
+
+    .sunex-contact-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .sunex-contact-icon-image {
+        width: 23px;
+        height: 23px;
+
+        max-width: 23px;
+        max-height: 23px;
     }
 
     .sunex-contact-content strong {
         font-size: 14px;
     }
-
 }

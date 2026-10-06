@@ -10,10 +10,11 @@
 
 .contact-navbar-container {
     width: 100%;
-    max-width: auto;
-    min-height: 60px;
+    max-width: 100%;
+    min-height: 50px;
+    height: 50px;
     margin: 0 auto;
-    padding: 15px 40px;
+    padding: 10px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,20 +29,25 @@
     display: flex;
     align-items: center;
     gap: 32px;
+    height: 100%;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 9px;
+
+    height: 100%;
 
     color: #fff;
     text-decoration: none;
 
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
 
     white-space: nowrap;
+    line-height: 1;
 
     transition: color 0.3s ease;
 }
@@ -54,7 +60,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
 }
 
@@ -66,18 +71,22 @@
 .social-section {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 18px;
+    height: 100%;
 }
 
 .follow-text {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     white-space: nowrap;
+    line-height: 1;
 }
 
 .social-links {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 14px;
 }
 
@@ -93,6 +102,7 @@
     text-decoration: none;
 
     font-size: 19px;
+    line-height: 1;
 
     transition:
         color 0.3s ease,
@@ -102,6 +112,7 @@
 .social-link:hover {
     color: #000;
 }
+
 
 /* =========================================
    CUSTOM SOCIAL ICON IMAGE
@@ -132,7 +143,7 @@
 
 .social-divider {
     width: 1px;
-    height: 22px;
+    height: 20px;
     background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -144,12 +155,14 @@
 @media (min-width: 1200px) {
 
     .contact-navbar-container {
-        padding: 16px 40px;
+        height: 50px;
+        min-height: 50px;
+        padding: 8px 40px;
     }
 
     .contact-item,
     .follow-text {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .social-icon-image {
@@ -166,7 +179,9 @@
 @media (min-width: 1025px) and (max-width: 1199px) {
 
     .contact-navbar-container {
-        padding: 14px 25px;
+        height: 48px;
+        min-height: 48px;
+        padding: 7px 25px;
     }
 
     .contact-info {
@@ -175,7 +190,7 @@
 
     .contact-item,
     .follow-text {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .social-section {
@@ -206,8 +221,9 @@
 @media (min-width: 768px) and (max-width: 1024px) {
 
     .contact-navbar-container {
-        min-height: 55px;
-        padding: 12px 20px;
+        height: 44px;
+        min-height: 44px;
+        padding: 6px 20px;
     }
 
     .contact-info {
@@ -216,11 +232,11 @@
 
     .contact-item {
         gap: 6px;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .follow-text {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .social-section {
@@ -238,8 +254,8 @@
     }
 
     .social-icon-image {
-        width: 17px;
-        height: 17px;
+        width: 16px;
+        height: 16px;
     }
 }
 
@@ -260,36 +276,48 @@
     .contact-navbar-container {
         width: 100%;
         max-width: 100%;
-        min-height: 0;
-        height: 40px;
+        min-height: 36px;
+        height: 36px;
         padding: 0 10px;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         box-sizing: border-box;
     }
 
     .contact-info {
         width: 100%;
         height: 100%;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         gap: 10px;
     }
 
     .contact-item {
         display: flex;
         align-items: center;
+        justify-content: center;
+
+        height: 100%;
+
         gap: 5px;
+
         color: #fff;
         font-size: 13px;
         font-weight: 600;
         line-height: 1;
+
         white-space: nowrap;
         text-decoration: none;
+
         flex-shrink: 0;
     }
+
 
     /* =====================================
        CONTACT ICON
@@ -298,9 +326,11 @@
     .contact-icon {
         width: 17px;
         height: 17px;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         flex-shrink: 0;
     }
 
@@ -308,6 +338,7 @@
         width: 16px;
         height: 16px;
     }
+
 
     /* =====================================
        CUSTOM SOCIAL ICON
@@ -319,6 +350,7 @@
         object-fit: contain;
     }
 
+
     /* =====================================
        HIDE LABELS ONLY
     ===================================== */
@@ -327,6 +359,7 @@
         display: none;
     }
 
+
     /* =====================================
        KEEP ACTUAL PHONE + EMAIL
     ===================================== */
@@ -334,6 +367,7 @@
     .contact-value {
         display: inline;
     }
+
 
     /* =====================================
        HIDE SOCIAL
@@ -352,7 +386,8 @@
 @media (max-width: 600px) {
 
     .contact-navbar-container {
-        height: 40px;
+        height: 36px;
+        min-height: 36px;
         padding: 0 12px;
     }
 
@@ -361,23 +396,23 @@
     }
 
     .contact-item {
-        font-size: 14px;
+        font-size: 13px;
         gap: 5px;
     }
 
     .contact-icon {
-        width: 18px;
-        height: 18px;
+        width: 17px;
+        height: 17px;
     }
 
     .contact-icon svg {
-        width: 17px;
-        height: 17px;
+        width: 16px;
+        height: 16px;
     }
 
     .social-icon-image {
-        width: 17px;
-        height: 17px;
+        width: 16px;
+        height: 16px;
     }
 }
 
@@ -389,7 +424,8 @@
 @media (max-width: 480px) {
 
     .contact-navbar-container {
-        height: 40px;
+        height: 36px;
+        min-height: 36px;
         padding: 0 10px;
     }
 
@@ -398,23 +434,23 @@
     }
 
     .contact-item {
-        font-size: 20px;
+        font-size: 12px;
         gap: 4px;
     }
 
     .contact-icon {
-        width: 17px;
-        height: 17px;
+        width: 16px;
+        height: 16px;
     }
 
     .contact-icon svg {
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
     }
 
     .social-icon-image {
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
     }
 }
 
@@ -426,49 +462,13 @@
 @media (max-width: 400px) {
 
     .contact-navbar-container {
-        height: 40px;
+        height: 35px;
+        min-height: 35px;
         padding: 0 8px;
     }
 
     .contact-info {
         gap: 5px;
-    }
-
-    .contact-item {
-        font-size: 12px;
-        gap: 3px;
-    }
-
-    .contact-icon {
-        width: 16px;
-        height: 16px;
-    }
-
-    .contact-icon svg {
-        width: 15px;
-        height: 15px;
-    }
-
-    .social-icon-image {
-        width: 15px;
-        height: 15px;
-    }
-}
-
-
-/* =========================================
-   MOBILE 360px
-========================================= */
-
-@media (max-width: 360px) {
-
-    .contact-navbar-container {
-        height: 39px;
-        padding: 0 6px;
-    }
-
-    .contact-info {
-        gap: 3px;
     }
 
     .contact-item {
@@ -489,5 +489,43 @@
     .social-icon-image {
         width: 14px;
         height: 14px;
+    }
+}
+
+
+/* =========================================
+   MOBILE 360px
+========================================= */
+
+@media (max-width: 360px) {
+
+    .contact-navbar-container {
+        height: 34px;
+        min-height: 34px;
+        padding: 0 6px;
+    }
+
+    .contact-info {
+        gap: 3px;
+    }
+
+    .contact-item {
+        font-size: 10px;
+        gap: 3px;
+    }
+
+    .contact-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .contact-icon svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .social-icon-image {
+        width: 13px;
+        height: 13px;
     }
 }

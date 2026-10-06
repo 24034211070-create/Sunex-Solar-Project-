@@ -63,6 +63,11 @@ import LatestBlog from "./Pages/LatestBlog";
 import Topbar from "../Admin/Navbar/Topbar";
 import Contactnav from "../Admin/Navbar/Contactnav";
 import Navbar from "../Admin/Navbar/Navbar";
+
+// ================= FOOTER =================
+
+import Footer from "../Admin/Footer/Footer";
+
 // ================= BLOG PAGES =================
 
 import Blog from "./Blog/Blog";
@@ -125,6 +130,10 @@ const AdminLayout = () => {
 
     const [navbarOpen, setNavbarOpen] = useState(
         location.pathname.startsWith("/admin/pages/navbar")
+    );
+
+    const [footerOpen, setFooterOpen] = useState(
+        location.pathname.startsWith("/admin/pages/footer")
     );
 
     // ================= LOGOUT =================
@@ -811,8 +820,6 @@ const AdminLayout = () => {
 
                                                         <div className="ml-5 border-l border-slate-200 pl-2">
 
-                                                            {/* TOPBAR */}
-
                                                             <NavLink
                                                                 to="/admin/pages/navbar/topbar"
                                                                 className={({ isActive }) =>
@@ -825,8 +832,6 @@ const AdminLayout = () => {
                                                                 Topbar
                                                             </NavLink>
 
-
-                                                            {/* CONTACT BAR */}
 
                                                             <NavLink
                                                                 to="/admin/pages/navbar/contact-bar"
@@ -841,8 +846,6 @@ const AdminLayout = () => {
                                                             </NavLink>
 
 
-                                                            {/* NAVBAR */}
-
                                                             <NavLink
                                                                 to="/admin/pages/navbar/navbar"
                                                                 className={({ isActive }) =>
@@ -853,6 +856,60 @@ const AdminLayout = () => {
                                                                 }
                                                             >
                                                                 Navbar
+                                                            </NavLink>
+
+                                                        </div>
+
+                                                    )}
+
+                                                </div>
+
+
+                                                {/* =================================================
+                                                    FOOTER
+                                                ================================================== */}
+
+                                                <div className="mt-2">
+
+                                                    <button
+                                                        type="button"
+                                                        onClick={() =>
+                                                            setFooterOpen(
+                                                                !footerOpen
+                                                            )
+                                                        }
+                                                        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-slate-700 transition hover:bg-green-50"
+                                                    >
+
+                                                        {footerOpen ? (
+                                                            <ChevronDown size={15} />
+                                                        ) : (
+                                                            <ChevronRight size={15} />
+                                                        )}
+
+                                                        <FileText size={15} />
+
+                                                        <span>
+                                                            Footer
+                                                        </span>
+
+                                                    </button>
+
+
+                                                    {footerOpen && (
+
+                                                        <div className="ml-5 border-l border-slate-200 pl-2">
+
+                                                            <NavLink
+                                                                to="/admin/pages/footer"
+                                                                className={({ isActive }) =>
+                                                                    `mb - 1 block rounded - md px - 3 py - 2 text - sm ${isActive
+                                                                        ? "bg-green-500 text-white"
+                                                                        : "text-slate-600 hover:bg-green-50"
+                                                                    } `
+                                                                }
+                                                            >
+                                                                Footer
                                                             </NavLink>
 
                                                         </div>
@@ -1138,16 +1195,41 @@ const AdminLayout = () => {
                                 NAVBAR
                             ================================================== */}
 
-                            <Route path="/pages/navbar/topbar" element={<Topbar />} />
+                            <Route
+                                path="/pages/navbar/topbar"
+                                element={<Topbar />}
+                            />
 
-                            <Route path="/pages/navbar/contact-bar" element={<Contactnav />} />
+                            <Route
+                                path="/pages/navbar/contact-bar"
+                                element={<Contactnav />}
+                            />
 
-                            <Route path="/pages/navbar/navbar" element={<Navbar />} />
+                            <Route
+                                path="/pages/navbar/navbar"
+                                element={<Navbar />}
+                            />
+
+
+                            {/* =================================================
+                                FOOTER
+                            ================================================== */}
+
+                            <Route
+                                path="/pages/footer"
+                                element={<Footer />}
+                            />
+
+
                             {/* =================================================
                                 BLOG
                             ================================================== */}
 
-                            <Route path="/pages/blog" element={<Blog />} />
+                            <Route
+                                path="/pages/blog"
+                                element={<Blog />}
+                            />
+
 
                             {/* =================================================
                                 BLOG DETAILS

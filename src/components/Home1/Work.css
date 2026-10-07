@@ -118,7 +118,7 @@
 }
 
 .contact-btn:hover span {
-    background: #84c441;
+    background: transparent;
     color: #fff;
     transform: rotate(45deg);
 }

@@ -402,6 +402,7 @@ const Services = () => {
 
                     <div className="services-trust">
 
+                        <div className="trust-header">
                         <div className="trust-avatar">
 
                             <img
@@ -413,6 +414,7 @@ const Services = () => {
 
                         <div className="trust-icon">
                             ↗
+                        </div>
                         </div>
 
                         <p>

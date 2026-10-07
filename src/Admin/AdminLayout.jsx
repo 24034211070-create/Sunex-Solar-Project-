@@ -1156,7 +1156,7 @@ const AdminLayout = () => {
                             />
 
                             <Route
-                                path="/pages/home/solar-feature"
+                                path="/pages/home/feature"
                                 element={<Feature />}
                             />
 

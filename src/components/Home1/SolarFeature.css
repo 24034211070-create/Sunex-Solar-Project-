@@ -118,11 +118,11 @@
     line-height: 1.65;
 }
 
-
 /* =========================================================
    CONTACT BUTTON
    EXACT SCREENSHOT STYLE
 ========================================================= */
+
 .contact-btn {
     display: inline-flex;
     align-items: center;
@@ -140,8 +140,11 @@
     background: #48ad3d;
     color: #ffffff;
 
-    border: none;
-    border-radius: 5px;
+    border: 0 !important;
+    border-radius: 5px !important;
+
+    outline: none !important;
+    box-shadow: none !important;
 
     gap: 12px;
 
@@ -156,14 +159,19 @@
     cursor: pointer;
     text-decoration: none;
 
-    transform: none;
-    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
 
+    -webkit-tap-highlight-color: transparent;
+
+    transform: none;
     transition:
         opacity 0.7s ease 0.48s,
-        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s;
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s,
+        background-color 0.2s ease;
 }
 
+/* Text */
 .contact-btn span {
     display: inline-block;
 
@@ -183,6 +191,7 @@
     animation: none !important;
 }
 
+/* Arrow */
 .contact-btn svg {
     display: block;
 
@@ -195,43 +204,50 @@
     flex-shrink: 0;
 
     color: #ffffff;
-}
 
-.contact-btn:hover {
-    background: #48ad3d;
-    color: #ffffff;
-
-    border: none;
-    border-radius: 5px;
-
-    box-shadow: none;
-
-    transform: none;
-}
-
-.contact-btn:hover span {
-    color: #ffffff;
     transform: none !important;
+    rotate: 0deg !important;
+    animation: none !important;
 }
 
-.contact-btn:hover svg {
-    color: #ffffff;
-    transform: none !important;
-}
+/* =========================================================
+   ALL BUTTON STATES
+   IMPORTANT: SAME BORDER RADIUS IN EVERY STATE
+========================================================= */
 
+.contact-btn:hover,
 .contact-btn:focus,
 .contact-btn:focus-visible,
-.contact-btn:active {
-    background: #48ad3d;
-    color: #ffffff;
+.contact-btn:active,
+.contact-btn:visited {
+    background: #48ad3d !important;
+    color: #ffffff !important;
 
-    border: none;
-    border-radius: 5px;
+    border: 0 !important;
+    border-radius: 5px !important;
 
-    outline: none;
-    box-shadow: none;
+    outline: none !important;
+    box-shadow: none !important;
 
     transform: none;
+}
+
+/* Text states */
+.contact-btn:hover span,
+.contact-btn:focus span,
+.contact-btn:focus-visible span,
+.contact-btn:active span {
+    color: #ffffff !important;
+    transform: none !important;
+}
+
+/* Arrow states */
+.contact-btn:hover svg,
+.contact-btn:focus svg,
+.contact-btn:focus-visible svg,
+.contact-btn:active svg {
+    color: #ffffff !important;
+    transform: none !important;
 }
 
 /* =========================================================

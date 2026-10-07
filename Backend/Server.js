@@ -240,7 +240,7 @@ app.post("/api/login", async (req, res) => {
       },
       process.env.JWT_SECRET,
       {
-        expiresIn: "200h",
+        expiresIn: "400h",
       },
     );
 

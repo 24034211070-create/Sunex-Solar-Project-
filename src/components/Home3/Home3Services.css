@@ -4,6 +4,7 @@
 
 .home3-services {
     width: 100%;
+
     position: relative;
     overflow: hidden;
 
@@ -11,7 +12,6 @@
 
     padding: 110px 30px 105px;
 
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -22,11 +22,11 @@
 .home3-services-bg {
     position: absolute;
 
-    left: 0;
+    left: 0 ;
     right: 0;
     bottom: 0;
 
-    height: 45%;
+    height: 5%;
 
     pointer-events: none;
 
@@ -71,9 +71,9 @@
 ========================================================= */
 
 .home3-services-container {
-    width: min(1160px, 100%);
+    width: 100%;
 
-    margin: 0 auto;
+    /* margin: 0 auto; */
 
     position: relative;
 
@@ -217,7 +217,8 @@
 ========================================================= */
 
 .home3-service-card {
-
+    width: 100%;
+    
     position: relative;
 
     background: #ffffff;
@@ -254,7 +255,7 @@
 
 .home3-service-image {
 
-    width: calc(100% - 18px);
+    /* width: 100%; */
 
     height: 226px;
 

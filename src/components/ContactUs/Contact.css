@@ -595,66 +595,6 @@
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.16);
 }
 
-
-/* =========================================================
-   FLOATING BUY NOW
-========================================================= */
-
-.contact-buy-btn {
-    position: fixed;
-
-    right: 20px;
-    bottom: 20px;
-
-    z-index: 100;
-
-    height: 48px;
-    min-width: 157px;
-
-    padding: 0 22px;
-
-    border: none;
-    outline: none;
-
-    border-radius: 30px;
-
-    background: #d0ef4f;
-
-    color: #101010;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 9px;
-
-    font-family: inherit;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 7px 25px rgba(0, 0, 0, 0.12);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
-
-.contact-buy-btn:hover {
-    transform: translateY(-3px);
-
-    background: #c8e949;
-
-    box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.18);
-}
-
-
 /* =========================================================
    SCROLL ANIMATIONS
 ========================================================= */

@@ -693,23 +693,6 @@ const ContactUs = () => {
 
             </section>
 
-            {/* =====================================================
-                FLOATING BUY NOW
-            ===================================================== */}
-
-            <button className="contact-buy-btn">
-
-                <ShoppingCart
-                    size={19}
-                    strokeWidth={2.5}
-                />
-
-                <span>
-                    Buy Now
-                </span>
-
-            </button>
-
         </div>
     );
 };

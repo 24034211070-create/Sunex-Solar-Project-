@@ -144,7 +144,7 @@
     color: #ffffff;
     font-size: 32px;
     line-height: 1;
-    transform: rotate(-20deg);
+    /* transform: rotate(-20deg); */
 }
 
 /* =========================================
@@ -314,7 +314,8 @@
 ========================================= */
 
 .buy-button {
-    position: absolute;
+    margin-top: 20px;
+    /* left: 100px; */
     right: -18px;
     bottom: -2px;
     border: none;

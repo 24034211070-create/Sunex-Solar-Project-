@@ -282,7 +282,7 @@
 }
 
 .service-main {
-    display: flex;
+    /* display: flex; */
     align-items: flex-start;
     gap: 15px;
     min-width: 0;

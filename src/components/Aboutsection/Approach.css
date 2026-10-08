@@ -8,7 +8,6 @@
     min-height: 780px;
     background: #f3f7f9;
     overflow: hidden;
-    padding: 130px 0 0;
 }
 
 .home3-about-inner {
@@ -25,7 +24,7 @@
 }
 
 .about-left {
-    width: 60%;
+    width: 70%;
     position: relative;
     z-index: 5;
 }
@@ -59,7 +58,6 @@
 ========================================= */
 
 .about-main-title {
-    margin: 0;
     color: #002335;
     font-size: 46px;
     line-height: 1.12;
@@ -84,8 +82,8 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 500px;
-    height: 500px;
+    width: 40%;
+    height: 530px;
     border-radius: 15px;
     overflow: hidden;
     z-index: 2;

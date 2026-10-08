@@ -139,11 +139,9 @@
 
     gap: 12px;
 
-    padding: 13px 17px;
+    margin: 0;
 
-    background: #45ad3b;
-
-    color: #ffffff;
+    color: black;
 
     border-radius: 5px;
 
@@ -161,8 +159,7 @@
 
 
 .learn-more-btn:hover {
-    background: #38972f;
-
+    color: #45ad3b;
     transform: translateY(-3px);
 
     box-shadow:
@@ -174,7 +171,7 @@
     display: flex;
 
     align-items: center;
-
+    
     justify-content: center;
 
     transition: transform 0.3s ease;
@@ -183,6 +180,7 @@
 
 .learn-more-btn:hover .learn-arrow {
     transform: translate(3px, -3px);
+    transform: rotate(45deg) scale(1.08);
 }
 
 
@@ -229,11 +227,9 @@
 
     min-width: 0;
 
-    height: 250px;
+    height: 0px;
 
     box-sizing: border-box;
-
-    padding: 25px 30px 24px;
 
     background: #f4f8f9;
 
@@ -357,7 +353,7 @@
 .service-card:hover .service-icon {
     transform: scale(1.08) rotate(8deg);
 
-    background: #38972f;
+    /* background: #38972f; */
 }
 
 
@@ -372,7 +368,7 @@
 
     padding: 0;
 
-    color: #062536;
+    color: black;
 
     font-size: 19px;
 
